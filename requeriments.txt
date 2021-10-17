@@ -1,0 +1,10 @@
+torch
+numpy
+
+
+omegaconf
+pysoundfile
+
+
+flask
+flask_restfull

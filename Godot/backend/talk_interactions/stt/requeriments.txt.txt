@@ -1,0 +1,4 @@
+torch
+omegaconf
+github.com/Silero-models
+PySoundFile --Windows

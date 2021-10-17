@@ -1,0 +1,45 @@
+from godot import exposed, export
+from godot import *
+import torch
+import os
+
+
+
+@exposed
+class Text_to_speech(Node):
+
+	
+	def _ready(self):
+		print("im here")
+		self.device = torch.device('cpu')
+		torch.set_num_threads(8)
+		self.local_file = 'backend/talk_interactions/tts/model.pt'
+		self.example_batch = ['Calor seguro, inmediato y eficiente, ',
+				  'El sistema infrarrojo utiliza cuarzos con resistencia en su interior, ',
+				  'brindando mayor efectividad']
+
+		if not os.path.isfile(self.local_file):
+			torch.hub.download_url_to_file('https://models.silero.ai/models/tts/es/v2_tux.pt',
+										   self.local_file)
+
+
+		self.model = torch.package.PackageImporter(self.local_file).load_pickle("tts_models", "model")
+		self.model.to(self.device)
+		print("im there")
+		
+
+	def create_speech(self, input_text, sample_rate=16000):
+
+		audio_paths = self.model.save_wav(texts=input_text, sample_rate=sample_rate)
+		print(audio_paths)
+
+	def _on_Button_pressed(self):
+		self.create_speech(self.example_batch)
+
+
+
+
+
+
+
+

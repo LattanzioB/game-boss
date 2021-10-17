@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/test-16000-4t.wav-ec1b3388ae0fa9ba5106f8f63a1e795e.sample"
+
+[deps]
+
+source_file="res://backend/talk_interactions/stt/test-16000-4t.wav"
+dest_files=[ "res://.import/test-16000-4t.wav-ec1b3388ae0fa9ba5106f8f63a1e795e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
