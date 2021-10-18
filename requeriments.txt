@@ -8,3 +8,5 @@ pysoundfile
 
 flask
 flask_restfull
+
+googletrans==3.1.0a0

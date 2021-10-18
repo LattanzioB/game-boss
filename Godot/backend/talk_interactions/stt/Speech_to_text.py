@@ -20,7 +20,6 @@ class Speech_to_text(Control):
 									   language='es', # also available 'de', 'es'
 									   device=self.device)
 		
-		print(self.wav_to_text())
 		
 	def wav_to_text(self, f='backend/talk_interactions/stt/record.wav'):
 		batch = read_batch([f])

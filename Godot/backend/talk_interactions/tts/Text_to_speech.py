@@ -29,17 +29,9 @@ class Text_to_speech(Node):
 		
 
 	def create_speech(self, input_text, sample_rate=16000):
-
+		print(input_text)
 		audio_paths = self.model.save_wav(texts=input_text, sample_rate=sample_rate)
 		print(audio_paths)
 
 	def _on_Button_pressed(self):
 		self.create_speech(self.example_batch)
-
-
-
-
-
-
-
-
