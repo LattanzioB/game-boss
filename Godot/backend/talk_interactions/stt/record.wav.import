@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/record.wav-dac73ac6e9866e91bfbe9a27f35d170d.sample"
+
+[deps]
+
+source_file="res://backend/talk_interactions/stt/record.wav"
+dest_files=[ "res://.import/record.wav-dac73ac6e9866e91bfbe9a27f35d170d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

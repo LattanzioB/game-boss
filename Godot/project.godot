@@ -13,6 +13,10 @@ config_version=4
 config/name="Game-Boss"
 config/icon="res://icon.png"
 
+[audio]
+
+enable_audio_input=true
+
 [gdnative]
 
 singletons=[ "res://pythonscript.gdnlib" ]

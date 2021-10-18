@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://frontend/recorder/Record.gd" type="Script" id=1]
+
+[sub_resource type="AudioStreamMicrophone" id=1]
+
+[node name="Record" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RecordButton" type="Button" parent="."]
+margin_left = 270.0
+margin_top = 98.0
+margin_right = 411.0
+margin_bottom = 138.0
+text = "record"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 271.122
+margin_top = 338.207
+margin_right = 412.122
+margin_bottom = 378.207
+text = "play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamRecord" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 1 )
+autoplay = true
+bus = "Record"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
+[node name="SaveButton" type="Button" parent="."]
+margin_left = 547.284
+margin_top = 206.9
+margin_right = 690.284
+margin_bottom = 263.9
+text = "save"
+
+[connection signal="pressed" from="RecordButton" to="." method="_on_RecordButton_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_SaveButton_pressed"]

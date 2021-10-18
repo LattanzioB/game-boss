@@ -22,7 +22,7 @@ class Speech_to_text(Control):
 		
 		print(self.wav_to_text())
 		
-	def wav_to_text(self, f='backend/talk_interactions/stt/test-16000-4t.wav'):
+	def wav_to_text(self, f='backend/talk_interactions/stt/record.wav'):
 		batch = read_batch([f])
 		input = prepare_model_input(batch, device=self.device)
 		output = self.model(input)
