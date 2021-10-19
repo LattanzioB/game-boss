@@ -7,7 +7,7 @@ signal file_saved
 func _ready():
 	var index = AudioServer.get_bus_index("Record")
 	effect = AudioServer.get_bus_effect(index, 0)
-	AudioServer.capture_set_device(AudioServer.capture_get_device_list()[3])
+#	AudioServer.capture_set_device(AudioServer.capture_get_device_list()[3])
 	
 	
 func _on_RecordButton_pressed():
