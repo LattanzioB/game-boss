@@ -11,6 +11,7 @@ __meta__ = {
 }
 
 [node name="RecordButton" type="Button" parent="."]
+visible = false
 margin_left = 270.0
 margin_top = 98.0
 margin_right = 411.0
@@ -21,6 +22,7 @@ __meta__ = {
 }
 
 [node name="PlayButton" type="Button" parent="."]
+visible = false
 margin_left = 271.122
 margin_top = 338.207
 margin_right = 412.122
@@ -39,6 +41,7 @@ bus = "Record"
 autoplay = true
 
 [node name="SaveButton" type="Button" parent="."]
+visible = false
 margin_left = 547.284
 margin_top = 206.9
 margin_right = 690.284

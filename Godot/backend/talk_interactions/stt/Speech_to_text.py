@@ -20,15 +20,14 @@ class Speech_to_text(Control):
 									   language='es', # also available 'de', 'es'
 									   device=self.device)
 		
-		
 	def wav_to_text(self, f='backend/talk_interactions/stt/record.wav'):
 		batch = read_batch([f])
 		input = prepare_model_input(batch, device=self.device)
 		output = self.model(input)
 		return self.decoder(output[0].cpu())
 
-
-
+#### UTILS.PY no pudimos importarlo Error: ModuleNotFoundError: No module named 'utils'
+#### WA: copiar el código acá
 def read_batch(audio_paths: List[str]):
 	return [read_audio(audio_path)
 			for audio_path
