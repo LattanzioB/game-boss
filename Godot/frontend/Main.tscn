@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://frontend/recorder/Record.tscn" type="PackedScene" id=1]
 [ext_resource path="res://backend/talk_interactions/translator/TranslatorHelper.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://frontend/Main.gd" type="Script" id=5]
 [ext_resource path="res://frontend/AudioStreamPlayer.gd" type="Script" id=6]
 [ext_resource path="res://frontend/GUI.gd" type="Script" id=7]
+[ext_resource path="res://frontend/Openai.py" type="Script" id=8]
+[ext_resource path="res://frontend/ChatBox.gd" type="Script" id=9]
 
 [node name="Main" type="Node"]
 script = ExtResource( 5 )
@@ -27,6 +29,10 @@ script = ExtResource( 6 )
 [node name="GUI" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -2.66968
+margin_top = -8.00906
+margin_right = -2.66968
+margin_bottom = -8.00903
 custom_constants/margin_right = 120
 custom_constants/margin_top = 80
 custom_constants/margin_left = 120
@@ -67,11 +73,16 @@ margin_right = 211.0
 margin_bottom = 20.0
 text = "Convert to Text"
 
-[node name="TranslateButton" type="Button" parent="GUI/VBoxContainer/HBoxContainer"]
+[node name="GetResponse" type="Button" parent="GUI/VBoxContainer/HBoxContainer"]
 margin_left = 215.0
-margin_right = 285.0
+margin_right = 316.0
 margin_bottom = 20.0
-text = "Translate"
+text = "Get Response"
+
+[node name="PlayResponseButton" type="Button" parent="GUI/VBoxContainer/HBoxContainer"]
+margin_left = 320.0
+margin_right = 332.0
+margin_bottom = 20.0
 
 [node name="InputDevicesList" type="OptionButton" parent="GUI/VBoxContainer"]
 margin_top = 24.0
@@ -79,21 +90,19 @@ margin_right = 784.0
 margin_bottom = 44.0
 size_flags_vertical = 0
 
-[node name="STTHolder" type="RichTextLabel" parent="GUI/VBoxContainer"]
+[node name="ChatBox" type="VBoxContainer" parent="GUI/VBoxContainer"]
 margin_top = 48.0
 margin_right = 784.0
-margin_bottom = 68.0
-rect_min_size = Vector2( 0, 20 )
+margin_bottom = 48.0
+script = ExtResource( 9 )
 
-[node name="EnglishTextHolder" type="RichTextLabel" parent="GUI/VBoxContainer"]
-margin_top = 72.0
-margin_right = 784.0
-margin_bottom = 92.0
-rect_min_size = Vector2( 0, 20 )
+[node name="Openai" type="Node" parent="."]
+script = ExtResource( 8 )
 
 [connection signal="file_saved" from="Record" to="." method="_on_Record_file_saved"]
 [connection signal="pressed" from="GUI/VBoxContainer/HBoxContainer/ToggleRecordButton" to="GUI" method="_on_ToggleRecordButton_pressed"]
 [connection signal="pressed" from="GUI/VBoxContainer/HBoxContainer/PlayButton" to="Record" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="GUI/VBoxContainer/HBoxContainer/STTButton" to="GUI" method="_on_STTButton_pressed"]
-[connection signal="pressed" from="GUI/VBoxContainer/HBoxContainer/TranslateButton" to="GUI" method="_on_TranslateButton_pressed"]
+[connection signal="pressed" from="GUI/VBoxContainer/HBoxContainer/GetResponse" to="GUI" method="_on_GetResponse_pressed"]
+[connection signal="pressed" from="GUI/VBoxContainer/HBoxContainer/PlayResponseButton" to="GUI" method="_on_PlayResponseButton_pressed"]
 [connection signal="item_selected" from="GUI/VBoxContainer/InputDevicesList" to="Record" method="_on_InputDevicesList_item_selected"]
