@@ -33,7 +33,7 @@ func stop_recording():
 func save_to_wav():
 	var save_path = "res://backend/talk_interactions/stt/record.wav"
 	recording.save_to_wav(save_path)
-	#emit_signal("file_saved")
+	emit_signal("file_saved")
 	print("File saved in: " + save_path)
 
 func _on_InputDevicesList_item_selected(index):

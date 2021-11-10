@@ -1,4 +1,4 @@
-from godot import exposed, export
+from godot import exposed, export, signal
 from godot import *
 import torch
 import os
@@ -21,16 +21,17 @@ class Text_to_speech(Node):
 		if not os.path.isfile(self.local_file):
 			torch.hub.download_url_to_file('https://models.silero.ai/models/tts/es/v2_tux.pt',
 										   self.local_file)
-
+	
 
 		self.model = torch.package.PackageImporter(self.local_file).load_pickle("tts_models", "model")
 		self.model.to(self.device)
 		print("im there")
 		
-
+		
 	def create_speech(self, input_text, sample_rate=16000):
 		string = str(input_text)
 		audio_paths = self.model.save_wav(texts=string, sample_rate=sample_rate)
+
 		return audio_paths[0]
 
 	def _on_Button_pressed(self):

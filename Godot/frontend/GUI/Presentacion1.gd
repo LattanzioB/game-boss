@@ -5,8 +5,10 @@ onready var stt = $Stt
 onready var tts = $Tts
 onready var translator = $TranslatorHelper
 onready var player = $AudioStreamPlayer
+onready var gui = $GUI
 
 func _ready():
+	gui.setUp()
 	pass # Replace with function body.
 
 func _on_Record_file_saved():

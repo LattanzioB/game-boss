@@ -19,11 +19,13 @@ class Speech_to_text(Control):
 									   model='silero_stt',
 									   language='es', # also available 'de', 'es'
 									   device=self.device)
+
 		
 	def wav_to_text(self, f='backend/talk_interactions/stt/record.wav'):
 		batch = read_batch([f])
 		input = prepare_model_input(batch, device=self.device)
 		output = self.model(input)
+		print(self.decoder(output[0].cpu()))
 		return self.decoder(output[0].cpu())
 
 #### UTILS.PY no pudimos importarlo Error: ModuleNotFoundError: No module named 'utils'
