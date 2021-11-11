@@ -7,7 +7,6 @@ onready var translator = $TranslatorHelper
 onready var npc = $NPC
 onready var audio_player = $AudioStreamPlayer
 
-
 var recording = false
 var text_from_mic
 var openai
@@ -15,9 +14,7 @@ var openai
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	audio_player.set_pitch_scale(0.18)
-	var openai = load("res://backend/talk_interactions/openai/Openai.tscn").instance()
-
-
+	openai = load("res://backend/talk_interactions/openai/Openai.py").new()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
