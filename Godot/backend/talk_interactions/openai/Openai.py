@@ -7,7 +7,7 @@ class Openai(Node):
 	def _ready(self):
 		openai.api_key = os.getenv("OPENAI_API_KEY")
 
-	def get_response(self, prompt, engine="davinci", max_tokens=30):
+	def get_response(self, prompt, engine="davinci", max_tokens=40):
 		answer = openai.Completion.create(engine=engine,
 							prompt=str(prompt),
 							max_tokens=max_tokens,
@@ -15,25 +15,20 @@ class Openai(Node):
 							best_of=2,
 							frequency_penalty=0.5,
 							presence_penalty=0.3)
-		return self.fix_answer(answer.choices[0].text)
+		return self.fix_answer(answer.choices[0].text, prompt)
 
-	def fix_answer(self, input_text):
+	def fix_answer(self, input_text, previous_prompt):
+		#Dividimos el input en sublistas segun cuantos saltos de linea haya
 		text = input_text.split('\n\n')
-		
-		if(len(text)==1 & len(text[0])<130):
-			text = text[0]
-			text = text + get_response(text)
+
+		#Si hay un solo salto de linea
+		if(len(text)==1):
+			text = self.shrink_text(text[0])
 		else:
 			if text[0]=='':
-				if len(text[1])<130:
-					text = text[1]
-					text = text + self.get_response(text)
+				text = self.shrink_text(text[1])
 			else:
-				if text[0]=='':
-					if len(text[1])>130:
-						text = self.shrink_text(text[1])
-				else:
-					text = self.shrink_text(text[0])
+				text = self.shrink_text(text[0])
 			
 		#text = text.replace('\t','')
 		return str(text)
