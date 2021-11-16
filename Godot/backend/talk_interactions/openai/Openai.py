@@ -15,9 +15,9 @@ class Openai(Node):
 							best_of=2,
 							frequency_penalty=0.5,
 							presence_penalty=0.3)
-		return self.fix_answer(answer.choices[0].text, prompt)
+		return self.fix_answer(answer.choices[0].text)
 
-	def fix_answer(self, input_text, previous_prompt):
+	def fix_answer(self, input_text):
 		#Dividimos el input en sublistas segun cuantos saltos de linea haya
 		text = input_text.split('\n\n')
 

@@ -38,8 +38,7 @@ func _on_Record_file_saved():
 #Permitir al usuario modificar y validar el texto, y enviarlo con "enter"
 func valid_text():
 	var input_text = translator.translate_to_english(text_from_mic)
-	var sentiment = npc.any_matches(input_text)
-	var final_input ="James: " + input_text + "?\n\nWilhelm" + sentiment + " says:"
+	var final_input ="Robert: " + input_text + "?\n\nJohn" + " says:"
 	npc.add_player_coment(final_input)
 	var dialog_history = npc.get_dialog_history()
 	var response = openai.get_response(dialog_history)

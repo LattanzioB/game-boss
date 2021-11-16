@@ -1,0 +1,65 @@
+1890
+
+John Smith is a railroad worker. John is 45 years old.
+Father of two boys James and Mark. 
+John’s wife is called Mary, Mary is a house wife.
+
+
+John has barely enough money to feed his family every day. 
+John works from 8am to 8pm, as employee in the assembly line, for a train parts factory.
+
+The owner of the factory is called Jacob. Jacob lives in a big mansion outside the village. He owns three other factories and he is extremely rich. 
+
+
+Key words/triggers to find
+
+
+John likes his work 
+John hates Jacob.
+John loves his family.
+
+
+
+
+
+
+
+
+
+
+Introduction
+
+Pantalla inicial. Fondo estrellas
+configuracion de audio. Input/Outputs
+
+Recorda hablar clara y pausadamente.
+
+Highlight buttons and text bubble with usage explanations.
+
+El jugador debera inicial el juego con las palabras “Iniciar Juego”
+
+Intentos de superar la introduccion. Cuantos? Si son muchos, cuanto se desmotiva el jugador?
+
+
+Continua el fondo estrellado, se van los botones y comienza el texto y voz de introduccion.
+
+Has pensado en tener una conversacion con un personaje de un videojuego? Que te gustaria saber de ellos? Crees que pueden responder todas tus dudas?
+
+Imagina que sos un viajante en un mundo donde el motor a vapor es la maxima tecnologia. 
+Llegas a la casa de la familia Smith que te aloja una noche por unas monedas.
+
+
+Escena dentro de la casa.
+
+Highlight buttons and text bubble with usage explanations.
+configuration
+
+John: Bienvenido a nuestro hogar, las comodides no son muchas pero espero que te sientas como en casa. Siendo un forastero quizas tengas algunas preguntas.
+
+“Hacele a john alguna pregunta”
+
+
+“Preguntale sobre su familia”
+
+Highlight buttons and text bubble with usage explanations.
+challenges
