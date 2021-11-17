@@ -1,5 +1,7 @@
 extends Node
 
+signal speech_trigger
+
 onready var recorder = $Record
 onready var stt = $Stt
 onready var tts = $Tts
@@ -38,6 +40,8 @@ func _on_Record_file_saved():
 #Permitir al usuario modificar y validar el texto, y enviarlo con "enter"
 func valid_text():
 	var input_text = translator.translate_to_english(text_from_mic)
+	print(input_text)
+	npc.any_matches(input_text)
 	var final_input ="Robert: " + input_text + "?\n\nJohn" + " says:"
 	npc.add_player_coment(final_input)
 	var dialog_history = npc.get_dialog_history()
@@ -49,5 +53,5 @@ func valid_text():
 	audio_player.play()
 
 
-func _on_NPC_trigger():
-	pass # Replace with function body.
+func _on_NPC_trigger(trigger_text):
+	emit_signal("speech_trigger", trigger_text)

@@ -120,7 +120,6 @@ position = Vector2( 515.124, 299.324 )
 scale = Vector2( 1, 1.03311 )
 z_index = -1
 frames = SubResource( 13 )
-frame = 10
 playing = true
 
 [node name="FirePlacePlayer" type="AudioStreamPlayer" parent="."]
@@ -139,3 +138,5 @@ flip_h = true
 [node name="Journal" parent="." instance=ExtResource( 35 )]
 position = Vector2( 237.805, 269.805 )
 scale = Vector2( 1.34192, 1.28357 )
+
+[connection signal="speech_trigger" from="SpeechInteractions" to="." method="_on_SpeechInteractions_speech_trigger"]

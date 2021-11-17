@@ -9,8 +9,8 @@ onready var triggers:Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_triggers({"family" : "Loves his family", "Jacob": "Hates Jacob", "Fishing": "Loves Fishing"})
-	show_trigger_text("family")
+	set_triggers({"family" : "Ama a su familia", "jose": "Odia a Jose", "fishing": "Le encanta pescar"})
+
 
 #func _process(delta):
 			
@@ -21,7 +21,8 @@ func set_triggers(dict):
 
 func show_trigger_text(trigger):
 	var trigger_to_use = get_free_trigger()
-	trigger_to_use.set_text(triggers.get(trigger))
+	var trigger_text = triggers.get(trigger)
+	trigger_to_use.set_text(trigger_text)
 	counter_up()
 	
 	

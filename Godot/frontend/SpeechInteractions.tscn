@@ -28,3 +28,4 @@ script = ExtResource( 8 )
 [node name="Openai" parent="." instance=ExtResource( 3 )]
 
 [connection signal="file_saved" from="Record" to="." method="_on_Record_file_saved"]
+[connection signal="trigger" from="NPC" to="." method="_on_NPC_trigger"]
