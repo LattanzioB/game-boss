@@ -5,7 +5,7 @@ var key_list
 var dialog_history
 
 func _ready():
-	sentiments = {"obnoxiously" : "miners fisherman", "lovingly"  : "town", "empathetically" : ""}
+	sentiments = {"hate" : "Jacob", "love"  : "Family, Fishing", "empathy" : ""}
 	dialog_history = ""
 
 func get_dialog_history():
