@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://frontend/InputDevicesList.gd" type="Script" id=1]
+
+[node name="InputDevicesList" type="OptionButton"]
+margin_top = 24.0
+margin_right = 784.0
+margin_bottom = 44.0
+size_flags_vertical = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="item_selected" from="." to="." method="_on_InputDevicesList_item_selected"]
