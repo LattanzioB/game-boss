@@ -10,5 +10,6 @@ onready var fire_place = $FirePlacePlayer
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if !fire_place.is_playing():
+		fire_place.play()

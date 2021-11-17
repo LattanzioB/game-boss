@@ -1,5 +1,7 @@
 extends Node
 
+signal trigger
+
 var sentiments
 var key_list
 var dialog_history
@@ -23,6 +25,7 @@ func matches(input):
 	for key in sentiments.keys():
 		if input in sentiments.get(key):
 			sentiment = key
+			emit_signal("trigger", input)
 	return sentiment
 
 func any_matches(input):

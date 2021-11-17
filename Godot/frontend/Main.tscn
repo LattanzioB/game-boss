@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://assets/background/fire_place_room.png" type="Texture" id=1]
 [ext_resource path="res://frontend/Main.gd" type="Script" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_006.png" type="Texture" id=32]
 [ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_007.png" type="Texture" id=33]
 [ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_010.png" type="Texture" id=34]
+[ext_resource path="res://frontend/Journal.tscn" type="PackedScene" id=35]
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 4
@@ -134,3 +135,7 @@ position = Vector2( 813.991, 413.525 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 26 )
 flip_h = true
+
+[node name="Journal" parent="." instance=ExtResource( 35 )]
+position = Vector2( 237.805, 269.805 )
+scale = Vector2( 1.34192, 1.28357 )

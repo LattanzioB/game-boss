@@ -47,3 +47,7 @@ func valid_text():
 	var response_wav = tts.create_speech(response)
 	audio_player.load_record(response_wav)
 	audio_player.play()
+
+
+func _on_NPC_trigger():
+	pass # Replace with function body.
