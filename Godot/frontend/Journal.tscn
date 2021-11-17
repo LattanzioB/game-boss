@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://frontend/Journal.gd" type="Script" id=1]
+[ext_resource path="res://assets/journal/journal.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/Estonia-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[node name="Journal" type="Sprite"]
+position = Vector2( 226.032, 256.351 )
+scale = Vector2( 1.24215, 1.20203 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="NPC_Name" type="RichTextLabel" parent="."]
+margin_left = -96.0
+margin_top = -147.0
+margin_right = -3.0
+margin_bottom = -115.0
+theme = SubResource( 2 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "John:"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="trigger_1" type="RichTextLabel" parent="."]
+margin_left = -78.2472
+margin_top = -92.9912
+margin_right = 64.7528
+margin_bottom = -66.9912
+bbcode_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="trigger_2" type="RichTextLabel" parent="."]
+margin_left = -76.8933
+margin_top = -50.7529
+margin_right = 66.1067
+margin_bottom = -24.7529
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="trigger_3" type="RichTextLabel" parent="."]
+margin_left = -77.0215
+margin_top = -8.2119
+margin_right = 65.9785
+margin_bottom = 17.7881
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="counter" type="RichTextLabel" parent="."]
+margin_left = 54.8344
+margin_top = -138.514
+margin_right = 94.8344
+margin_bottom = -98.5136
+text = "0/3"
+__meta__ = {
+"_edit_use_anchors_": false
+}

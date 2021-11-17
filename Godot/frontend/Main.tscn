@@ -119,7 +119,7 @@ position = Vector2( 515.124, 299.324 )
 scale = Vector2( 1, 1.03311 )
 z_index = -1
 frames = SubResource( 13 )
-frame = 6
+frame = 7
 playing = true
 
 [node name="FirePlacePlayer" type="AudioStreamPlayer" parent="."]
