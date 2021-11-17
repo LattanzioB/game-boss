@@ -12,8 +12,6 @@ func _ready():
 	set_triggers({"family" : "Ama a su familia", "jose": "Odia a Jose", "fishing": "Le encanta pescar"})
 
 
-#func _process(delta):
-			
 
 #Ej "family" : "Loves his family"
 func set_triggers(dict):
