@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixil-frame-0.png-e01c616f94eb61924589831e27e4c953.stex"
+path="res://.import/0_Blacksmith_Idle Blinking_002.png-31ceaabaf3e83fe023c922a7ec068a5f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Npcs/pixil-frame-0.png"
-dest_files=[ "res://.import/pixil-frame-0.png-e01c616f94eb61924589831e27e4c953.stex" ]
+source_file="res://assets/Npcs/balckmist_iddle/0_Blacksmith_Idle Blinking_002.png"
+dest_files=[ "res://.import/0_Blacksmith_Idle Blinking_002.png-31ceaabaf3e83fe023c922a7ec068a5f.stex" ]
 
 [params]
 
