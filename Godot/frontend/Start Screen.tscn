@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://frontend/Menu background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://frontend/InputDevicesList.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/Pixel font.tres" type="Theme" id=3]
-[ext_resource path="res://frontend/ChatBox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://frontend/SpeechInteractions.tscn" type="PackedScene" id=5]
 
 [node name="StartScreen" type="Node2D"]
@@ -32,16 +31,16 @@ custom_constants/separation = 40
 
 [node name="Title" type="Label" parent="Menu/VBoxContainer"]
 margin_right = 860.0
-margin_bottom = 16.0
+margin_bottom = 20.0
 theme = ExtResource( 3 )
 text = "TITULO DEL JUEGO"
 align = 1
 valign = 1
 
 [node name="Intro text" type="Label" parent="Menu/VBoxContainer"]
-margin_top = 56.0
+margin_top = 60.0
 margin_right = 860.0
-margin_bottom = 110.0
+margin_bottom = 126.0
 theme = ExtResource( 3 )
 text = "Bienvenid@s, {titulo del juego} es un juego que se basa en el uso de las palabras habladas como método de input
 de usuario, por ello es importante que cuentes con un micrófono para poder jugar.
@@ -50,27 +49,24 @@ align = 1
 valign = 1
 
 [node name="InputDevicesList" parent="Menu/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 150.0
+margin_top = 166.0
 margin_right = 860.0
-margin_bottom = 170.0
+margin_bottom = 186.0
 
 [node name="Explanation" type="Label" parent="Menu/VBoxContainer"]
-margin_top = 210.0
+margin_top = 226.0
 margin_right = 860.0
-margin_bottom = 283.0
+margin_bottom = 384.0
 theme = ExtResource( 3 )
-text = "Una vez elegido tu micrófono, oprimí la tecla \"Control\" para empezar a grabar, decí en voz alta y clara \"INICIAR JUEGO\", tocá \"Control\" una vez más para dejar de grabar y al oprimir \"Enter\" si la máquina entendió correctamente el comando
-iniciará el juego"
+text = "Estos son los controles del juego:
+ - La tecla \"Control\" comienza y finaliza la grabación desede el micrófono seleccionado.
+ - Una vez que oprimas \"Control\" por segunda vez, verás en pantalla lo que la máquina entendió, si no estás conforme con el texto, puedes volver a grabar para sobreescribirlo.
+ - Cuando estés conforme con el input que muestra la pantalla, oprime la tecla \"Enter\" para envíar la información al personaje con el que estés hablando y espera su respuesta.
+ - Para pasar a la siguiente pantalla debes decir en voz alta y clara \"INICIAR JUEGO\""
 align = 1
 autowrap = true
-
-[node name="ChatBox" parent="Menu/VBoxContainer" instance=ExtResource( 4 )]
-margin_top = 323.0
-margin_right = 860.0
-margin_bottom = 323.0
 
 [node name="MenuBackground" parent="." instance=ExtResource( 1 )]
 z_index = -1
 
 [node name="SpeechInteractions" parent="." instance=ExtResource( 5 )]
-chatbox_path = NodePath("../Menu/VBoxContainer/ChatBox")

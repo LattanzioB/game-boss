@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/GUI/chatbox texture.png" type="Texture" id=1]
+[ext_resource path="res://frontend/GUI/ChatBox.gd" type="Script" id=2]
+
+[node name="Chatbox" type="MarginContainer"]
+margin_left = 22.6274
+margin_top = 18.3848
+margin_right = 722.627
+margin_bottom = 148.385
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_right = 700.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 680, 130 )
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="Container" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 670.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 670, 130 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 340.432, 64.5946 )
+z_index = -1
+texture = ExtResource( 1 )

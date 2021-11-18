@@ -12,6 +12,9 @@ onready var audio_player = $AudioStreamPlayer
 export var chatbox_path:NodePath
 onready var chatbox = get_node(chatbox_path)
 
+export var rec_path:NodePath
+onready var red_dot = get_node(rec_path)
+
 var recording = false
 var text_from_mic
 var openai
@@ -26,10 +29,12 @@ func _process(delta):
 	if Input.is_action_just_released("talk") && (!recording):
 		recording = true
 		recorder.start_recording()
+		red_dot.visible = true
 	elif Input.is_action_just_released("talk") && (recording):
 		recording = false
 		recorder.stop_recording()
 		recorder.save_to_wav()
+		red_dot.visible = false
 	if Input.is_action_just_pressed("validation"):
 		valid_text()
 
@@ -45,7 +50,7 @@ func _on_Record_file_saved():
 func valid_text():
 	var input_text = translator.translate_to_english(text_from_mic)
 	npc.any_matches(input_text)
-	var final_input ="Robert: " + input_text + "?\n\nJohn" + " says:"
+	var final_input ="Robert: " + input_text + "?\n\nJuan" + " says:"
 	npc.add_player_coment(final_input)
 	var dialog_history = npc.get_dialog_history()
 	var response = openai.get_response(dialog_history)
@@ -60,5 +65,3 @@ func valid_text():
 
 func _on_NPC_trigger(trigger_text):
 	emit_signal("speech_trigger", trigger_text)
-
-

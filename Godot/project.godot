@@ -18,6 +18,10 @@ config/icon="res://icon.png"
 
 enable_audio_input=true
 
+[display]
+
+window/size/resizable=false
+
 [gdnative]
 
 singletons=[ "res://pythonscript.gdnlib" ]

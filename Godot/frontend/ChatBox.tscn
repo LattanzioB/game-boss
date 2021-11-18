@@ -1,11 +1,22 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://frontend/GUI/ChatBox.gd" type="Script" id=1]
+[ext_resource path="res://assets/GUI/chatbox texture.png" type="Texture" id=2]
 
 [node name="ChatBox" type="VBoxContainer"]
-margin_right = 800.0
-margin_bottom = 150.0
+margin_right = 700.0
+margin_bottom = 148.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 336, 64 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 700.0
+margin_bottom = 14.0
+text = "asdansdna"
+align = 2
