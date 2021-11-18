@@ -3,110 +3,110 @@
 [ext_resource path="res://assets/background/fire_place_room.png" type="Texture" id=1]
 [ext_resource path="res://frontend/Main.gd" type="Script" id=2]
 [ext_resource path="res://assets/sfx/fire.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_029.png" type="Texture" id=4]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_021.png" type="Texture" id=4]
 [ext_resource path="res://frontend/SpeechInteractions.tscn" type="PackedScene" id=5]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_028.png" type="Texture" id=6]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_012.png" type="Texture" id=7]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_013.png" type="Texture" id=8]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_016.png" type="Texture" id=9]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_000.png" type="Texture" id=10]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_004.png" type="Texture" id=11]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_020.png" type="Texture" id=12]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_005.png" type="Texture" id=13]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_001.png" type="Texture" id=14]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_008.png" type="Texture" id=15]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_021.png" type="Texture" id=16]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_014.png" type="Texture" id=17]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_022.png" type="Texture" id=18]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_015.png" type="Texture" id=19]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_018.png" type="Texture" id=20]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_023.png" type="Texture" id=21]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_024.png" type="Texture" id=22]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_011.png" type="Texture" id=23]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_019.png" type="Texture" id=24]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_025.png" type="Texture" id=25]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_026.png" type="Texture" id=26]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_027.png" type="Texture" id=27]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_017.png" type="Texture" id=28]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_003.png" type="Texture" id=29]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_009.png" type="Texture" id=30]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_002.png" type="Texture" id=31]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_006.png" type="Texture" id=32]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_007.png" type="Texture" id=33]
-[ext_resource path="res://assets/Npcs/citizen_iddle/0_Citizen_Idle Blinking_010.png" type="Texture" id=34]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_022.png" type="Texture" id=6]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_020.png" type="Texture" id=7]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_018.png" type="Texture" id=8]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_019.png" type="Texture" id=9]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_003.png" type="Texture" id=10]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_004.png" type="Texture" id=11]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_005.png" type="Texture" id=12]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_006.png" type="Texture" id=13]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_008.png" type="Texture" id=14]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_009.png" type="Texture" id=15]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_001.png" type="Texture" id=16]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_013.png" type="Texture" id=17]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_016.png" type="Texture" id=18]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_015.png" type="Texture" id=19]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_012.png" type="Texture" id=20]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_017.png" type="Texture" id=21]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_014.png" type="Texture" id=22]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_002.png" type="Texture" id=23]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_010.png" type="Texture" id=24]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_007.png" type="Texture" id=25]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_011.png" type="Texture" id=26]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_000.png" type="Texture" id=27]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_023.png" type="Texture" id=28]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_025.png" type="Texture" id=29]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_024.png" type="Texture" id=30]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_029.png" type="Texture" id=31]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_027.png" type="Texture" id=32]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_028.png" type="Texture" id=33]
+[ext_resource path="res://assets/npcs/citizen_idle/0_Citizen_Idle Blinking_026.png" type="Texture" id=34]
 [ext_resource path="res://frontend/Journal.tscn" type="PackedScene" id=35]
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 1024, 576 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 1024, 0, 1024, 576 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 2048, 0, 1024, 576 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=4]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 3072, 0, 1024, 576 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 576, 1024, 576 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 1024, 576, 1024, 576 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 2048, 576, 1024, 576 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 3072, 576, 1024, 576 )
 
-[sub_resource type="AtlasTexture" id=22]
+[sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 1152, 1024, 576 )
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 1024, 1152, 1024, 576 )
 
-[sub_resource type="AtlasTexture" id=24]
+[sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 2048, 1152, 1024, 576 )
 
-[sub_resource type="AtlasTexture" id=25]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 3072, 1152, 1024, 576 )
 
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
-"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "default",
 "speed": 3.0
 } ]
 
-[sub_resource type="SpriteFrames" id=26]
+[sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ ExtResource( 10 ), ExtResource( 14 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 15 ), ExtResource( 30 ), ExtResource( 34 ), ExtResource( 23 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 9 ), ExtResource( 28 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 27 ), ExtResource( 16 ), ExtResource( 23 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 25 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 24 ), ExtResource( 26 ), ExtResource( 20 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 28 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 34 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 31 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -120,7 +120,7 @@ position = Vector2( 515.124, 299.324 )
 scale = Vector2( 1, 1.03311 )
 z_index = -1
 frames = SubResource( 13 )
-frame = 8
+frame = 2
 playing = true
 
 [node name="FirePlacePlayer" type="AudioStreamPlayer" parent="."]
@@ -130,14 +130,14 @@ autoplay = true
 
 [node name="SpeechInteractions" parent="." instance=ExtResource( 5 )]
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="NPC" type="AnimatedSprite" parent="."]
 position = Vector2( 813.991, 413.525 )
 scale = Vector2( 0.4, 0.4 )
-frames = SubResource( 26 )
+frames = SubResource( 14 )
+frame = 12
+playing = true
 flip_h = true
 
 [node name="Journal" parent="." instance=ExtResource( 35 )]
 position = Vector2( 237.805, 269.805 )
 scale = Vector2( 1.34192, 1.28357 )
-
-[connection signal="speech_trigger" from="SpeechInteractions" to="." method="_on_SpeechInteractions_speech_trigger"]

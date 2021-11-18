@@ -9,6 +9,9 @@ onready var translator = $TranslatorHelper
 onready var npc = $NPC
 onready var audio_player = $AudioStreamPlayer
 
+export var chatbox_path:NodePath
+onready var chatbox = get_node(chatbox_path)
+
 var recording = false
 var text_from_mic
 var openai
@@ -34,13 +37,13 @@ func _process(delta):
 func _on_Record_file_saved():
 	text_from_mic = stt.wav_to_text()
 	print(text_from_mic)
-	
+	if(chatbox != null):
+		chatbox.spawn_player_tile(text_from_mic)
 
 #Crear interfaz grafica que muestre el texto generado por el stt.
 #Permitir al usuario modificar y validar el texto, y enviarlo con "enter"
 func valid_text():
 	var input_text = translator.translate_to_english(text_from_mic)
-	print(input_text)
 	npc.any_matches(input_text)
 	var final_input ="Robert: " + input_text + "?\n\nJohn" + " says:"
 	npc.add_player_coment(final_input)
@@ -51,7 +54,11 @@ func valid_text():
 	var response_wav = tts.create_speech(response)
 	audio_player.load_record(response_wav)
 	audio_player.play()
+	if(chatbox != null):
+		chatbox.spawn_npc_tile(response)
 
 
 func _on_NPC_trigger(trigger_text):
 	emit_signal("speech_trigger", trigger_text)
+
+
