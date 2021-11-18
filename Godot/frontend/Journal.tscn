@@ -24,7 +24,7 @@ margin_right = -1.72206
 margin_bottom = -113.962
 theme = ExtResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
-text = "John:"
+text = "Juan:"
 fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
