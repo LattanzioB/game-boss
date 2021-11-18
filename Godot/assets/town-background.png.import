@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/0_Blacksmith_Idle Blinking_002.png-31ceaabaf3e83fe023c922a7ec068a5f.stex"
+path="res://.import/town-background.png-9cd48b64bbc0ab62e325ccff34b87422.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Npcs/balckmist_iddle/0_Blacksmith_Idle Blinking_002.png"
-dest_files=[ "res://.import/0_Blacksmith_Idle Blinking_002.png-31ceaabaf3e83fe023c922a7ec068a5f.stex" ]
+source_file="res://assets/town-background.png"
+dest_files=[ "res://.import/town-background.png-9cd48b64bbc0ab62e325ccff34b87422.stex" ]
 
 [params]
 
@@ -28,7 +28,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=true
