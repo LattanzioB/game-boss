@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://frontend/SpeechInteractions.tscn" type="PackedScene" id=1]
 [ext_resource path="res://frontend/Journal.tscn" type="PackedScene" id=2]
@@ -41,6 +41,7 @@
 [ext_resource path="res://assets/GUI/open_journal.png" type="Texture" id=39]
 [ext_resource path="res://frontend/GUI/JournalTooltip.tscn" type="PackedScene" id=40]
 [ext_resource path="res://frontend/GUI/SettingsTooltip.tscn" type="PackedScene" id=41]
+[ext_resource path="res://frontend/GameOver.tscn" type="PackedScene" id=42]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -126,7 +127,7 @@ position = Vector2( 515.124, 299.324 )
 scale = Vector2( 1, 1.03311 )
 z_index = -1
 frames = SubResource( 13 )
-frame = 11
+frame = 2
 playing = true
 
 [node name="SFx" type="AudioStreamPlayer2D" parent="."]
@@ -147,7 +148,7 @@ rec_path = NodePath("../Rec")
 position = Vector2( 870.143, 441.071 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 14 )
-frame = 7
+frame = 23
 playing = true
 flip_h = true
 
@@ -160,7 +161,7 @@ scale = Vector2( 1.34192, 1.28357 )
 visible = false
 position = Vector2( 971.582, 552.981 )
 animation = "default"
-frame = 5
+frame = 1
 
 [node name="Chatbox" parent="." instance=ExtResource( 4 )]
 margin_left = 35.6762
@@ -261,8 +262,17 @@ autostart = true
 wait_time = 8.0
 one_shot = true
 
+[node name="EndGameTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="GameOver" parent="." instance=ExtResource( 42 )]
+visible = false
+position = Vector2( 224, 176 )
+
 [connection signal="finished" from="IntroductionPlayer" to="." method="_on_IntroductionPlayer_finished"]
 [connection signal="speech_trigger" from="SpeechInteractions" to="." method="_on_SpeechInteractions_speech_trigger"]
+[connection signal="journal_complete" from="Journal" to="." method="_on_Journal_journal_complete"]
 [connection signal="pressed" from="ConfigurationGear" to="." method="_on_ConfigurationGear_pressed"]
 [connection signal="pressed" from="Journal_on_button" to="." method="_on_Journal_on_button_pressed"]
 [connection signal="value_changed" from="SoundControl/NPC_voice_volume_control" to="." method="_on_NPC_voice_volume_control_value_changed"]
@@ -270,3 +280,4 @@ one_shot = true
 [connection signal="timeout" from="SceneLoaded" to="." method="_on_SceneLoaded_timeout"]
 [connection signal="timeout" from="HideSettingsTooltip" to="." method="_on_HideSettingsTooltip_timeout"]
 [connection signal="timeout" from="HideTooltipTimer" to="." method="_on_SwitchTooltipTimer_timeout"]
+[connection signal="timeout" from="EndGameTimer" to="." method="_on_EndGameTimer_timeout"]
