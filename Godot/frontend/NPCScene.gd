@@ -71,4 +71,8 @@ func _on_SwitchTooltipTimer_timeout():
 func _on_HideSettingsTooltip_timeout():
 	$SettingsTooltip.visible = false
 
+func _on_Journal_journal_complete():
+	$EndGameTimer.start()
 
+func _on_EndGameTimer_timeout():
+	$GameOver.visible = true

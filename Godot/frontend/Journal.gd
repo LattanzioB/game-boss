@@ -1,5 +1,6 @@
 extends Sprite
 
+signal journal_complete
 
 onready var npc_name = $NPC_Name
 onready var triggers_list = [$trigger_1, $trigger_2, $trigger_3]
@@ -11,8 +12,6 @@ onready var triggers:Dictionary
 func _ready():
 	set_triggers({"family" : "Ama a su familia", "jose": "Odia a Jose", "fishing": "Le encanta pescar"})
 
-
-
 #Ej "family" : "Loves his family"
 func set_triggers(dict):
 	triggers = dict
@@ -22,7 +21,8 @@ func show_trigger_text(trigger):
 	var trigger_text = triggers.get(trigger)
 	trigger_to_use.set_text(trigger_text)
 	counter_up()
-	
+	if(counter.text[0] == "3"):
+		emit_signal("journal_complete")
 	
 func counter_up():
 	counter.text[0] = str(int(counter.text[0]) + 1)

@@ -72,17 +72,77 @@ margin_bottom = 150.0
 [node name="Explanation" type="Label" parent="Menu/VBoxContainer"]
 margin_top = 166.0
 margin_right = 946.0
-margin_bottom = 345.0
+margin_bottom = 267.0
 theme = ExtResource( 3 )
 text = "Estos son los controles del juego:
  - La tecla \"Control\" comienza y finaliza la grabación desede el micrófono seleccionado.
- - Una vez que oprimas \"Control\" por segunda vez, verás en pantalla lo que la máquina entendió, si no estás conforme con el texto, puedes volver a grabar para sobreescribirlo.
- - Cuando estés conforme con el input que muestra la pantalla, oprime la tecla \"Enter\" para envíar la información al personaje con el que estés hablando y espera su respuesta.
- - Para pasar a la siguiente pantalla debes decir en voz alta y clara \"COMENZAR JUEGO\""
+ 
+ - Para pasar a la siguiente pantalla debes decir en voz alta y clara \"CONTINUAR\""
+align = 1
+autowrap = true
+
+[node name="Menu2" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 1191.0
+margin_bottom = 601.0
+rect_scale = Vector2( 0.863912, 0.996476 )
+custom_constants/margin_right = 120
+custom_constants/margin_top = 80
+custom_constants/margin_left = 120
+custom_constants/margin_bottom = 80
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Menu2"]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 1072.0
+margin_bottom = 522.0
+custom_constants/separation = 16
+
+[node name="Title" type="Label" parent="Menu2/VBoxContainer2"]
+margin_right = 952.0
+margin_bottom = 23.0
+theme = ExtResource( 3 )
+custom_constants/shadow_offset_x = 0
+text = "LET YOUR WAY BE HEARD"
+align = 1
+
+[node name="Intro text" type="Label" parent="Menu2/VBoxContainer2"]
+margin_top = 39.0
+margin_right = 952.0
+margin_bottom = 140.0
+theme = ExtResource( 3 )
+text = "- Una vez que oprimas \"Control\" por segunda vez, verás en pantalla lo que la máquina entendió 
+Si no estás conforme con el texto, puedes volver a grabar para sobreescribirlo.
+ - Cuando estés conforme con el texto que muestra la pantalla, oprime la tecla \"Enter\" o \"A\" para envíar una
+ respuesta o la tecla \"Q\" para enviar una pregunta al personaje con el que estés hablando y espera su respuesta."
+align = 1
+valign = 1
+
+[node name="Explanation" type="Label" parent="Menu2/VBoxContainer2"]
+margin_top = 156.0
+margin_right = 952.0
+margin_bottom = 335.0
+theme = ExtResource( 3 )
+text = "Estos son los controles del juego:
+ - La tecla \"Control\" comienza y finaliza la grabación desede el micrófono seleccionado.
+ 
+ - Para pasar a la siguiente pantalla debes decir en voz alta y clara \"COMENZAR JUEGO\"
+
+-Y luego presionar la letra \"Enter\"
+"
 align = 1
 autowrap = true
 
 [node name="GameIntroduction" type="MarginContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1186.0
@@ -108,7 +168,7 @@ custom_constants/separation = 16
 margin_right = 946.0
 margin_bottom = 23.0
 theme = ExtResource( 3 )
-text = "Let your way be heard"
+text = "LET YOUR WAY BE HEARD"
 align = 1
 
 [node name="Intro text" type="Label" parent="GameIntroduction/VBoxContainer"]
@@ -127,7 +187,10 @@ margin_right = 946.0
 margin_bottom = 153.0
 theme = ExtResource( 3 )
 text = "Imagina que sos un viajante en un mundo donde el motor a vapor es la maxima tecnologia. 
-Llegas a la casa de la familia Smith que te aloja una noche por unas monedas."
+Llegas a la casa de la familia Smith que te aloja una noche por unas monedas.
+
+
+Presiona la tecla \"A\" para continuar"
 align = 1
 autowrap = true
 
@@ -135,7 +198,7 @@ autowrap = true
 visible = false
 position = Vector2( 976, 552 )
 animation = "default"
-frame = 1
+frame = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

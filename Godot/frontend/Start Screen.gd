@@ -9,6 +9,7 @@ onready var vbox_container = $Menu/VBoxContainer
 onready var audio_player = $AudioStreamPlayer
 onready var gameIntro = $GameIntroduction
 onready var menu = $Menu
+onready var menu2 = $Menu2
 
 export var chatbox_path:NodePath
 onready var chatbox = get_node(chatbox_path)
@@ -44,11 +45,20 @@ func _process(delta):
 		text_from_mic = stt.wav_to_text()
 		label.set_text(text_from_mic)
 		red_dot.visible = false
-		if (text_from_mic == "comenzar juego"):
+		if (text_from_mic == "continuar"):
 			audio_player.play()
+	if Input.is_action_just_released("validation") && text_from_mic == "comenzar juego":
+		menu.visible = false 
+		menu2.visible = false
+		gameIntro.visible = true
 	if Input.is_action_just_released("answer"):
 		get_tree().change_scene("res://frontend/NPCScene.tscn")
 
 func _on_AudioStreamPlayer_finished():
+	vbox_container.remove_child(label)
 	menu.visible = false 
-	gameIntro.visible = true
+	menu2.visible = true
+	gameIntro.visible = false
+	label.set_text("")
+	$Menu2/VBoxContainer2.add_child(label)
+
