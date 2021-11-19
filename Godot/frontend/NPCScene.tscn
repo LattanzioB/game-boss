@@ -126,7 +126,7 @@ position = Vector2( 515.124, 299.324 )
 scale = Vector2( 1, 1.03311 )
 z_index = -1
 frames = SubResource( 13 )
-frame = 11
+frame = 9
 playing = true
 
 [node name="SFx" type="AudioStreamPlayer2D" parent="."]
@@ -147,7 +147,7 @@ rec_path = NodePath("../Rec")
 position = Vector2( 870.143, 441.071 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 14 )
-frame = 7
+frame = 4
 playing = true
 flip_h = true
 
@@ -160,7 +160,7 @@ scale = Vector2( 1.34192, 1.28357 )
 visible = false
 position = Vector2( 971.582, 552.981 )
 animation = "default"
-frame = 5
+frame = 2
 
 [node name="Chatbox" parent="." instance=ExtResource( 4 )]
 margin_left = 35.6762
