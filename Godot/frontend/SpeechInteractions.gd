@@ -2,6 +2,7 @@ extends Node
 
 signal speech_trigger
 
+
 onready var recorder = $Record
 onready var stt = $Stt
 onready var tts = $Tts
@@ -64,6 +65,7 @@ func valid_text(messege_type):
 		response = add_npc_question(response)
 	response = translator.translate_to_spanish(response)
 	var response_wav = tts.create_speech(response)
+	print(response_wav)
 	audio_player.load_record(response_wav)
 	audio_player.play()
 	if(chatbox != null):
@@ -81,3 +83,5 @@ func add_npc_question(response):
 
 func _on_NPC_trigger(trigger_text):
 	emit_signal("speech_trigger", trigger_text)
+
+

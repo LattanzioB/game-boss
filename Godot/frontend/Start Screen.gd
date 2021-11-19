@@ -7,6 +7,8 @@ onready var translator = $TranslatorHelper
 onready var npc = $NPC
 onready var vbox_container = $Menu/VBoxContainer
 onready var audio_player = $AudioStreamPlayer
+onready var gameIntro = $GameIntroduction
+onready var menu = $Menu
 
 export var chatbox_path:NodePath
 onready var chatbox = get_node(chatbox_path)
@@ -44,6 +46,9 @@ func _process(delta):
 		red_dot.visible = false
 		if (text_from_mic == "comenzar juego"):
 			audio_player.play()
+	if Input.is_action_just_released("answer"):
+		get_tree().change_scene("res://frontend/NPCScene.tscn")
 
 func _on_AudioStreamPlayer_finished():
-	get_tree().change_scene("res://frontend/NPCScene.tscn")
+	menu.visible = false 
+	gameIntro.visible = true

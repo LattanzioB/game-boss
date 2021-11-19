@@ -47,31 +47,32 @@ custom_constants/separation = 16
 
 [node name="Title" type="Label" parent="Menu/VBoxContainer"]
 margin_right = 946.0
-margin_bottom = 20.0
+margin_bottom = 23.0
 theme = ExtResource( 3 )
-text = "TITULO DEL JUEGO"
+custom_constants/shadow_offset_x = 0
+text = "LET YOUR WAY BE HEARD"
 align = 1
 
 [node name="Intro text" type="Label" parent="Menu/VBoxContainer"]
-margin_top = 36.0
+margin_top = 39.0
 margin_right = 946.0
-margin_bottom = 102.0
+margin_bottom = 114.0
 theme = ExtResource( 3 )
-text = "Bienvenid@s, {titulo del juego} es un juego que se basa en el uso de las palabras habladas como método de input
+text = "Bienvenid@s, Let your way be heard es un juego que se basa en el uso de las palabras habladas como método de input
 de usuario, por ello es importante que cuentes con un micrófono para poder jugar.
 Seleccione de la lista de abajo el micrófono que quiera utilizar"
 align = 1
 valign = 1
 
 [node name="InputDevicesList" parent="Menu/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 118.0
+margin_top = 130.0
 margin_right = 946.0
-margin_bottom = 138.0
+margin_bottom = 150.0
 
 [node name="Explanation" type="Label" parent="Menu/VBoxContainer"]
-margin_top = 154.0
+margin_top = 166.0
 margin_right = 946.0
-margin_bottom = 312.0
+margin_bottom = 345.0
 theme = ExtResource( 3 )
 text = "Estos son los controles del juego:
  - La tecla \"Control\" comienza y finaliza la grabación desede el micrófono seleccionado.
@@ -81,11 +82,60 @@ text = "Estos son los controles del juego:
 align = 1
 autowrap = true
 
+[node name="GameIntroduction" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1186.0
+margin_bottom = 673.0
+rect_scale = Vector2( 0.863912, 0.996476 )
+custom_constants/margin_right = 120
+custom_constants/margin_top = 80
+custom_constants/margin_left = 120
+custom_constants/margin_bottom = 80
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameIntroduction"]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 1066.0
+margin_bottom = 593.0
+custom_constants/separation = 16
+
+[node name="Title" type="Label" parent="GameIntroduction/VBoxContainer"]
+margin_right = 946.0
+margin_bottom = 23.0
+theme = ExtResource( 3 )
+text = "Let your way be heard"
+align = 1
+
+[node name="Intro text" type="Label" parent="GameIntroduction/VBoxContainer"]
+margin_top = 39.0
+margin_right = 946.0
+margin_bottom = 88.0
+theme = ExtResource( 3 )
+text = "Has pensado en tener una conversacion con un personaje de un videojuego? 
+Que te gustaria saber de ellos? Crees que pueden responder todas tus dudas?"
+align = 1
+valign = 1
+
+[node name="Explanation" type="Label" parent="GameIntroduction/VBoxContainer"]
+margin_top = 104.0
+margin_right = 946.0
+margin_bottom = 153.0
+theme = ExtResource( 3 )
+text = "Imagina que sos un viajante en un mundo donde el motor a vapor es la maxima tecnologia. 
+Llegas a la casa de la familia Smith que te aloja una noche por unas monedas."
+align = 1
+autowrap = true
+
 [node name="Rec" parent="." instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 976, 552 )
 animation = "default"
-frame = 5
+frame = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
