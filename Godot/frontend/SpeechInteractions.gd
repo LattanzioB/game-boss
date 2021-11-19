@@ -15,6 +15,7 @@ onready var chatbox = get_node(chatbox_path)
 export var rec_path:NodePath
 onready var red_dot = get_node(rec_path)
 
+var question_countdown = 3
 var recording = false
 var text_from_mic
 var openai
@@ -35,8 +36,11 @@ func _process(delta):
 		recorder.stop_recording()
 		recorder.save_to_wav()
 		red_dot.visible = false
-	if Input.is_action_just_pressed("validation"):
-		valid_text()
+	if Input.is_action_just_pressed("validation") || Input.is_action_just_pressed("answer"):
+		valid_text("")
+	if Input.is_action_just_pressed("question"):
+		valid_text("?")
+
 
 
 func _on_Record_file_saved():
@@ -47,14 +51,17 @@ func _on_Record_file_saved():
 
 #Crear interfaz grafica que muestre el texto generado por el stt.
 #Permitir al usuario modificar y validar el texto, y enviarlo con "enter"
-func valid_text():
+func valid_text(messege_type):
 	var input_text = translator.translate_to_english(text_from_mic)
 	npc.any_matches(input_text)
-	var final_input ="Robert: " + input_text + "?\n\nJuan" + " says:"
+	var final_input ="Robert: " + input_text + messege_type + "\n\nJuan" + " says:"
 	npc.add_player_coment(final_input)
 	var dialog_history = npc.get_dialog_history()
 	var response = openai.get_response(dialog_history)
 	npc.add_npc_coment(response)
+	question_countdown -= 1
+	if question_countdown == 0:
+		response = add_npc_question(response)
 	response = translator.translate_to_spanish(response)
 	var response_wav = tts.create_speech(response)
 	audio_player.load_record(response_wav)
@@ -62,6 +69,15 @@ func valid_text():
 	if(chatbox != null):
 		chatbox.spawn_npc_tile(response)
 
+
+func add_npc_question(response):
+	var response_plus_question 
+	if response[-1] != "." && response[-1] != "?":
+		response_plus_question = response + "." + npc.get_question()
+	else:
+		response_plus_question = response + npc.get_question()
+	question_countdown = 5
+	return response_plus_question
 
 func _on_NPC_trigger(trigger_text):
 	emit_signal("speech_trigger", trigger_text)

@@ -18,7 +18,7 @@ func set_triggers(dict):
 	triggers = dict
 
 func show_trigger_text(trigger):
-	var trigger_to_use = get_free_trigger()
+	var trigger_to_use = get_free_trigger_label()
 	var trigger_text = triggers.get(trigger)
 	trigger_to_use.set_text(trigger_text)
 	counter_up()
@@ -27,7 +27,7 @@ func show_trigger_text(trigger):
 func counter_up():
 	counter.text[0] = str(int(counter.text[0]) + 1)
 
-func get_free_trigger():
+func get_free_trigger_label():
 	var trigger = []
 	var i = 0
 	while (len(trigger) == 0 && i < len(triggers_list)):
@@ -36,3 +36,7 @@ func get_free_trigger():
 		i = i + 1
 	#Agregar excepcpion no hay suficientes triggers en esta pagina.
 	return trigger[0]
+
+
+func _on_Close_pressed():
+	self.visible = false

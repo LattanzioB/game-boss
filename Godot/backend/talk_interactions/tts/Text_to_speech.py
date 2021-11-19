@@ -14,10 +14,8 @@ class Text_to_speech(Node):
 		self.device = torch.device('cpu')
 		torch.set_num_threads(8)
 		self.local_file = 'backend/talk_interactions/tts/model.pt'
-		self.example_batch = ['Calor seguro, inmediato y eficiente, ',
-				  'El sistema infrarrojo utiliza cuarzos con resistencia en su interior, ',
-				  'brindando mayor efectividad']
-
+		self.example_batch = ['Bienvenido a nuestro hogar',' las comodidades no son muchas pero espero que te sientas como en casa']
+# ' Tu colaboracion nos ayuda mucho ya que Jacob','el dueño de la fabrica para la que trabajo, no nos paga muy bien','Siendo un forastero quizas tengas algunas preguntas.'
 		if not os.path.isfile(self.local_file):
 			torch.hub.download_url_to_file('https://models.silero.ai/models/tts/es/v2_tux.pt',
 										   self.local_file)
@@ -26,6 +24,7 @@ class Text_to_speech(Node):
 		self.model = torch.package.PackageImporter(self.local_file).load_pickle("tts_models", "model")
 		self.model.to(self.device)
 		print("im there")
+		self.create_speech(self.example_batch)
 		
 		
 	def create_speech(self, input_text, sample_rate=16000):

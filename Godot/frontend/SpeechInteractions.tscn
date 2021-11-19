@@ -21,6 +21,7 @@ script = ExtResource( 7 )
 [node name="Record" parent="." instance=ExtResource( 5 )]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = "Speech"
 script = ExtResource( 8 )
 
 [node name="NPC" parent="." instance=ExtResource( 4 )]

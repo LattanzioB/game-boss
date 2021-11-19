@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Journal.png-10c5a0cf6822e8ccad791110762491ca.stex"
+path="res://.import/pergamino-1.jpg-49dc06aec32f758f7ed0b47ca3c2274c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/Journal.png"
-dest_files=[ "res://.import/Journal.png-10c5a0cf6822e8ccad791110762491ca.stex" ]
+source_file="res://assets/GUI/pergamino-1.jpg"
+dest_files=[ "res://.import/pergamino-1.jpg-49dc06aec32f758f7ed0b47ca3c2274c.stex" ]
 
 [params]
 

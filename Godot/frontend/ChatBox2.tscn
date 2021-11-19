@@ -14,7 +14,7 @@ __meta__ = {
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
-margin_right = 700.0
+margin_right = 699.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 680, 130 )
 follow_focus = true
