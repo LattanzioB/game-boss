@@ -8,13 +8,13 @@ John’s wife is called Mary, Mary is a house wife.
 John has barely enough money to feed his family every day. 
 John works from 8am to 8pm, as employee in the assembly line, for a train parts factory.
 
-The owner of the factory is called Jacob. Jacob lives in a big mansion outside the village. He owns three other factories and he is extremely rich. 
+The owner of the factory is called Jacob. Jacob lives in a big mansion outside the village. Jacob owns three other factories and Jacob is extremely rich. 
 
 
 Key words/triggers to find
 
 
-John likes his work 
+John loves fishing. 
 John hates Jacob.
 John loves his family.
 
@@ -54,12 +54,32 @@ Escena dentro de la casa.
 Highlight buttons and text bubble with usage explanations.
 configuration
 
-John: Bienvenido a nuestro hogar, las comodides no son muchas pero espero que te sientas como en casa. Siendo un forastero quizas tengas algunas preguntas.
+John: Bienvenido a nuestro hogar, las comodides no son muchas pero espero que te sientas como en casa. Tu colaboracion nos ayuda mucho ya que Jacob, el dueño de la fabrica para la que trabajo, no nos paga muy bien. 
+Siendo un forastero quizas tengas algunas preguntas.
 
-“Hacele a john alguna pregunta”
+“Hazle a john alguna pregunta”
 
+Si la primer pregunta no afecta sobre el Journal.
 
 “Preguntale sobre su familia”
 
 Highlight buttons and text bubble with usage explanations.
-challenges
+Journal
+
+
+Journal 1/3
+
+Descubriste uno de los intereses de John, intenta descrubrir dos mas.
+
+
+Luego de 3 preguntas 
+
+Se le sugiere al jugador que pregunte sobre sus hobbies.
+
+
+
+
+Journal 3/3
+
+Felicitaciones, descubriste los 3 temas de interes de John. 
+Hasta aqui llega esta demo. Muchas gracias por participar.

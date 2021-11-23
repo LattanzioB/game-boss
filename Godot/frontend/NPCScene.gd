@@ -10,7 +10,7 @@ onready var chatBox = $Chatbox
 
 
 onready var sceneIntroduction = ['2Lascomodidades.wav','3TuColaboracion.wav', '4YaQueJose.wav','5SiendoUnForestero.wav']
-onready var sceneIntroductionText = ['Bienvenido a nuestro hogar', 'las comodides no son muchas pero espero que te sientas como en casa',' Tu colaboracion nos ayuda mucho ', 'ya que José, el dueño de la fabrica para la que trabajo, no nos paga muy bien','Siendo un forastero quizas tengas algunas preguntas']
+onready var sceneIntroductionText = ['Bienvenido a nuestro hogar', 'las comodidades no son muchas pero espero que te sientas como en casa',' Tu colaboracion nos ayuda mucho ', 'ya que José, el dueño de la fabrica para la que trabajo, no nos paga muy bien','Siendo un forastero quizas tengas algunas preguntas']
 onready var introduction_counter = 4
 
 onready var trigger_spawned = false

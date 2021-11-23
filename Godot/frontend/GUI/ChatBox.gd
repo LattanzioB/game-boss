@@ -22,6 +22,9 @@ func spawn_npc_tile(text):
 
 func spawn_tile(text, align=0, color=Color( 0.13, 0.55, 0.13, 1 )): #0 = left, color = forestgreen
 	var label = Label.new()
+	label.set_autowrap(true)
+	label.anchor_left = 0
+	label.anchor_right = 1
 	label.set_align(align)
 	label.set_text(text)
 	label.set_theme(load("res://assets/fonts/Pixel font.tres"))
