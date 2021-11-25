@@ -1,57 +1,69 @@
-extends MarginContainer
+extends Control
 
-onready var interface_list
-onready var toggle_record_button
-onready var recorder
-onready var stt
-onready var translator
-onready var openai
-onready var chatbox
-onready var input_text:String = ""
-onready var output_text:String = "texto predeterminado"
-onready var tts
-onready var audio_player
 
+onready var chatbox = $Chatbox
+onready var sound_control = $SoundControl
+onready var journal = $Journal
+onready var rec = $Rec
+onready var sfx = $SFx
+
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	interface_list = get_node("VBoxContainer/InputDevicesList")
-	toggle_record_button = get_node("VBoxContainer/HBoxContainer/ToggleRecordButton")
-	recorder = get_node("../Record")
-	stt = get_node("../Stt")
-	translator = get_node("../TranslatorHelper")
-	openai = get_node("../Openai")
-	chatbox = get_node("VBoxContainer/ChatBox")
-	tts = get_node("../Tts")
-	audio_player = get_node("../AudioStreamPlayer")
-	
-	var input_devices = AudioServer.capture_get_device_list()
-	for i_d in input_devices:
-		interface_list.add_item(i_d)
-		
-
-func _on_ToggleRecordButton_pressed():
-	if toggle_record_button.text == "Record":
-		recorder.start_recording()
-		toggle_record_button.text = "Stop"
-	else:
-		recorder.stop_recording()
-		toggle_record_button.text = "Record"
-
-func _on_STTButton_pressed():
-	recorder.save_to_wav()
-	input_text = stt.wav_to_text()
-	chatbox.spawn_chat_tile(input_text)
-	input_text = translator.translate_to_english(input_text)
+	sfx.stream = load("res://assets/sfx/correct.mp3")
+	sfx.stream.set_loop(false)
 
 
-func _on_GetResponse_pressed():
-	var openai_response = openai.get_response(input_text)
-	output_text = translator.translate_to_spanish(openai_response)
-	chatbox.spawn_chat_tile(output_text)
-	
+func _process(delta):
+	if Input.is_action_just_released("talk") && (!rec.visible):
+		rec.visible = true
+	elif Input.is_action_just_released("talk") && (rec.visible):
+		rec.visible = false
 
 
-func _on_PlayResponseButton_pressed():
-	var output_wav = tts.create_speech(output_text)
-	audio_player.load_record(output_wav)
-	audio_player.set_pitch_scale(0.18)
-	audio_player.play()
+
+func chatbox_spawn_npc_tile(text):
+	chatbox.spawn_npc_tile(text)
+
+
+
+func _on_ConfigurationGear_pressed():
+	sound_control.visible = !sound_control.visible
+
+
+
+func _on_FireFx_volume_control_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("FireFx"), value)
+
+
+func _on_NPC_voice_volume_control_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Speech"), value)
+
+func _on_Journal_on_button_pressed():
+	journal.visible = !journal.visible
+
+
+func _on_Journal_journal_complete():
+	$GameOver.visible = true
+
+
+func _on_Journal_new_trigger_found(trigger):
+	journal.show_trigger_text(trigger)
+	sfx.play()
+
+
+
+func _on_Journal_on_button_mouse_entered():
+	$JournalTooltip.visible = true
+
+
+func _on_Journal_on_button_mouse_exited():
+	$JournalTooltip.visible = false
+
+
+func _on_ConfigurationGear_mouse_entered():
+	$SettingsTooltip.visible = true
+
+
+func _on_ConfigurationGear_mouse_exited():
+	$SettingsTooltip.visible = false

@@ -2,24 +2,21 @@ extends Node
 
 signal speech_trigger
 
-
 onready var recorder = $Record
 onready var stt = $Stt
 onready var tts = $Tts
 onready var translator = $TranslatorHelper
-onready var npc = $NPC
 onready var audio_player = $AudioStreamPlayer
+var chatbox 
 
-export var chatbox_path:NodePath
-onready var chatbox = get_node(chatbox_path)
 
-export var rec_path:NodePath
-onready var red_dot = get_node(rec_path)
 
+var npc
 var question_countdown = 3
 var recording = false
 var text_from_mic
 var openai
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,17 +28,23 @@ func _process(delta):
 	if Input.is_action_just_released("talk") && (!recording):
 		recording = true
 		recorder.start_recording()
-		red_dot.visible = true
+		#red_dot.visible = true
 	elif Input.is_action_just_released("talk") && (recording):
 		recording = false
 		recorder.stop_recording()
 		recorder.save_to_wav()
-		red_dot.visible = false
+		#red_dot.visible = false
 	if Input.is_action_just_pressed("validation") || Input.is_action_just_pressed("answer"):
 		valid_text("")
 	if Input.is_action_just_pressed("question"):
 		valid_text("?")
 
+
+func set_npc(npc_back):
+	npc = npc_back
+
+func set_chatbox(chatboxx):
+	chatbox = chatboxx
 
 
 func _on_Record_file_saved():
@@ -81,7 +84,5 @@ func add_npc_question(response):
 	question_countdown = 5
 	return response_plus_question
 
-func _on_NPC_trigger(trigger_text):
-	emit_signal("speech_trigger", trigger_text)
 
 

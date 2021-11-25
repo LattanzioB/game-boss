@@ -1,12 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://backend/talk_interactions/stt/Speech_to_text.tscn" type="PackedScene" id=1]
 [ext_resource path="res://backend/talk_interactions/tts/Text_to_speech.tscn" type="PackedScene" id=2]
 [ext_resource path="res://backend/talk_interactions/openai/Openai.tscn" type="PackedScene" id=3]
-[ext_resource path="res://backend/NPCs.tscn" type="PackedScene" id=4]
-[ext_resource path="res://frontend/recorder/Record.tscn" type="PackedScene" id=5]
+[ext_resource path="res://frontend/speech_interface/Record.tscn" type="PackedScene" id=5]
 [ext_resource path="res://backend/talk_interactions/translator/TranslatorHelper.tscn" type="PackedScene" id=6]
-[ext_resource path="res://frontend/SpeechInteractions.gd" type="Script" id=7]
+[ext_resource path="res://frontend/speech_interface/SpeechInteractions.gd" type="Script" id=7]
 [ext_resource path="res://frontend/AudioStreamPlayer.gd" type="Script" id=8]
 
 [node name="SpeechInteractions" type="Node"]
@@ -24,9 +23,6 @@ script = ExtResource( 7 )
 bus = "Speech"
 script = ExtResource( 8 )
 
-[node name="NPC" parent="." instance=ExtResource( 4 )]
-
 [node name="Openai" parent="." instance=ExtResource( 3 )]
 
 [connection signal="file_saved" from="Record" to="." method="_on_Record_file_saved"]
-[connection signal="trigger" from="NPC" to="." method="_on_NPC_trigger"]

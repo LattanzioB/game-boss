@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://frontend/Menu Background.gd" type="Script" id=1]
+[ext_resource path="res://frontend/StartScreen/Menu Background.gd" type="Script" id=1]
 [ext_resource path="res://assets/starry night 2 spritesheet.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]

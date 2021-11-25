@@ -2,9 +2,7 @@ extends Control
 
 onready var recorder = $Record
 onready var stt = $Stt
-onready var tts = $Tts
 onready var translator = $TranslatorHelper
-onready var npc = $NPC
 onready var vbox_container = $Menu/VBoxContainer
 onready var audio_player = $AudioStreamPlayer
 onready var gameIntro = $GameIntroduction
@@ -47,12 +45,12 @@ func _process(delta):
 		red_dot.visible = false
 		if (text_from_mic == "continuar"):
 			audio_player.play()
-	if Input.is_action_just_released("validation") && text_from_mic == "comenzar juego":
+	if Input.is_action_just_released("validation") && text_from_mic == "comenzar juego" && menu2.visible:
 		menu.visible = false 
 		menu2.visible = false
 		gameIntro.visible = true
-	if Input.is_action_just_released("answer"):
-		get_tree().change_scene("res://frontend/NPCScene.tscn")
+	if Input.is_action_just_released("answer") && gameIntro.visible:
+		get_tree().change_scene("res://frontend/NPCs/JohnScene.tscn")
 
 func _on_AudioStreamPlayer_finished():
 	vbox_container.remove_child(label)
