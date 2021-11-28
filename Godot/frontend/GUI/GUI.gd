@@ -48,7 +48,6 @@ func _on_Journal_journal_complete():
 
 
 func _on_Journal_new_trigger_found(trigger):
-	journal.show_trigger_text(trigger)
 	sfx.play()
 
 

@@ -2,5 +2,5 @@
 
 [ext_resource path="res://backend/NPCs/NPCs.gd" type="Script" id=1]
 
-[node name="JohnBack" type="Node"]
+[node name="NPCs" type="Node"]
 script = ExtResource( 1 )

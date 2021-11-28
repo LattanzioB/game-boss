@@ -9,13 +9,13 @@
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
 
-[node name="JohnScene" parent="." instance=ExtResource( 1 )]
+[node name="GUI" parent="." instance=ExtResource( 4 )]
 
 [node name="JohnBack" parent="." instance=ExtResource( 3 )]
 
-[node name="GUI" parent="." instance=ExtResource( 4 )]
+[node name="JohnScene" parent="." instance=ExtResource( 1 )]
 
 [node name="SpeechInteractions" parent="." instance=ExtResource( 5 )]
 
-[connection signal="trigger" from="JohnBack" to="." method="_on_JohnBack_trigger"]
+[connection signal="new_trigger_phrase" from="JohnBack" to="." method="_on_JohnBack_new_trigger_phrase"]
 [connection signal="speech_trigger" from="SpeechInteractions" to="." method="_on_SpeechInteractions_speech_trigger"]

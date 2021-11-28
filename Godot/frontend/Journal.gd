@@ -11,20 +11,29 @@ onready var triggers:Dictionary
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_triggers({"family" : "Ama a su familia", "walter": "Odia a Walter", "fishing": "Le encanta pescar"})
+	pass
 
-#Ej "family" : "Loves his family"
-func set_triggers(dict):
-	triggers = dict
+func show_tigger_phrase(trigger, phrase):
+	if triggers.keys().has(trigger):
+		change_label_text(trigger, phrase)
+		triggers[trigger] = phrase
+	else:
+		triggers[trigger] = phrase
+		show_trigger_text(trigger)
+
+func change_label_text(trigger, phrase):
+	for label in triggers_list:
+		if label.text == triggers[trigger]:
+			label.text = phrase
+	
 
 func show_trigger_text(trigger):
 	if triggers.has(trigger): 
-		emit_signal("new_trigger_found")
+		emit_signal("new_trigger_found", trigger)
 		var trigger_to_use = get_free_trigger_label()
-		var trigger_text = triggers.get(trigger)
+		var trigger_text = self.triggers.get(trigger)
 		trigger_to_use.set_text(trigger_text)
 		counter_up()
-		triggers.erase(trigger)
 		if(counter.text[0] == "3"):
 			emit_signal("journal_complete")
 	

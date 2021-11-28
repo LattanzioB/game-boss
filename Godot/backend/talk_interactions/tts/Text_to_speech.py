@@ -8,6 +8,7 @@ import os
 @exposed
 class Text_to_speech(Node):
 
+
 	
 	def _ready(self):
 		print("im here")
@@ -24,7 +25,7 @@ class Text_to_speech(Node):
 		self.model = torch.package.PackageImporter(self.local_file).load_pickle("tts_models", "model")
 		self.model.to(self.device)
 		print("im there")
-		self.create_speech(self.example_batch)
+		#self.create_speech(self.example_batch)
 		
 		
 	def create_speech(self, input_text, sample_rate=16000):

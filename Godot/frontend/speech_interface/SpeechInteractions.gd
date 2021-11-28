@@ -28,12 +28,10 @@ func _process(delta):
 	if Input.is_action_just_released("talk") && (!recording):
 		recording = true
 		recorder.start_recording()
-		#red_dot.visible = true
 	elif Input.is_action_just_released("talk") && (recording):
 		recording = false
 		recorder.stop_recording()
 		recorder.save_to_wav()
-		#red_dot.visible = false
 	if Input.is_action_just_pressed("validation") || Input.is_action_just_pressed("answer"):
 		valid_text("")
 	if Input.is_action_just_pressed("question"):

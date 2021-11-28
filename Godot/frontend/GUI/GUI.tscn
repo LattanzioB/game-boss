@@ -71,7 +71,7 @@ visible = false
 position = Vector2( 971.582, 552.981 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 9
+frame = 4
 
 [node name="SoundControl" type="Control" parent="."]
 visible = false
