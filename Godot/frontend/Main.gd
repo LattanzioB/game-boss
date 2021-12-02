@@ -1,6 +1,5 @@
 extends Node
 
-onready var john_back = $JohnBack
 onready var john_scene = $JohnScene
 onready var first_time_john = true
 
@@ -31,6 +30,7 @@ func change_scene_to_johns():
 	speechinter.visible = true
 	speechinter.set_active(true)
 	john_scene.set_gui(gui)
+	john_scene.set_speech_interactions(speechinter)
 	john_scene.load_scene(first_time_john)
 	first_time_john = false
 	

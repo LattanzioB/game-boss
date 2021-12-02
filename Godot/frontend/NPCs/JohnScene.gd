@@ -4,6 +4,7 @@ extends Node
 onready var fire_place = $FirePlacePlayer
 onready var speechIntr = $IntroductionPlayer
 onready var sceneloader = $SceneLoaded
+onready var back = $JohnBack
 onready var gui
 var speech_interactions
 
@@ -29,7 +30,7 @@ func load_scene(first_time):
 	if(first_time):
 		sceneloader.start()
 	fire_place.stream_paused = false
-	speechIntr.set_npc()
+	speech_interactions.set_npc(back)
 
 func _on_SceneLoaded_timeout():
 	speechIntr.play()
