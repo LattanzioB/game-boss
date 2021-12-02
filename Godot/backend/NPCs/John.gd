@@ -17,7 +17,7 @@ func _ready():
 		}
 	
 	triggers_synonyms ={
-		"walter": ["boss","walter","Walter","factory owner"], 
+		"walter": ["boss","walter","Walter","owner"], 
 		"family":["family", "wife",'kids',"children","sons"], 
 		"fishing":["fish", "fishing"]
 		}

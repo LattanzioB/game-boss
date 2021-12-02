@@ -2,15 +2,15 @@
 
 [ext_resource path="res://frontend/StartScreen/Menu background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://frontend/GUI/InputDevicesList.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/fonts/Pixel font.tres" type="Theme" id=3]
-[ext_resource path="res://frontend/StartScreen/Start Screen.gd" type="Script" id=4]
-[ext_resource path="res://frontend/GUI/Red-dot.tscn" type="PackedScene" id=5]
-[ext_resource path="res://backend/talk_interactions/stt/Speech_to_text.tscn" type="PackedScene" id=6]
-[ext_resource path="res://frontend/speech_interface/Record.tscn" type="PackedScene" id=7]
+[ext_resource path="res://frontend/speech_interface/Record.tscn" type="PackedScene" id=3]
+[ext_resource path="res://frontend/GUI/Red-dot.tscn" type="PackedScene" id=4]
+[ext_resource path="res://backend/talk_interactions/stt/Speech_to_text.tscn" type="PackedScene" id=5]
+[ext_resource path="res://frontend/StartScreen/Start Screen.gd" type="Script" id=6]
+[ext_resource path="res://assets/fonts/Pixel font.tres" type="Theme" id=7]
 [ext_resource path="res://assets/sfx/correct.mp3" type="AudioStream" id=8]
 
 [node name="StartScreen" type="Control"]
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -19,9 +19,9 @@ rec_path = NodePath("Rec")
 [node name="MenuBackground" parent="." instance=ExtResource( 1 )]
 z_index = -1
 
-[node name="Stt" parent="." instance=ExtResource( 6 )]
+[node name="Stt" parent="." instance=ExtResource( 5 )]
 
-[node name="Record" parent="." instance=ExtResource( 7 )]
+[node name="Record" parent="." instance=ExtResource( 3 )]
 
 [node name="Menu" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -48,7 +48,7 @@ custom_constants/separation = 16
 [node name="Title" type="Label" parent="Menu/VBoxContainer"]
 margin_right = 946.0
 margin_bottom = 23.0
-theme = ExtResource( 3 )
+theme = ExtResource( 7 )
 custom_constants/shadow_offset_x = 0
 text = "LET YOUR WAY BE HEARD"
 align = 1
@@ -57,7 +57,7 @@ align = 1
 margin_top = 39.0
 margin_right = 946.0
 margin_bottom = 114.0
-theme = ExtResource( 3 )
+theme = ExtResource( 7 )
 text = "Bienvenid@s, Let your way be heard es un juego que se basa en el uso de las palabras habladas como método de input
 de usuario, por ello es importante que cuentes con un micrófono para poder jugar.
 Seleccione de la lista de abajo el micrófono que quiera utilizar"
@@ -73,7 +73,7 @@ margin_bottom = 150.0
 margin_top = 166.0
 margin_right = 946.0
 margin_bottom = 267.0
-theme = ExtResource( 3 )
+theme = ExtResource( 7 )
 text = "Estos son los controles del juego:
  - La tecla \"Control\" comienza y finaliza la grabación desede el micrófono seleccionado.
  
@@ -109,7 +109,7 @@ custom_constants/separation = 16
 [node name="Title" type="Label" parent="Menu2/VBoxContainer2"]
 margin_right = 952.0
 margin_bottom = 23.0
-theme = ExtResource( 3 )
+theme = ExtResource( 7 )
 custom_constants/shadow_offset_x = 0
 text = "LET YOUR WAY BE HEARD"
 align = 1
@@ -118,7 +118,7 @@ align = 1
 margin_top = 39.0
 margin_right = 952.0
 margin_bottom = 140.0
-theme = ExtResource( 3 )
+theme = ExtResource( 7 )
 text = "- Una vez que oprimas \"Control\" por segunda vez, verás en pantalla lo que la máquina entendió 
 Si no estás conforme con el texto, puedes volver a grabar para sobreescribirlo.
  - Cuando estés conforme con el texto que muestra la pantalla, oprime la tecla \"Enter\" o \"A\" para envíar una
@@ -130,7 +130,7 @@ valign = 1
 margin_top = 156.0
 margin_right = 952.0
 margin_bottom = 335.0
-theme = ExtResource( 3 )
+theme = ExtResource( 7 )
 text = "Estos son los controles del juego:
  - La tecla \"Control\" comienza y finaliza la grabación desede el micrófono seleccionado.
  
@@ -167,7 +167,7 @@ custom_constants/separation = 16
 [node name="Title" type="Label" parent="GameIntroduction/VBoxContainer"]
 margin_right = 946.0
 margin_bottom = 23.0
-theme = ExtResource( 3 )
+theme = ExtResource( 7 )
 text = "LET YOUR WAY BE HEARD"
 align = 1
 
@@ -175,7 +175,7 @@ align = 1
 margin_top = 39.0
 margin_right = 946.0
 margin_bottom = 88.0
-theme = ExtResource( 3 )
+theme = ExtResource( 7 )
 text = "Has pensado en tener una conversacion con un personaje de un videojuego? 
 Que te gustaria saber de ellos? Crees que pueden responder todas tus dudas?"
 align = 1
@@ -185,7 +185,7 @@ valign = 1
 margin_top = 104.0
 margin_right = 946.0
 margin_bottom = 153.0
-theme = ExtResource( 3 )
+theme = ExtResource( 7 )
 text = "Imagina que sos un viajante en un mundo donde el motor a vapor es la maxima tecnologia. 
 Llegas a la casa de la familia Smith que te aloja una noche por unas monedas.
 
@@ -194,11 +194,11 @@ Presiona la tecla \"A\" para continuar"
 align = 1
 autowrap = true
 
-[node name="Rec" parent="." instance=ExtResource( 5 )]
+[node name="Rec" parent="." instance=ExtResource( 4 )]
 visible = false
 position = Vector2( 976, 552 )
 animation = "default"
-frame = 9
+frame = 7
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

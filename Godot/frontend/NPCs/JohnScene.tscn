@@ -111,22 +111,24 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="JohnScene" type="Node"]
+[node name="JohnScene" type="Control"]
 script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Background" type="AnimatedSprite" parent="."]
 position = Vector2( 515.124, 299.324 )
 scale = Vector2( 1, 1.03311 )
 z_index = -1
 frames = SubResource( 13 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="FirePlacePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -18.909
-autoplay = true
-bus = "FireFx"
+volume_db = -18.0
+bus = "backgroundFx"
 
 [node name="IntroductionPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
@@ -137,14 +139,13 @@ volume_db = -10.0
 position = Vector2( 870.143, 441.071 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 14 )
-frame = 25
+frame = 7
 playing = true
 flip_h = true
 
 [node name="SceneLoaded" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
-autostart = true
 
 [connection signal="finished" from="IntroductionPlayer" to="." method="_on_IntroductionPlayer_finished"]
 [connection signal="timeout" from="SceneLoaded" to="." method="_on_SceneLoaded_timeout"]

@@ -8,8 +8,11 @@
 [ext_resource path="res://frontend/speech_interface/SpeechInteractions.gd" type="Script" id=7]
 [ext_resource path="res://frontend/AudioStreamPlayer.gd" type="Script" id=8]
 
-[node name="SpeechInteractions" type="Node"]
+[node name="SpeechInteractions" type="Control"]
 script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Stt" parent="." instance=ExtResource( 1 )]
 

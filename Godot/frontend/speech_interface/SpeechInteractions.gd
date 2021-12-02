@@ -8,7 +8,7 @@ onready var tts = $Tts
 onready var translator = $TranslatorHelper
 onready var audio_player = $AudioStreamPlayer
 var chatbox 
-
+onready var active = false
 
 
 var npc
@@ -25,18 +25,21 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_released("talk") && (!recording):
+	if Input.is_action_just_released("talk") && (!recording) && active:
 		recording = true
 		recorder.start_recording()
-	elif Input.is_action_just_released("talk") && (recording):
+	elif Input.is_action_just_released("talk") && (recording) && active:
 		recording = false
 		recorder.stop_recording()
 		recorder.save_to_wav()
-	if Input.is_action_just_pressed("validation") || Input.is_action_just_pressed("answer"):
+	if (Input.is_action_just_pressed("validation") && active) || (Input.is_action_just_pressed("answer") && active):
 		valid_text("")
-	if Input.is_action_just_pressed("question"):
+	if Input.is_action_just_pressed("question") && active:
 		valid_text("?")
 
+
+func set_active(bul):
+	active = bul
 
 func set_npc(npc_back):
 	npc = npc_back

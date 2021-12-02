@@ -1,19 +1,19 @@
 extends Control
 
+signal intro_finish
+
 onready var recorder = $Record
 onready var stt = $Stt
-onready var translator = $TranslatorHelper
 onready var vbox_container = $Menu/VBoxContainer
 onready var audio_player = $AudioStreamPlayer
 onready var gameIntro = $GameIntroduction
 onready var menu = $Menu
 onready var menu2 = $Menu2
 
-export var chatbox_path:NodePath
-onready var chatbox = get_node(chatbox_path)
-
 export var rec_path:NodePath
 onready var red_dot = get_node(rec_path)
+
+onready var active = true
 
 var recording = false
 var text_from_mic = ""
@@ -32,11 +32,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_released("talk") && (!recording):
+	if Input.is_action_just_released("talk") && (!recording) && active:
 		recording = true
 		recorder.start_recording()
 		red_dot.visible = true
-	elif Input.is_action_just_released("talk") && (recording):
+	elif Input.is_action_just_released("talk") && (recording) && active:
 		recording = false
 		recorder.stop_recording()
 		recorder.save_to_wav()
@@ -45,12 +45,16 @@ func _process(delta):
 		red_dot.visible = false
 		if (text_from_mic == "continuar"):
 			audio_player.play()
-	if Input.is_action_just_released("validation") && text_from_mic == "comenzar juego" && menu2.visible:
+	if Input.is_action_just_released("validation") && text_from_mic == "comenzar juego" && menu2.visible && active:
 		menu.visible = false 
 		menu2.visible = false
 		gameIntro.visible = true
-	if Input.is_action_just_released("answer") && gameIntro.visible:
-		get_tree().change_scene("res://frontend/NPCs/JohnScene.tscn")
+	if Input.is_action_just_released("answer") && gameIntro.visible && active:
+		emit_signal("intro_finish")
+
+
+func disable():
+	active = false
 
 func _on_AudioStreamPlayer_finished():
 	vbox_container.remove_child(label)

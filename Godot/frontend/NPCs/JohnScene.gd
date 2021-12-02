@@ -2,9 +2,8 @@ extends Node
 
 
 onready var fire_place = $FirePlacePlayer
-onready var journal = $Journal
-onready var sound_control =$SoundControl 
 onready var speechIntr = $IntroductionPlayer
+onready var sceneloader = $SceneLoaded
 onready var gui
 var speech_interactions
 
@@ -18,13 +17,19 @@ onready var introduction_counter = 4
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	speechIntr.stream = load("res://assets/Speechs/1Bienvenido.wav")
-
+	fire_place.stream_paused = true
+	
 func set_gui(newgui):
 	gui = newgui
 
 func set_speech_interactions(speechinteractions):
 	speech_interactions = speechinteractions
 
+func load_scene(first_time):
+	if(first_time):
+		sceneloader.start()
+	fire_place.stream_paused = false
+	speechIntr.set_npc()
 
 func _on_SceneLoaded_timeout():
 	speechIntr.play()
