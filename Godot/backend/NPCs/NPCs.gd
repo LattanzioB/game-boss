@@ -95,7 +95,7 @@ func matches(input, text):
 				#si es la primera vez que encuentra el valor
 				if !self.get_triggers_found().has(trigger):
 					self.get_triggers_found().append(trigger)
-					emit_signal("new_trigger_phrase", trigger, self.get_trigger_phrase(trigger, get_emotion_from_trigger(trigger)))
+					emit_signal("new_trigger_phrase", trigger, self.get_trigger_phrase(trigger, get_emotion_from_trigger(trigger)), sentiment)
 				else:
 					look_for_shifters(text, trigger)
 	return sentiment
@@ -125,7 +125,7 @@ func look_for_shifters(text, trigger):
 					if self.check_shifters_to_change(trigger, emotion) && (!self.get_sentiments().get(emotion).has(trigger)):
 						#change emotion to trigger
 						self.change_emotion_to_trigger(trigger, emotion)
-						emit_signal('new_trigger_phrase', trigger, self.get_trigger_phrase(trigger, emotion))
+						emit_signal('new_trigger_phrase', trigger, self.get_trigger_phrase(trigger, emotion), emotion)
 				elif self.get_shifters_synonyms().get(shifter).has(word) && (self.get_shifters_received().has(shifter)):
 					#shifter ya obtenido
 					pass

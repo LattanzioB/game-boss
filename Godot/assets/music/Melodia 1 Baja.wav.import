@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Melodia 1 Baja.wav-5b9e9e75928aa7a81972931c81797d5e.sample"
+
+[deps]
+
+source_file="res://assets/music/Melodia 1 Baja.wav"
+dest_files=[ "res://.import/Melodia 1 Baja.wav-5b9e9e75928aa7a81972931c81797d5e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

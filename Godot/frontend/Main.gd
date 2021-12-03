@@ -9,6 +9,7 @@ onready var gui = $GUI
 onready var chatbox = $GUI/Chatbox
 onready var journal = $GUI/Journal
 onready var speechinter = $SpeechInteractions
+onready var music_controler = $MusicControler
 
 
 onready var trigger_spawned = false
@@ -42,5 +43,6 @@ func _on_StartScreen_intro_finish():
 	change_scene_to_johns()
 
 
-func _on_JohnScene_new_trigger_phrase(trigger, phrase):
+func _on_JohnScene_new_trigger_phrase(trigger, phrase, sentiment):
 	journal.show_tigger_phrase(trigger, phrase)
+	music_controler.new_sentiment(sentiment)
