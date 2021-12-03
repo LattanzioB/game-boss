@@ -22,3 +22,4 @@ visible = false
 
 [connection signal="speech_trigger" from="SpeechInteractions" to="." method="_on_SpeechInteractions_speech_trigger"]
 [connection signal="intro_finish" from="StartScreen" to="." method="_on_StartScreen_intro_finish"]
+[connection signal="new_trigger_phrase" from="JohnScene" to="." method="_on_JohnScene_new_trigger_phrase"]

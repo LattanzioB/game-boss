@@ -1,5 +1,6 @@
 extends Node
 
+signal new_trigger_phrase
 
 onready var fire_place = $FirePlacePlayer
 onready var speechIntr = $IntroductionPlayer
@@ -52,3 +53,7 @@ func _process(delta):
 		fire_place.play()
 
 
+
+
+func _on_JohnBack_new_trigger_phrase(trigger, phrase):
+	emit_signal("new_trigger_phrase", trigger, phrase)

@@ -3,6 +3,8 @@ extends "res://backend/NPCs/NPCs.gd"
 
 
 func _ready():
+	
+	npc_name = "Walter"	
 	sentiments = {
 		"hate" : [], 
 		"love" : [], 

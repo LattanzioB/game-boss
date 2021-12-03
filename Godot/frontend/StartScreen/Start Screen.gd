@@ -49,7 +49,7 @@ func _process(delta):
 		menu.visible = false 
 		menu2.visible = false
 		gameIntro.visible = true
-	if Input.is_action_just_released("answer") && gameIntro.visible && active:
+	if (Input.is_action_just_released("answer") && gameIntro.visible && active) || Input.is_action_just_released("escape"):
 		emit_signal("intro_finish")
 
 
