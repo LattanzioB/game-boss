@@ -103,11 +103,12 @@ Juan:
 haces todo....
 
 Sage:
-En la ciudad existen 3 personajes principales. Juan que ya lo conociste. Walter que lo menciono Juan anoche y Bob
-que tiene una opinion distinta a la que tiene Juan. Te invito a que recorras la ciudad y dialogues con ellos para 
+Veo que ya conociste a Juan. En la ciudad hay otras dos personas con las que podrás hablar, Walter que lo menciono Juan anoche y Bob.
+Bob tiene una opinion distinta sobre Walter a la que tiene Juan. 
+Te invito a que recorras la ciudad y dialogues con ellos para 
 formar tus propias ideas.
 Cuando hayas hablado con todos y descubras sus motivaciones vuelve a buscarme.
-
+Utilizá el mapa para desplazarte por la ciudad.
 
 faltan completar
 Sabes tantas motivasciones de Juan, te faltan x de walter y x de bob.
