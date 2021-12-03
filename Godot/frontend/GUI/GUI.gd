@@ -39,6 +39,10 @@ func _on_FireFx_volume_control_value_changed(value):
 func _on_NPC_voice_volume_control_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Speech"), value)
 
+func _on_Music_volume_control_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BaseMelody"), value)
+
+
 func _on_Journal_on_button_pressed():
 	journal.visible = !journal.visible
 
@@ -66,3 +70,6 @@ func _on_ConfigurationGear_mouse_entered():
 
 func _on_ConfigurationGear_mouse_exited():
 	$SettingsTooltip.visible = false
+
+
+
