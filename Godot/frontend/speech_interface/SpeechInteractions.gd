@@ -33,7 +33,7 @@ func _process(delta):
 		recorder.stop_recording()
 		recorder.save_to_wav()
 	if (Input.is_action_just_pressed("validation") && active) || (Input.is_action_just_pressed("answer") && active):
-		valid_text("")
+		valid_text(" ")
 	if Input.is_action_just_pressed("question") && active:
 		valid_text("?")
 
@@ -58,8 +58,8 @@ func _on_Record_file_saved():
 #Permitir al usuario modificar y validar el texto, y enviarlo con "enter"
 func valid_text(messege_type):
 	var input_text = translator.translate_to_english(text_from_mic)
-	npc.any_matches(input_text)
-	var final_input ="Robert: " + input_text + messege_type + "\n\nJuan" + " says:"
+	var sentiment = npc.any_matches(input_text)
+	var final_input ="Robert: " + input_text + messege_type + "\n\n" + npc.get_name() + npc.get_adverb(sentiment) +" says:"
 	npc.add_player_coment(final_input)
 	var dialog_history = npc.get_dialog_history()
 	var response = openai.get_response(dialog_history)

@@ -122,7 +122,7 @@ position = Vector2( 515.124, 299.324 )
 scale = Vector2( 1, 1.03311 )
 z_index = -1
 frames = SubResource( 13 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="FirePlacePlayer" type="AudioStreamPlayer" parent="."]
@@ -139,7 +139,7 @@ volume_db = -10.0
 position = Vector2( 870.143, 441.071 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 14 )
-frame = 7
+frame = 4
 playing = true
 flip_h = true
 
@@ -148,4 +148,5 @@ wait_time = 2.0
 one_shot = true
 
 [connection signal="finished" from="IntroductionPlayer" to="." method="_on_IntroductionPlayer_finished"]
+[connection signal="new_trigger_phrase" from="JohnBack" to="." method="_on_JohnBack_new_trigger_phrase"]
 [connection signal="timeout" from="SceneLoaded" to="." method="_on_SceneLoaded_timeout"]

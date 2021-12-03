@@ -1,6 +1,5 @@
 extends Node
 
-onready var john_back = $JohnBack
 onready var john_scene = $JohnScene
 onready var first_time_john = true
 
@@ -10,6 +9,7 @@ onready var gui = $GUI
 onready var chatbox = $GUI/Chatbox
 onready var journal = $GUI/Journal
 onready var speechinter = $SpeechInteractions
+onready var music_controler = $MusicControler
 
 
 onready var trigger_spawned = false
@@ -31,19 +31,18 @@ func change_scene_to_johns():
 	speechinter.visible = true
 	speechinter.set_active(true)
 	john_scene.set_gui(gui)
+	john_scene.set_speech_interactions(speechinter)
 	john_scene.load_scene(first_time_john)
 	first_time_john = false
 	
-
-func _on_JohnBack_trigger(trigger):
-	journal.show_trigger_text(trigger)
-
-
-func _on_JohnBack_new_trigger_phrase(trigger, phrase):
-	journal.show_tigger_phrase(trigger, phrase)
 
 
 func _on_StartScreen_intro_finish():
 	start_screen.visible = false
 	start_screen.disable()
 	change_scene_to_johns()
+
+
+func _on_JohnScene_new_trigger_phrase(trigger, phrase, sentiment):
+	journal.show_tigger_phrase(trigger, phrase)
+	music_controler.new_sentiment(sentiment)

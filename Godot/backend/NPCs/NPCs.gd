@@ -4,7 +4,7 @@ signal new_trigger_phrase
 
 var dialog_history
 var questions
-
+var npc_name
 var sentiments
 var trigger_phrases
 var triggers_synonyms
@@ -16,8 +16,23 @@ var shifters_synonyms
 
 var triggered_questions
 
+onready var sentiment_adverbs = {
+		"hate" : " hatefully", 
+		"love" : " lovingly", 
+		"empathy" : " empathetically"
+}
+
 func _ready():
 	pass 
+
+func get_adverb(sentiment):
+	var adverb = ' '
+	if sentiment != '':
+		adverb = sentiment_adverbs.get(sentiment)
+	return adverb
+	
+func get_name():
+	return self.npc_name
 
 func get_shifters_synonyms():
 	return self.shifters_synonyms
@@ -61,26 +76,38 @@ func add_npc_coment(coment):
 func add_player_coment(coment):
 	self.dialog_history = dialog_history + "\n\n" + coment
 
+func any_matches(input):
+	var sentiment 
+	var words = input.split(" ", true)
+	for word in words:
+		sentiment = matches(word, words)
+	return sentiment
+
 func matches(input, text):
+	var sentiment = ''
 	#iterate trigger dict 
 	for trigger in self.get_triggers_synonyms().keys():
 		#iterate values of triggers synonyms
-		for value in self.get_triggers_synonyms().get(trigger):
+		for synonym in self.get_triggers_synonyms().get(trigger):
 			#Si encuentra un valor igual al input
-			if value == input:
+			if synonym == input:
+				sentiment = self.get_emotion_from_trigger(trigger)
 				#si es la primera vez que encuentra el valor
 				if !self.get_triggers_found().has(trigger):
 					self.get_triggers_found().append(trigger)
-					emit_signal("new_trigger_phrase", trigger, self.get_trigger_phrase(trigger, get_emotion_from_trigger(trigger)))
+					emit_signal("new_trigger_phrase", trigger, self.get_trigger_phrase(trigger, get_emotion_from_trigger(trigger)), sentiment)
 				else:
 					look_for_shifters(text, trigger)
-
+	return sentiment
+	
 func get_emotion_from_trigger(trigger):
 	var result_emotion 
 	for emotion in self.get_sentiments(): 
 		if self.get_sentiments()[emotion].has(trigger):
 			result_emotion = emotion
 	return result_emotion
+	
+
 #gets an array of words that may have a shifter.
 func look_for_shifters(text, trigger):
 	for word in text:
@@ -98,7 +125,7 @@ func look_for_shifters(text, trigger):
 					if self.check_shifters_to_change(trigger, emotion) && (!self.get_sentiments().get(emotion).has(trigger)):
 						#change emotion to trigger
 						self.change_emotion_to_trigger(trigger, emotion)
-						emit_signal('new_trigger_phrase', trigger, self.get_trigger_phrase(trigger, emotion))
+						emit_signal('new_trigger_phrase', trigger, self.get_trigger_phrase(trigger, emotion), emotion)
 				elif self.get_shifters_synonyms().get(shifter).has(word) && (self.get_shifters_received().has(shifter)):
 					#shifter ya obtenido
 					pass
@@ -130,11 +157,6 @@ func set_shifter_as_received(trigger, emotion, shifter):
 
 
 
-
-func any_matches(input):
-	var words = input.split(" ", true)
-	for word in words:
-		matches(word, words)
 
 	
 func set_sentiments(newsentiments:Dictionary):

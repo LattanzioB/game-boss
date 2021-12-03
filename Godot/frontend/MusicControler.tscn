@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/music/Melodia 1 Baja.wav" type="AudioStream" id=1]
+[ext_resource path="res://frontend/MusicControler.gd" type="Script" id=2]
+[ext_resource path="res://assets/music/Amor 2.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/music/Odio 2.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/music/Empatia 2.wav" type="AudioStream" id=5]
+
+[node name="MusicControler" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+amor = ExtResource( 3 )
+empathy = ExtResource( 5 )
+hate = ExtResource( 4 )
+
+[node name="BaseMelody" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+bus = "BaseMelody"
+
+[node name="MelodyTimer" type="Timer" parent="."]
+wait_time = 16.0
+autostart = true
+
+[node name="SentimentChords" type="AudioStreamPlayer" parent="."]
+bus = "SentimenChords"
+
+[connection signal="finished" from="BaseMelody" to="." method="_on_BaseMelody_finished"]
+[connection signal="timeout" from="MelodyTimer" to="." method="_on_MelodyTimer_timeout"]
