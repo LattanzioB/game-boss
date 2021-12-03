@@ -96,3 +96,11 @@ func _on_SageScene_introduction_finished():
 
 func _on_ChangeSceneTimer_timeout():
 	second_sage_scene()
+
+
+func _on_SpeechInteractions_new_speech():
+	gui.thinking_bubble.visible = true
+
+
+func _on_SpeechInteractions_finish_loading_speech():
+	gui.thinking_bubble.visible = false
