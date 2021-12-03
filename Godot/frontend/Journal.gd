@@ -2,10 +2,13 @@ extends Sprite
 
 signal journal_complete
 signal new_trigger_found
+signal first_trigger
 
 onready var npc_name = $NPC_Name
 onready var triggers_list = [$trigger_1, $trigger_2, $trigger_3]
 onready var counter = $counter
+
+onready var first_trigger = false
 
 onready var triggers:Dictionary
 
@@ -34,6 +37,9 @@ func show_trigger_text(trigger):
 		var trigger_text = self.triggers.get(trigger)
 		trigger_to_use.set_text(trigger_text)
 		counter_up()
+		if !first_trigger:
+			emit_signal("first_trigger")
+			first_trigger = true
 		if(counter.text[0] == "3"):
 			emit_signal("journal_complete")
 	
@@ -51,6 +57,3 @@ func get_free_trigger_label():
 	#Agregar excepcpion no hay suficientes triggers en esta pagina.
 	return trigger[0]
 
-
-func _on_Close_pressed():
-	self.visible = false

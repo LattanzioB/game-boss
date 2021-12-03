@@ -122,7 +122,7 @@ position = Vector2( 515.124, 299.324 )
 scale = Vector2( 1, 1.03311 )
 z_index = -1
 frames = SubResource( 13 )
-frame = 1
+frame = 9
 playing = true
 
 [node name="FirePlacePlayer" type="AudioStreamPlayer" parent="."]
@@ -136,10 +136,10 @@ volume_db = -10.0
 [node name="JohnBack" parent="." instance=ExtResource( 43 )]
 
 [node name="JohnSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 870.143, 441.071 )
+position = Vector2( 870, 440 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 14 )
-frame = 4
+frame = 20
 playing = true
 flip_h = true
 

@@ -184,7 +184,7 @@ valign = 1
 [node name="Explanation" type="Label" parent="GameIntroduction/VBoxContainer"]
 margin_top = 104.0
 margin_right = 946.0
-margin_bottom = 153.0
+margin_bottom = 231.0
 theme = ExtResource( 7 )
 text = "Imagina que sos un viajante en un mundo donde el motor a vapor es la maxima tecnologia. 
 Llegas a la casa de la familia Smith que te aloja una noche por unas monedas.
@@ -198,6 +198,7 @@ autowrap = true
 visible = false
 position = Vector2( 976, 552 )
 animation = "default"
+frame = 7
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

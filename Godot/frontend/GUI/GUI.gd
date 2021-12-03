@@ -1,12 +1,15 @@
 extends Control
 
+signal change_scene
 
 onready var chatbox = $Chatbox
 onready var sound_control = $SoundControl
 onready var journal = $Journal
 onready var rec = $Rec
 onready var sfx = $SFx
-
+onready var map = $Map
+onready var journal_button = $Journal_on_button
+onready var map_button = $Map_on_button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +24,12 @@ func _process(delta):
 		rec.visible = false
 
 
+func reset():
+	chatbox.clear()
+	sound_control.visible = false
+	journal.visible = false
+	sfx.stop()
+	map.visible = false 
 
 func chatbox_spawn_npc_tile(text):
 	chatbox.spawn_npc_tile(text)
@@ -48,7 +57,7 @@ func _on_Journal_on_button_pressed():
 
 
 func _on_Journal_journal_complete():
-	$GameOver.visible = true
+	get_parent().start_scene_changer_timer()
 
 
 func _on_Journal_new_trigger_found(trigger):
@@ -73,3 +82,21 @@ func _on_ConfigurationGear_mouse_exited():
 
 
 
+func _on_Map_on_button_pressed():
+	map.visible = !map.visible
+
+
+func _on_Map_on_button_mouse_entered():
+	$MapTooltip.visible = true
+
+
+func _on_Map_on_button_mouse_exited():
+	$MapTooltip.visible = false
+
+
+func _on_Map_change_scene(scene):
+	emit_signal("change_scene", scene)
+
+
+func _on_Journal_first_trigger():
+	journal.visible = true

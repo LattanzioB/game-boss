@@ -8,9 +8,12 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("clear"):
-		for n in container.get_children():
-			container.remove_child(n)
-			n.queue_free()
+		clear()
+		
+func clear():
+	for n in container.get_children():
+		container.remove_child(n)
+		n.queue_free()
 
 func spawn_player_tile(text):
 	if (last_label != null && last_label.get_align() == 0):

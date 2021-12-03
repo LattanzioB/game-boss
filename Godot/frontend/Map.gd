@@ -1,5 +1,7 @@
 extends Node
 
+signal change_scene
+
 onready var jhon_label = $"Jhon Label"
 onready var sage_label = $"Sage Label"
 onready var factory_label = $"Factory Label"
@@ -8,9 +10,14 @@ onready var bob_label = $"Bob Label"
 func _ready():
 	pass
 
+
+func change_scene(scene):
+	emit_signal("change_scene", scene)
+
+
 func _on_Jhons_House_input_event(viewport, event, shape_idx):
 	if (event is InputEventMouseButton && event.pressed):
-		_instantiate_confirmation_text_box("¿Ir a la casa de Juan?", "jhon")
+		_instantiate_confirmation_text_box("¿Ir a la casa de Juan?", "john")
 
 func _on_Factory_input_event(viewport, event, shape_idx):
 	if (event is InputEventMouseButton && event.pressed):
