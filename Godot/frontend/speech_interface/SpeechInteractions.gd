@@ -1,6 +1,8 @@
 extends Node
 
 signal speech_trigger
+signal new_speech
+signal finish_loading_speech
 
 onready var recorder = $Record
 onready var stt = $Stt
@@ -34,8 +36,10 @@ func _process(delta):
 		recorder.save_to_wav()
 	if text_from_mic != "":
 		if (Input.is_action_just_pressed("validation") && active) || (Input.is_action_just_pressed("answer") && active):
+			emit_signal("new_speech")
 			valid_text(" ")
 		if (Input.is_action_just_pressed("question") && active):
+			emit_signal("new_speech")
 			valid_text("?")
 
 
@@ -76,7 +80,8 @@ func valid_text(messege_type):
 	audio_player.play()
 	if(chatbox != null):
 		chatbox.spawn_npc_tile(response)
-
+	emit_signal('finish_loading_speech')
+	
 
 func add_npc_question(response):
 	var response_plus_question 

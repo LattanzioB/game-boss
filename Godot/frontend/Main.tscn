@@ -32,6 +32,8 @@ wait_time = 5.0
 one_shot = true
 
 [connection signal="change_scene" from="GUI" to="." method="_on_GUI_change_scene"]
+[connection signal="finish_loading_speech" from="SpeechInteractions" to="." method="_on_SpeechInteractions_finish_loading_speech"]
+[connection signal="new_speech" from="SpeechInteractions" to="." method="_on_SpeechInteractions_new_speech"]
 [connection signal="speech_trigger" from="SpeechInteractions" to="." method="_on_SpeechInteractions_speech_trigger"]
 [connection signal="intro_finish" from="StartScreen" to="." method="_on_StartScreen_intro_finish"]
 [connection signal="new_trigger_phrase" from="JohnScene" to="." method="_on_JohnScene_new_trigger_phrase"]

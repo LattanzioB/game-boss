@@ -30,17 +30,17 @@ texture = ExtResource( 2 )
 [node name="ForestPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -18.0
-bus = "backgroundFx"
+bus = "BackgroundFx"
 
 [node name="IntroductionPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
+bus = "Speech"
 
 [node name="SageSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 870, 440 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 1
 frames = SubResource( 14 )
-frame = 8
 playing = true
 flip_h = true
 

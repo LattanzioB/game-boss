@@ -10,6 +10,7 @@ onready var sfx = $SFx
 onready var map = $Map
 onready var journal_button = $Journal_on_button
 onready var map_button = $Map_on_button
+onready var thinking_bubble = $Thinking_bubble
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,7 +43,7 @@ func _on_ConfigurationGear_pressed():
 
 
 func _on_FireFx_volume_control_value_changed(value):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("FireFx"), value)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BackgroundFx"), value)
 
 
 func _on_NPC_voice_volume_control_value_changed(value):
