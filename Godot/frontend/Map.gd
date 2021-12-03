@@ -1,5 +1,10 @@
 extends Node
 
+onready var jhon_label = $"Jhon Label"
+onready var sage_label = $"Sage Label"
+onready var factory_label = $"Factory Label"
+onready var bob_label = $"Bob Label"
+
 func _ready():
 	pass
 
@@ -27,3 +32,27 @@ func _instantiate_confirmation_text_box(text_to_show, scene_to_change):
 	text_box.assign_text()
 	text_box.set_position(Vector2(0.032, -0.592))
 	text_box.visible = true
+
+func _on_Jhons_House_mouse_entered():
+	jhon_label.visible = true
+
+func _on_Jhons_House_mouse_exited():
+	jhon_label.visible = false
+
+func _on_Factory_mouse_entered():
+	factory_label.visible = true
+
+func _on_Factory_mouse_exited():
+	factory_label.visible = false
+
+func _on_Sages_Woods_mouse_entered():
+	sage_label.visible = true
+
+func _on_Sages_Woods_mouse_exited():
+	sage_label.visible = false
+
+func _on_Bobs_House_mouse_entered():
+	bob_label.visible = true
+
+func _on_Bobs_House_mouse_exited():
+	bob_label.visible = false

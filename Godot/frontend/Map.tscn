@@ -69,7 +69,7 @@ animations = [ {
 position = Vector2( 512.829, 305.228 )
 scale = Vector2( 1.41665, 1.14299 )
 frames = SubResource( 11 )
-frame = 6
+frame = 2
 playing = true
 script = ExtResource( 6 )
 
@@ -95,16 +95,66 @@ polygon = PoolVector2Array( -86.3077, -26.1179, -73.3897, -29.6815, -73.8351, -3
 
 [node name="Sprite" type="Sprite" parent="."]
 
-[node name="Jhon\'s Label" type="Label" parent="."]
-margin_left = 39.779
-margin_top = 45.8308
-margin_right = 79.779
-margin_bottom = 59.8308
+[node name="Jhon Label" type="Label" parent="."]
+visible = false
+margin_left = 19.5972
+margin_top = 37.7381
+margin_right = 98.5972
+margin_bottom = 51.7381
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Casa de Juan"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sage Label" type="Label" parent="."]
+visible = false
+margin_left = 265.56
+margin_top = -0.983501
+margin_right = 323.56
+margin_bottom = 30.0165
+text = "Bosque
+del Sabio"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Factory Label" type="Label" parent="."]
+visible = false
+margin_left = 170.048
+margin_top = 1.55394
+margin_right = 215.048
+margin_bottom = 15.5539
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Fábrica"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bob Label" type="Label" parent="."]
+visible = false
+margin_left = -135.736
+margin_top = -78.9973
+margin_right = -57.7357
+margin_bottom = -64.9973
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Casa de Bob"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [connection signal="input_event" from="Jhon's House" to="." method="_on_Jhons_House_input_event"]
+[connection signal="mouse_entered" from="Jhon's House" to="." method="_on_Jhons_House_mouse_entered"]
+[connection signal="mouse_exited" from="Jhon's House" to="." method="_on_Jhons_House_mouse_exited"]
 [connection signal="input_event" from="Factory" to="." method="_on_Factory_input_event"]
+[connection signal="mouse_entered" from="Factory" to="." method="_on_Factory_mouse_entered"]
+[connection signal="mouse_exited" from="Factory" to="." method="_on_Factory_mouse_exited"]
 [connection signal="input_event" from="Sage's Woods" to="." method="_on_Sages_Woods_input_event"]
+[connection signal="mouse_entered" from="Sage's Woods" to="." method="_on_Sages_Woods_mouse_entered"]
+[connection signal="mouse_exited" from="Sage's Woods" to="." method="_on_Sages_Woods_mouse_exited"]
 [connection signal="input_event" from="Bob's House" to="." method="_on_Bobs_House_input_event"]
+[connection signal="mouse_entered" from="Bob's House" to="." method="_on_Bobs_House_mouse_entered"]
+[connection signal="mouse_exited" from="Bob's House" to="." method="_on_Bobs_House_mouse_exited"]
