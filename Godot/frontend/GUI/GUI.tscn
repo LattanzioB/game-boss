@@ -71,7 +71,7 @@ visible = false
 position = Vector2( 971.582, 552.981 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 1
+frame = 3
 
 [node name="SoundControl" type="Control" parent="."]
 visible = false
@@ -103,12 +103,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Music_volume_control" type="HSlider" parent="SoundControl"]
+margin_left = 870.0
+margin_top = 155.593
+margin_right = 1000.0
+margin_bottom = 223.593
+min_value = -30.0
+max_value = 10.0
+value = -8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Fire_label" type="Label" parent="SoundControl"]
 margin_left = 880.0
 margin_top = 79.0
 margin_right = 919.0
 margin_bottom = 93.0
 text = "Fire fx"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music_label" type="Label" parent="SoundControl"]
+margin_left = 880.0
+margin_top = 163.0
+margin_right = 919.0
+margin_bottom = 177.0
+text = "Music"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -148,3 +170,4 @@ position = Vector2( 224, 176 )
 [connection signal="new_trigger_found" from="Journal" to="." method="_on_Journal_new_trigger_found"]
 [connection signal="value_changed" from="SoundControl/NPC_voice_volume_control" to="." method="_on_NPC_voice_volume_control_value_changed"]
 [connection signal="value_changed" from="SoundControl/FireFx_volume_control" to="." method="_on_FireFx_volume_control_value_changed"]
+[connection signal="value_changed" from="SoundControl/Music_volume_control" to="." method="_on_Music_volume_control_value_changed"]
