@@ -1,0 +1,110 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/mapa/h60.png" type="Texture" id=1]
+[ext_resource path="res://assets/mapa/h100.png" type="Texture" id=2]
+[ext_resource path="res://assets/mapa/h80.png" type="Texture" id=3]
+[ext_resource path="res://assets/mapa/h20.png" type="Texture" id=4]
+[ext_resource path="res://assets/mapa/mapa1.png" type="Texture" id=5]
+[ext_resource path="res://frontend/Map.gd" type="Script" id=6]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 700, 532 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 700, 532 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 700, 532 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 700, 532 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 700, 532 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 700, 532 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 700, 532 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 700, 532 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 700, 532 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 700, 532 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Node2D" type="AnimatedSprite"]
+position = Vector2( 512.829, 305.228 )
+scale = Vector2( 1.41665, 1.14299 )
+frames = SubResource( 11 )
+frame = 6
+playing = true
+script = ExtResource( 6 )
+
+[node name="Jhon\'s House" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Jhon\'s House"]
+polygon = PoolVector2Array( 34.8541, 87.0263, 36.1905, 95.0444, 50.8903, 104.399, 75.3901, 87.0263, 58.463, 62.5266 )
+
+[node name="Factory" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Factory"]
+polygon = PoolVector2Array( 177.843, 60.2993, 175.616, 49.1631, 182.298, 42.0359, 181.852, 33.5724, 189.425, 21.9907, 223.279, 34.4633, 230.852, 42.4814, 230.406, 49.6086, 237.088, 57.1812, 233.97, 62.5266, 233.97, 71.4356, 215.707, 80.79, 201.898, 74.1083, 197.889, 75.8901, 183.634, 70.0992 )
+
+[node name="Sage\'s Woods" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sage\'s Woods"]
+polygon = PoolVector2Array( 270.497, 78.1173, 286.533, 35.7996, 293.215, 42.4814, 303.015, 24.2179, 314.596, 52.2812, 315.933, 87.9172, 272.279, 92.8171 )
+
+[node name="Bob\'s House" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bob\'s House"]
+polygon = PoolVector2Array( -86.3077, -26.1179, -73.3897, -29.6815, -73.8351, -35.9178, -64.9261, -31.0179, -51.1172, -37.6996, -50.2263, -48.8358, -57.799, -59.0812, -72.0533, -65.7629, -96.5531, -54.6267, -107.689, -41.7086, -107.244, -29.6815 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="Jhon\'s Label" type="Label" parent="."]
+margin_left = 39.779
+margin_top = 45.8308
+margin_right = 79.779
+margin_bottom = 59.8308
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="input_event" from="Jhon's House" to="." method="_on_Jhons_House_input_event"]
+[connection signal="input_event" from="Factory" to="." method="_on_Factory_input_event"]
+[connection signal="input_event" from="Sage's Woods" to="." method="_on_Sages_Woods_input_event"]
+[connection signal="input_event" from="Bob's House" to="." method="_on_Bobs_House_input_event"]
