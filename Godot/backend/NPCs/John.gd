@@ -4,7 +4,7 @@ extends "res://backend/NPCs/NPCs.gd"
 
 func _ready():
 		
-	npc_name = "Juan"
+	npc_name = "juan"
 	sentiments = {
 		"hate" : ["walter"], 
 		"love" : ["family", "fishing"], 
@@ -12,10 +12,10 @@ func _ready():
 		}
 	
 	trigger_phrases = {
-		"hate" : {"walter" : "Odio a Walter"}, 
-		"love" : {"family" : "Ama a su familia", 
-				  "fishing": "Le encanta pescar" }, 
-		"empathy":{"walter" : "Empatiza con Walter"}, 
+		"hate" : {"walter" : "Odio a Walter."}, 
+		"love" : {"family" : "Ama a su familia.", 
+				  "fishing": "Le encanta pescar." }, 
+		"empathy":{"walter" : "Empatiza con Walter."}, 
 		}
 	
 	triggers_synonyms ={
@@ -24,15 +24,15 @@ func _ready():
 		"fishing":["fish", "fishing"]
 		}
 	dialog_history = "1890\n\nJuan Smith is a railroad worker. Juan is 45 years old.\n\nFather of two boys James and Mark.\n\nJuan’s wife is called Mary, Mary is a house wife.\n\nJuan has barely enough money to feed his family every day.\n\nJuan works from 8am to 8pm, as employee in the assembly line, for a train parts factory.\n\nThe owner of the factory is called walter. walter lives in a big mansion outside the village. walter owns three other factories and walter is extremely rich. Juan loves fishing. Juan loves his family."
-	questions = ["What bring's you to this small town?", "Do you like Fishing?"]
+	questions = ["Do you like Fishing?", "Tell me about your family"]
 	shifters =  {
 		"walter": {
-			"hate": ["mansion"],
+			"hate": ["greedy"],
 			"empathy": ["lonely", "stress"]
 		}
 	}
 	shifters_synonyms = {
-		"mansion": ["Mansion", "mansion", "palace"],
+		"greedy": ["greedy", "mansion", "avaricious", "rich", "wealthy", "moneyed", "luxury", "luxurious", "luxuries"],
 		"lonely": ["lonely", "loneliness", "solitude", "alone"],
 		"stress": ["stress", "stressed"]
 	}

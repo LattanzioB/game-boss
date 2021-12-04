@@ -7,7 +7,9 @@
 - Armar sus dos escenas
 - Pitchear voces
 
+
          -- DESEABLE --
  - Un mejor gestor de escenas -
  - Recortar textos de output más largos en dos audios distintos.
  - Separar sonido de acordes y melodías para que se pueda seguir escuchando los acordes si te cansaras de la melodía.
+ - Testear agregar emocion de tristeza
