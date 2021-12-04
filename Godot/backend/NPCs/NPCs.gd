@@ -17,7 +17,7 @@ var shifters_synonyms
 var triggered_questions
 
 onready var sentiment_adverbs = {
-		"hate" : " hatefully", 
+		"hate" : " hatefully but politely", 
 		"love" : " lovingly", 
 		"empathy" : " empathetically"
 }

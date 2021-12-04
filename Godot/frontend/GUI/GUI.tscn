@@ -97,6 +97,7 @@ visible = false
 position = Vector2( 971.582, 552.981 )
 frames = SubResource( 1 )
 animation = "default"
+frame = 6
 
 [node name="SoundControl" type="Control" parent="."]
 visible = false
@@ -192,7 +193,7 @@ position = Vector2( 224, 176 )
 visible = false
 position = Vector2( 439.24, 301.359 )
 scale = Vector2( 1.17076, 0.879005 )
-frame = 1
+frame = 7
 
 [node name="Thinking_bubble" type="AnimatedSprite" parent="."]
 visible = false

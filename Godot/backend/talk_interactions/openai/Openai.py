@@ -13,8 +13,10 @@ class Openai(Node):
 							max_tokens=max_tokens,
 							temperature=0.3,
 							best_of=2,
-							frequency_penalty=0.5,
-							presence_penalty=0.3)
+							#decrece la chance de que el modelo repita
+							frequency_penalty=1.3,
+							#aumenta la chance de que el modelo improvise
+							presence_penalty=0.4)
 		return self.fix_answer(answer.choices[0].text)
 
 	def fix_answer(self, input_text):
