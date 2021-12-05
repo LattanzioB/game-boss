@@ -58,5 +58,5 @@ func _process(delta):
 
 
 
-func _on_JohnBack_new_trigger_phrase(trigger, phrase, sentiment):
-	emit_signal("new_trigger_phrase", trigger, phrase, sentiment)
+func _on_JohnBack_new_trigger_phrase(trigger, phrase, sentiment, npc_name):
+	emit_signal("new_trigger_phrase", trigger, phrase, sentiment, npc_name)

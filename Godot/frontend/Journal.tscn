@@ -90,3 +90,11 @@ text = "0/3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( 100.229, 151.411 )
+polygon = PoolVector2Array( -13.7117, -10.2751, -14.5168, 11.7709, 16.8804, 12.6028, 16.8804, -11.1071 )
+
+[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]

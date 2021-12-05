@@ -58,8 +58,8 @@ func _on_StartScreen_intro_finish():
 	change_scene_to_sage()
 
 
-func _on_JohnScene_new_trigger_phrase(trigger, phrase, sentiment):
-	journal.show_tigger_phrase(trigger, phrase)
+func _on_JohnScene_new_trigger_phrase(trigger, phrase, sentiment, npc_name):
+	journal.show_tigger_phrase(trigger, phrase, npc_name)
 	music_controler.new_sentiment(sentiment)
 
 func hide_scene():

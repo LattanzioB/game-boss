@@ -57,8 +57,9 @@ func _on_Journal_on_button_pressed():
 	journal.visible = !journal.visible
 
 
-func _on_Journal_journal_complete():
-	get_parent().start_scene_changer_timer()
+func _on_Journal_journal_complete(npc_name):\
+	if (npc_name == 'juan'):
+		get_parent().start_scene_changer_timer()
 
 
 func _on_Journal_new_trigger_found(trigger):
