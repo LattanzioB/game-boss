@@ -18,16 +18,17 @@ onready var has_sentiment = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	base_melody.play(20.0)
-
+	#base_melody.play(20.0)
+	pass
 
 
 func new_sentiment(sentiment):
 	sentimen_chords.stream = sentimentDic.get(sentiment)
-	has_sentiment = true
-
-func _on_MelodyTimer_timeout():
-	if has_sentiment:
-		sentimen_chords.play(20)
-		has_sentiment = false
-	base_melody.play(20)
+	#has_sentiment = true
+	sentimen_chords.play(20)
+#
+#func _on_MelodyTimer_timeout():
+#	if has_sentiment:
+#		sentimen_chords.play(20)
+#		has_sentiment = false
+#	base_melody.play(20)

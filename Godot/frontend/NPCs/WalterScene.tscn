@@ -1,0 +1,129 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://frontend/NPCs/WalterScene.gd" type="Script" id=1]
+[ext_resource path="res://backend/NPCs/Walter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/npcs/walter/0_Jeweler_Idle Blinking_023.png" type="Texture" id=3]
+[ext_resource path="res://assets/npcs/walter/0_Jeweler_Idle Blinking_024.png" type="Texture" id=4]
+[ext_resource path="res://assets/npcs/walter/0_Jeweler_Idle Blinking_028.png" type="Texture" id=5]
+[ext_resource path="res://assets/npcs/walter/0_Jeweler_Idle Blinking_026.png" type="Texture" id=6]
+[ext_resource path="res://assets/npcs/walter/0_Jeweler_Idle Blinking_027.png" type="Texture" id=7]
+[ext_resource path="res://assets/npcs/walter/0_Jeweler_Idle Blinking_025.png" type="Texture" id=8]
+[ext_resource path="res://assets/sfx/fire.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/background/fire_place_room.png" type="Texture" id=14]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 1024, 576 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1024, 0, 1024, 576 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 2048, 0, 1024, 576 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 3072, 0, 1024, 576 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 576, 1024, 576 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1024, 576, 1024, 576 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 2048, 576, 1024, 576 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 3072, 576, 1024, 576 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 1152, 1024, 576 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1024, 1152, 1024, 576 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 2048, 1152, 1024, 576 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 3072, 1152, 1024, 576 )
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="WalterScene" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="AnimatedSprite" parent="."]
+position = Vector2( 515.124, 299.324 )
+scale = Vector2( 1, 1.03311 )
+z_index = -1
+frames = SubResource( 13 )
+frame = 9
+playing = true
+
+[node name="FirePlacePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -18.0
+bus = "BackgroundFx"
+
+[node name="IntroductionPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -10.0
+bus = "Speech"
+
+[node name="WalterSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 870, 440 )
+scale = Vector2( 0.4, 0.4 )
+frames = SubResource( 14 )
+frame = 3
+playing = true
+flip_h = true
+
+[node name="SceneLoaded" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="WalterBack" parent="." instance=ExtResource( 2 )]
+
+[connection signal="finished" from="IntroductionPlayer" to="." method="_on_IntroductionPlayer_finished"]
+[connection signal="timeout" from="SceneLoaded" to="." method="_on_SceneLoaded_timeout"]
+[connection signal="new_trigger_phrase" from="WalterBack" to="." method="_on_WalterBack_new_trigger_phrase"]

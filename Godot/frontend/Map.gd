@@ -17,11 +17,11 @@ func change_scene(scene):
 
 func _on_Jhons_House_input_event(viewport, event, shape_idx):
 	if (event is InputEventMouseButton && event.pressed):
-		_instantiate_confirmation_text_box("¿Ir a la casa de Juan?", "john")
+		_instantiate_confirmation_text_box("¿Ir a la casa de Juan?", "juan")
 
 func _on_Factory_input_event(viewport, event, shape_idx):
 	if (event is InputEventMouseButton && event.pressed):
-		_instantiate_confirmation_text_box("¿Ir a la fábrica?", "factory")
+		_instantiate_confirmation_text_box("¿Ir a la fábrica?", "walter")
 
 func _on_Sages_Woods_input_event(viewport, event, shape_idx):
 	if (event is InputEventMouseButton && event.pressed):

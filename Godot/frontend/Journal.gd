@@ -40,7 +40,7 @@ func show_page(npc_name):
 	counter.text = counters.get(npc_name)
 	free_labels()
 	var i = 0
-	for trigger in triggers.get(npc_name):
+	for trigger in triggers.get(npc_name).keys():
 		triggers_list[i].text = triggers.get(npc_name).get(trigger)
 		i += 1
 

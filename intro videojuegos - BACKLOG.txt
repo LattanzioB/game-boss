@@ -6,6 +6,7 @@
 - Armar discursos y triggers para los dos personajes que faltan
 - Armar sus dos escenas
 - Pitchear voces
+- Eliminar pregunta de un NPC si ya se hablo sobre ese tema.
 
 
          -- DESEABLE --

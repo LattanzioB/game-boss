@@ -43,10 +43,10 @@ __meta__ = {
 }
 
 [node name="trigger_1" type="RichTextLabel" parent="."]
-margin_left = -78.2472
-margin_top = -92.9912
-margin_right = 64.7528
-margin_bottom = -66.9912
+margin_left = -73.0
+margin_top = -106.0
+margin_right = 71.0
+margin_bottom = -69.0
 theme = SubResource( 6 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = true
@@ -57,9 +57,9 @@ __meta__ = {
 
 [node name="trigger_2" type="RichTextLabel" parent="."]
 margin_left = -76.8933
-margin_top = -50.7529
+margin_top = -7.49277
 margin_right = 66.1067
-margin_bottom = -24.7529
+margin_bottom = 29.5072
 theme = SubResource( 7 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 fit_content_height = true
@@ -69,9 +69,9 @@ __meta__ = {
 
 [node name="trigger_3" type="RichTextLabel" parent="."]
 margin_left = -77.0215
-margin_top = -8.2119
+margin_top = 62.5018
 margin_right = 65.9785
-margin_bottom = 17.7881
+margin_bottom = 99.5018
 theme = SubResource( 8 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 fit_content_height = true
