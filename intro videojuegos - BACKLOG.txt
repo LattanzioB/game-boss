@@ -1,16 +1,8 @@
 - TODO
 - Poner pantallas intermedias entre escenas.
-- Armar burbuja de pensamiento para NPCs.
-- Sacar botones de Journal y Map de la pantalla 1 del sage y solo el Map de la de Juan. - Listo
-- Multiple pages Journal.
-- Armar discursos y triggers para los dos personajes que faltan
-- Armar sus dos escenas
-- Pitchear voces
-- Eliminar pregunta de un NPC si ya se hablo sobre ese tema.
 
 
          -- DESEABLE --
  - Un mejor gestor de escenas -
  - Recortar textos de output más largos en dos audios distintos.
- - Separar sonido de acordes y melodías para que se pueda seguir escuchando los acordes si te cansaras de la melodía.
  - Testear agregar emocion de tristeza

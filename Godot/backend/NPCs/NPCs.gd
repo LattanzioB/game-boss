@@ -95,11 +95,17 @@ func matches(input, text):
 				#si es la primera vez que encuentra el valor
 				if !self.get_triggers_found().has(trigger):
 					self.get_triggers_found().append(trigger)
+					self.remove_question(trigger)
 					emit_signal("new_trigger_phrase", trigger, self.get_trigger_phrase(trigger, get_emotion_from_trigger(trigger)), sentiment, self.npc_name)
 				else:
 					look_for_shifters(text, trigger)
 	return sentiment
 	
+func remove_question(trigger):
+	for question in self.questions:
+		if trigger in question: 
+			self.questions.remove(self.questions.find(question))
+			
 func get_emotion_from_trigger(trigger):
 	var result_emotion 
 	for emotion in self.get_sentiments(): 

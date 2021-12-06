@@ -155,7 +155,5 @@ func _on_SpeechInteractions_finish_loading_speech():
 	gui.thinking_bubble.visible = false
 
 
-
-
-
-
+func _on_GUI_music_loop():
+	music_controler.music_loop()

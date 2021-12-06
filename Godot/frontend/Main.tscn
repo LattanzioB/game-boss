@@ -44,6 +44,7 @@ one_shot = true
 [connection signal="new_trigger_phrase" from="BobScene" to="." method="_on_BobScene_new_trigger_phrase"]
 [connection signal="new_trigger_phrase" from="WalterScene" to="." method="_on_WalterScene_new_trigger_phrase"]
 [connection signal="change_scene" from="GUI" to="." method="_on_GUI_change_scene"]
+[connection signal="music_loop" from="GUI" to="." method="_on_GUI_music_loop"]
 [connection signal="finish_loading_speech" from="SpeechInteractions" to="." method="_on_SpeechInteractions_finish_loading_speech"]
 [connection signal="new_speech" from="SpeechInteractions" to="." method="_on_SpeechInteractions_new_speech"]
 [connection signal="speech_trigger" from="SpeechInteractions" to="." method="_on_SpeechInteractions_speech_trigger"]

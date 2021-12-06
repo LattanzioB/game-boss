@@ -97,10 +97,9 @@ visible = false
 position = Vector2( 971.582, 552.981 )
 frames = SubResource( 1 )
 animation = "default"
-frame = 2
+frame = 8
 
 [node name="SoundControl" type="Control" parent="."]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -146,7 +145,7 @@ margin_left = 880.0
 margin_top = 79.0
 margin_right = 919.0
 margin_bottom = 93.0
-text = "Fire fx"
+text = "Background Fx"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -167,6 +166,26 @@ margin_top = 130.0
 margin_right = 919.0
 margin_bottom = 144.0
 text = "NPC Voice"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NPC_Voice_label2" type="Label" parent="SoundControl"]
+margin_left = 878.0
+margin_top = 206.0
+margin_right = 951.0
+margin_bottom = 220.0
+text = "Music Loop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="SoundControl"]
+margin_left = 871.995
+margin_top = 218.433
+margin_right = 935.995
+margin_bottom = 253.433
+pressed = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -193,13 +212,14 @@ position = Vector2( 224, 176 )
 visible = false
 position = Vector2( 439.24, 301.359 )
 scale = Vector2( 1.17076, 0.879005 )
-frame = 3
+frame = 9
 
 [node name="Thinking_bubble" type="AnimatedSprite" parent="."]
 visible = false
 position = Vector2( 753.592, 312.797 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [connection signal="mouse_entered" from="ConfigurationGear" to="." method="_on_ConfigurationGear_mouse_entered"]
@@ -219,4 +239,5 @@ playing = true
 [connection signal="value_changed" from="SoundControl/NPC_voice_volume_control" to="." method="_on_NPC_voice_volume_control_value_changed"]
 [connection signal="value_changed" from="SoundControl/FireFx_volume_control" to="." method="_on_FireFx_volume_control_value_changed"]
 [connection signal="value_changed" from="SoundControl/Music_volume_control" to="." method="_on_Music_volume_control_value_changed"]
+[connection signal="pressed" from="SoundControl/CheckBox" to="." method="_on_CheckBox_pressed"]
 [connection signal="change_scene" from="Map" to="." method="_on_Map_change_scene"]

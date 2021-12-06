@@ -2,7 +2,7 @@ extends Node
 
 signal new_trigger_phrase
 
-onready var fire_place = $FirePlacePlayer
+onready var fire_place = $BackgroundPlayer
 onready var speechIntr = $IntroductionPlayer
 onready var sceneloader = $SceneLoaded
 onready var back = $WalterBack
