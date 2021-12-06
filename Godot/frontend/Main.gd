@@ -38,6 +38,7 @@ func change_scene_to_walter():
 	actual_scene = walter_scene
 	walter_scene.visible = true
 	gui.visible = true
+	speechinter.change_npc_player("WalterSpeech")
 	speechinter.visible = true
 	speechinter.set_active(true)
 	walter_scene.set_gui(gui)
@@ -50,6 +51,7 @@ func change_scene_to_bob():
 	actual_scene = bob_scene
 	bob_scene.visible = true
 	gui.visible = true
+	speechinter.change_npc_player("BobSpeech")
 	speechinter.visible = true
 	speechinter.set_active(true)
 	bob_scene.set_gui(gui)
@@ -62,6 +64,7 @@ func change_scene_to_sage():
 	actual_scene = sage_scene
 	sage_scene.visible = true
 	gui.visible = true
+	speechinter.change_npc_player("SageSpeech")
 	speechinter.visible = true
 	speechinter.set_active(true)
 	sage_scene.set_gui(gui)
@@ -75,6 +78,7 @@ func change_scene_to_johns():
 	actual_scene = john_scene
 	john_scene.visible = true
 	gui.visible = true
+	speechinter.change_npc_player("JohnSpeech")
 	speechinter.visible = true
 	speechinter.set_active(true)
 	john_scene.set_gui(gui)

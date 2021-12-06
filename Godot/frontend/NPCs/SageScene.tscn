@@ -34,13 +34,14 @@ bus = "BackgroundFx"
 
 [node name="IntroductionPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
-bus = "Speech"
+bus = "SageSpeech"
 
 [node name="SageSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 870, 440 )
 scale = Vector2( 0.4, 0.4 )
 z_index = 1
 frames = SubResource( 14 )
+frame = 2
 playing = true
 flip_h = true
 

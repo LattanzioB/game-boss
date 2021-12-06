@@ -52,6 +52,8 @@ func set_npc(npc_back):
 func set_chatbox(chatboxx):
 	chatbox = chatboxx
 
+func change_npc_player(npc_bus):
+	audio_player.bus = npc_bus
 
 func _on_Record_file_saved():
 	text_from_mic = stt.wav_to_text()

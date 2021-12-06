@@ -1,7 +1,33 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+[gd_resource type="AudioBusLayout" load_steps=5 format=2]
 
 [sub_resource type="AudioEffectRecord" id=1]
 resource_name = "Record"
+
+[sub_resource type="AudioEffectPitchShift" id=2]
+resource_name = "PitchShift"
+pitch_scale = 0.9
+
+[sub_resource type="AudioEffectChorus" id=3]
+resource_name = "Chorus"
+voice_count = 4
+wet = 0.74
+voice/3/delay_ms = 12.0
+voice/3/rate_hz = 1.0
+voice/3/depth_ms = 0.0
+voice/3/level_db = 0.0
+voice/3/cutoff_hz = 16000.0
+voice/3/pan = 0.0
+voice/4/delay_ms = 12.0
+voice/4/rate_hz = 1.0
+voice/4/depth_ms = 0.0
+voice/4/level_db = 0.0
+voice/4/cutoff_hz = 16000.0
+voice/4/pan = 0.0
+
+[sub_resource type="AudioEffectReverb" id=4]
+resource_name = "Reverb"
+room_size = 0.2
+hipass = 0.22
 
 [resource]
 bus/1/name = "Record"
@@ -12,33 +38,57 @@ bus/1/volume_db = 0.0
 bus/1/send = "Master"
 bus/1/effect/0/effect = SubResource( 1 )
 bus/1/effect/0/enabled = true
-bus/2/name = "Speech"
+bus/2/name = "BackgroundFx"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = "Master"
-bus/3/name = "BackgroundFx"
+bus/3/name = "SFx"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
 bus/3/send = "Master"
-bus/4/name = "SFx"
+bus/4/name = "BaseMelody"
 bus/4/solo = false
 bus/4/mute = false
 bus/4/bypass_fx = false
-bus/4/volume_db = 0.0
+bus/4/volume_db = -18.3091
 bus/4/send = "Master"
-bus/5/name = "BaseMelody"
+bus/5/name = "SentimenChords"
 bus/5/solo = false
 bus/5/mute = false
 bus/5/bypass_fx = false
-bus/5/volume_db = -18.3091
-bus/5/send = "Master"
-bus/6/name = "SentimenChords"
+bus/5/volume_db = 0.0
+bus/5/send = "BaseMelody"
+bus/6/name = "JohnSpeech"
 bus/6/solo = false
 bus/6/mute = false
 bus/6/bypass_fx = false
 bus/6/volume_db = 0.0
-bus/6/send = "BaseMelody"
+bus/6/send = "Master"
+bus/7/name = "SageSpeech"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = "Master"
+bus/7/effect/0/effect = SubResource( 2 )
+bus/7/effect/0/enabled = true
+bus/7/effect/1/effect = SubResource( 3 )
+bus/7/effect/1/enabled = true
+bus/7/effect/2/effect = SubResource( 4 )
+bus/7/effect/2/enabled = true
+bus/8/name = "BobSpeech"
+bus/8/solo = false
+bus/8/mute = false
+bus/8/bypass_fx = false
+bus/8/volume_db = 0.0
+bus/8/send = "Master"
+bus/9/name = "WalterSpeech"
+bus/9/solo = false
+bus/9/mute = false
+bus/9/bypass_fx = false
+bus/9/volume_db = 0.0
+bus/9/send = "Master"

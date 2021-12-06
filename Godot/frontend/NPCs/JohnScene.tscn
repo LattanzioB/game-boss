@@ -122,7 +122,7 @@ position = Vector2( 515.124, 299.324 )
 scale = Vector2( 1, 1.03311 )
 z_index = -1
 frames = SubResource( 13 )
-frame = 6
+frame = 4
 playing = true
 
 [node name="FirePlacePlayer" type="AudioStreamPlayer" parent="."]
@@ -132,7 +132,7 @@ bus = "BackgroundFx"
 
 [node name="IntroductionPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -10.0
-bus = "Speech"
+bus = "JohnSpeech"
 
 [node name="JohnBack" parent="." instance=ExtResource( 43 )]
 
@@ -140,7 +140,7 @@ bus = "Speech"
 position = Vector2( 870, 440 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 14 )
-frame = 5
+frame = 11
 playing = true
 flip_h = true
 

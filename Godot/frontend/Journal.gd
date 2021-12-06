@@ -37,6 +37,7 @@ func _ready():
 
 func show_page(npc_name):
 	npc_name_label.text = npc_name
+	npc_name_label.text[0] = npc_name_label.text[0].to_upper()
 	counter.text = counters.get(npc_name)
 	free_labels()
 	var i = 0
@@ -72,9 +73,9 @@ func show_tigger_phrase(trigger, phrase, npc_name):
 
 func show_trigger_text(trigger, npc_name):
 	emit_signal("new_trigger_found", trigger)
+	counter_up(npc_name)
 	show_page(npc_name)
 	page_counter = triggers.keys().find(npc_name)
-	counter_up(npc_name)
 	if !first_trigger:
 		emit_signal("first_trigger")
 		first_trigger = true

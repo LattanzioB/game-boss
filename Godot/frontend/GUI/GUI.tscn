@@ -200,7 +200,6 @@ visible = false
 position = Vector2( 753.592, 312.797 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [connection signal="mouse_entered" from="ConfigurationGear" to="." method="_on_ConfigurationGear_mouse_entered"]

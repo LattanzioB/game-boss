@@ -23,7 +23,7 @@ __meta__ = {
 [node name="Record" parent="." instance=ExtResource( 5 )]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-bus = "Speech"
+bus = "SageSpeech"
 script = ExtResource( 8 )
 
 [node name="Openai" parent="." instance=ExtResource( 3 )]
