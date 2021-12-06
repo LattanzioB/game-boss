@@ -1,4 +1,4 @@
-from godot import exposed, export, Node
+from godot import exposed, export, Node, ConfigFile
 import os
 import openai
 
@@ -7,8 +7,12 @@ class Openai(Node):
 	def _ready(self):
 		openai.api_key = os.getenv("OPENAI_API_KEY")
 
+	def set_api_key(self, api_key):
+		openai.api_key = api_key
+
 	def get_response(self, prompt, engine="davinci", max_tokens=40):
-		answer = openai.Completion.create(engine=engine,
+		try:
+			answer = openai.Completion.create(engine=engine,
 							prompt=str(prompt),
 							max_tokens=max_tokens,
 							temperature=0.3,
@@ -17,7 +21,9 @@ class Openai(Node):
 							frequency_penalty=1.3,
 							#aumenta la chance de que el modelo improvise
 							presence_penalty=0.4)
-		return self.fix_answer(answer.choices[0].text)
+			return self.fix_answer(answer.choices[0].text)
+		except:
+			return "99999"
 
 	def fix_answer(self, input_text):
 		#Dividimos el input en sublistas segun cuantos saltos de linea haya

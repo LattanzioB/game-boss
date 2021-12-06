@@ -24,6 +24,9 @@ var openai
 func _ready():
 	audio_player.set_pitch_scale(0.18)
 	openai = load("res://backend/talk_interactions/openai/Openai.py").new()
+	var config = ConfigFile.new()
+	var err = config.load("res://backend/key.cfg")
+	openai.set_api_key(config.get_value(config.get_sections()[0], "OPENAI_API_KEY"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -64,15 +64,32 @@ Seleccione de la lista de abajo el micrófono que quiera utilizar"
 align = 1
 valign = 1
 
-[node name="InputDevicesList" parent="Menu/VBoxContainer" instance=ExtResource( 2 )]
+[node name="Title2" type="Label" parent="Menu/VBoxContainer"]
 margin_top = 130.0
 margin_right = 946.0
-margin_bottom = 150.0
+margin_bottom = 153.0
+theme = ExtResource( 7 )
+custom_constants/shadow_offset_x = 0
+text = "A continuación ingrese su API key generada en: https://beta.openai.com/ y oprima la tecla \"Enter\""
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="LineEdit" parent="Menu/VBoxContainer"]
+margin_top = 169.0
+margin_right = 946.0
+margin_bottom = 193.0
+secret = true
+
+[node name="InputDevicesList" parent="Menu/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 209.0
+margin_right = 946.0
+margin_bottom = 229.0
 
 [node name="Explanation" type="Label" parent="Menu/VBoxContainer"]
-margin_top = 166.0
+margin_top = 245.0
 margin_right = 946.0
-margin_bottom = 267.0
+margin_bottom = 346.0
 theme = ExtResource( 7 )
 text = "Estos son los controles del juego:
  - La tecla \"Control\" comienza y finaliza la grabación desede el micrófono seleccionado.
@@ -198,10 +215,34 @@ autowrap = true
 visible = false
 position = Vector2( 976, 552 )
 animation = "default"
-frame = 7
+frame = 6
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -8.273
 
+[node name="PopUp" type="PopupDialog" parent="."]
+visible = true
+margin_left = 841.0
+margin_top = 15.0
+margin_right = 1007.0
+margin_bottom = 91.0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="PopUp"]
+margin_left = 16.9513
+margin_top = 19.0703
+margin_right = 151.951
+margin_bottom = 56.0703
+text = "API key no detectada"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="text_entered" from="Menu/VBoxContainer/TextEdit" to="." method="_on_TextEdit_text_entered"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
