@@ -26,6 +26,8 @@ func _ready():
 	openai = load("res://backend/talk_interactions/openai/Openai.py").new()
 	var config = ConfigFile.new()
 	var err = config.load("res://backend/key.cfg")
+	if err != OK:
+		return
 	openai.set_api_key(config.get_value(config.get_sections()[0], "OPENAI_API_KEY"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
