@@ -54,9 +54,9 @@ func _on_IntroductionPlayer_finished():
 func _process(delta):
 	if !fire_place.is_playing():
 		fire_place.play()
-
-
-
+	if Input.is_action_just_released("escape") && self.visible:
+		get_parent().second_sage_scene()
+		get_parent().start_scene_changer_timer()
 
 func _on_JohnBack_new_trigger_phrase(trigger, phrase, sentiment, npc_name):
 	emit_signal("new_trigger_phrase", trigger, phrase, sentiment, npc_name)
