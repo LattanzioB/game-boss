@@ -13,8 +13,8 @@ var speech_interactions
 onready var sage_state = $Sage_state
 onready var first_time = true
 
-onready var sceneIntroduction = ["1Bienvenido.wav", "2TeRecibira.wav",'3Buscame.wav', '4VeoQueYa.wav', '5JuanQueYa.wav', '6YBobQueTiene.wav', '7TeInvitoAQue.wav', '8CuandoHayasHablado.wav', '9UtilizaElMapa.wav', '10VuelveCuando.wav', '11QueOpinas.wav', '12TeGustaria.wav', '13ComoPudisteNotar.wav', '14YCadaUno.wav', '15SiVolvieras.wav', '16VuelveConmigo.wav', '17TuIntervencion.wav', '18UnGranPoder.wav', '19UsaloSabiamente.wav' ]
-onready var sceneIntroductionText = ['Bienvenido al pueblo, tu objetivo por esta noche sera encontrar la casa de juan para hospedarte', 'te recibira por pocas monedas si logras encontrar sus intereses.', 'Buscame mañana antes del alba', 'En la ciudad existen 3 personajes principales', 'Juan que ya lo conociste, Walter que lo menciono Juan anoche', 'y Bob que tiene una opinion distinta a la que tiene Juan', 'Te invito a que recorras la ciudad y dialogues con ellos para formar tus propias ideas', 'Cuando hayas hablado con todos y descubras sus motivaciones vuelve a buscarme', 'Utiliza el mapa para desplazarte por la ciudad', 'Vuelve cuando descubras sus motivaciones', '¿Qué opinas de las relaciones de la ciudad?', '¿Te gustaría poder cambiarlo?', 'Como de pudiste notar, las opiniones de Juan y de Bob sobre Walter son opuestas', ' y cada uno tiene sus propios motivos.', 'Si volvieras a hablar con alguno de ellos podrías usar los argumentos del otro para cambiar su opinión', 'Vuelve conmigo una vez que hayas podido cambiar una de sus dos opiniones', 'Tu intervención en el mundo es muy poderosa, tus acciones pueden cambiar la vida de la gente', 'Un gran poder conlleva una gran responsabilidad', 'Usalo sabiamente en el resto de tu camino' ]
+onready var sceneIntroduction = ["1Bienvenido.wav", "2TeRecibira.wav",'3Buscame.wav', '4VeoQueYa.wav', '5Walter.wav', '7TeInvitoAQue.wav', '8CuandoHayasHablado.wav', '9UtilizaElMapa.wav', '10VuelveCuando.wav', '11QueOpinas.wav', '12TeGustaria.wav', '13ComoPudisteNotar.wav', '14YCadaUno.wav', '15SiVolvieras.wav', '16VuelveConmigo.wav', '17TuIntervencion.wav', '18UnGranPoder.wav', '19UsaloSabiamente.wav' ]
+onready var sceneIntroductionText = ['Bienvenido al pueblo, tu objetivo por esta noche sera encontrar la casa de Juan para hospedarte', 'te recibira por pocas monedas si logras encontrar sus intereses.', 'Buscame mañana antes del alba', 'Veo que ya conociste a Juan, en la ciudad hay otras dos personas con las que podrás hablar', 'Walter que lo menciono Juan anoche y Bob que tiene una opinion distinta a la que tiene Juan', 'Te invito a que recorras la ciudad y dialogues con ellos para formar tus propias ideas', 'Cuando hayas hablado con todos y descubras sus motivaciones vuelve a buscarme', 'Utiliza el mapa para desplazarte por la ciudad', 'Vuelve cuando descubras sus motivaciones', '¿Qué opinas de las relaciones de la ciudad?', '¿Te gustaría poder cambiarlo?', 'Como de pudiste notar, las opiniones de Juan y de Bob sobre Walter son opuestas', ' y cada uno tiene sus propios motivos.', 'Si volvieras a hablar con alguno de ellos podrías usar los argumentos del otro para cambiar su opinión', 'Vuelve conmigo una vez que hayas podido cambiar una de sus dos opiniones', 'Tu intervención en el mundo es muy poderosa, tus acciones pueden cambiar la vida de la gente', 'Un gran poder conlleva una gran responsabilidad', 'Usalo sabiamente en el resto de tu camino' ]
 onready var player_counter 
 onready var delete_speech_counter
 
@@ -44,6 +44,8 @@ func load_scene(first_time):
 func _on_SceneLoaded_timeout():
 	speechIntr.play()
 	gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])
+	if sceneIntroductionText[0] == 'Utiliza el mapa para desplazarte por la ciudad':
+		sage_state.set_current_stage("journal_incompleted")
 	if(delete_speech_counter > 0):
 		sceneIntroductionText.remove(0)
 		sceneIntroduction.remove(0)
