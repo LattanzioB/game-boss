@@ -2,7 +2,7 @@ extends Control
 
 onready var stages = {
 	"introduction_first" : [3,3],
-	"introduction_second" : [6,6],
+	"introduction_second" : [4,4],
 	"journal_incompleted" : [1,0],
 	"journal_completed" : []
 }

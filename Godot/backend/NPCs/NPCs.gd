@@ -126,25 +126,25 @@ func get_emotion_from_trigger(trigger):
 #gets an array of words that may have a shifter.
 func look_for_shifters(text, trigger):
 	for word in text:
-		for emotion in self.get_shifters().get(trigger):
-			#por cada shifter que tenga
-			for shifter in self.get_shifters().get(trigger).get(emotion):
-				#si alguno de los sinonimos es igual al input y todavia no lo habia recibido
-				if self.get_shifters_synonyms().get(shifter).has(word) && (!self.get_shifters_received().has(shifter)):
-					print(word)
-					#agregar shifter recibido 
-					#limpiar el resto de las listas de shifters.
-					self.set_shifter_as_received(trigger, emotion, shifter)
-					#checkear si la cantidad de shifters recibidos es igual a la cantidad de 
-					#shifters necesarios para cambiar
-					if self.check_shifters_to_change(trigger, emotion) && (!self.get_sentiments().get(emotion).has(trigger)):
-						#change emotion to trigger
-						self.change_emotion_to_trigger(trigger, emotion)
-						emit_signal('new_trigger_phrase', trigger, self.get_trigger_phrase(trigger, emotion), emotion, self.npc_name)
-				elif self.get_shifters_synonyms().get(shifter).has(word) && (self.get_shifters_received().has(shifter)):
-					#shifter ya obtenido
-					pass
-					
+		if self.get_shifters().has(trigger):
+			for emotion in self.get_shifters().get(trigger):
+				#por cada shifter que tenga
+				for shifter in self.get_shifters().get(trigger).get(emotion):
+					#si alguno de los sinonimos es igual al input y todavia no lo habia recibido
+					if self.get_shifters_synonyms().get(shifter).has(word) && (!self.get_shifters_received().has(shifter)):
+						print(word)
+						#agregar shifter recibido 
+						#limpiar el resto de las listas de shifters.
+						self.set_shifter_as_received(trigger, emotion, shifter)
+						#checkear si la cantidad de shifters recibidos es igual a la cantidad de 
+						#shifters necesarios para cambiar
+						if self.check_shifters_to_change(trigger, emotion) && (!self.get_sentiments().get(emotion).has(trigger)):
+							#change emotion to trigger
+							self.change_emotion_to_trigger(trigger, emotion)
+							emit_signal('new_trigger_phrase', trigger, self.get_trigger_phrase(trigger, emotion), emotion, self.npc_name)
+					elif self.get_shifters_synonyms().get(shifter).has(word) && (self.get_shifters_received().has(shifter)):
+						#shifter ya obtenido
+						pass
 
 func get_trigger_phrase(trigger, emotion):
 	return self.get_trigger_phrases().get(emotion).get(trigger)
