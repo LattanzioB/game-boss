@@ -9,16 +9,16 @@ onready var back = $BobBack
 onready var gui
 var speech_interactions
 
-onready var sceneIntroduction = ['2Lascomodidades.wav','3TuColaboracion.wav', '4YaQueWalter.wav','5SiendoUnForestero.wav']
-onready var sceneIntroductionText = ['Bienvenido a nuestro hogar', 'las comodidades no son muchas pero espero que te sientas como en casa',' Tu colaboracion nos ayuda mucho ', 'ya que Walter, el dueño de la fabrica para la que trabajo, no nos paga muy bien','Siendo un forastero quizas tengas algunas preguntas']
-onready var introduction_counter = 4
+onready var sceneIntroduction = ["2Hola.wav"]
+onready var sceneIntroductionText = ['Hola! Juan me ha hablado de ti, bienvenido!', 'Hola!']
+onready var introduction_counter = 1
 
-
+onready var first_time = true
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	speechIntr.stream = load("res://assets/Speechs/John/1Bienvenido.wav")
+	speechIntr.stream = load("res://assets/Speechs/Bob/1Hola.wav")
 	fire_place.stream_paused = true
 	
 func set_gui(newgui):
@@ -30,8 +30,11 @@ func set_speech_interactions(speechinteractions):
 func hide_scene():
 	fire_place.stream_paused = true
 
-func load_scene(first_time):
+func load_scene():
 	if(first_time):
+		sceneloader.start()
+	else:
+		load("res://assets/Speechs/Bob/" + sceneIntroduction[0])
 		sceneloader.start()
 	fire_place.stream_paused = false
 	speech_interactions.set_npc(back)
@@ -39,16 +42,10 @@ func load_scene(first_time):
 func _on_SceneLoaded_timeout():
 	speechIntr.play()
 	gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])
-	sceneIntroductionText.remove(0)
-
-func _on_IntroductionPlayer_finished():
-	if introduction_counter > 0:
-		speechIntr.stream = load("res://assets/Speechs/John/" + sceneIntroduction[0])
-		sceneIntroduction.remove(0)
-		speechIntr.play()
-		gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])
+	if first_time:
 		sceneIntroductionText.remove(0)
-		introduction_counter -= 1
+		first_time = false
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

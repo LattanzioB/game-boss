@@ -4,15 +4,13 @@ onready var john_scene = $JohnScene
 onready var first_time_john = true
 
 onready var sage_scene = $SageScene
-onready var first_time_sage = true
 
 onready var bob_scene = $BobScene
 #falso porque no hay introduccion todavia
-onready var first_time_bob = false
 
 onready var walter_scene = $WalterScene
 #falso porque no hay introduccion todavia
-onready var first_time_walter = false
+
 
 
 onready var start_screen = $StartScreen
@@ -57,8 +55,8 @@ func change_scene_to_walter():
 	speechinter.set_active(true)
 	walter_scene.set_gui(gui)
 	walter_scene.set_speech_interactions(speechinter)
-	walter_scene.load_scene(first_time_walter)
-	first_time_bob = false
+	walter_scene.load_scene()
+
 
 
 func change_scene_to_bob():
@@ -70,8 +68,8 @@ func change_scene_to_bob():
 	speechinter.set_active(true)
 	bob_scene.set_gui(gui)
 	bob_scene.set_speech_interactions(speechinter)
-	bob_scene.load_scene(first_time_bob)
-	first_time_bob = false
+	bob_scene.load_scene()
+
 
 
 func change_scene_to_sage():
@@ -83,8 +81,8 @@ func change_scene_to_sage():
 	speechinter.set_active(true)
 	sage_scene.set_gui(gui)
 	sage_scene.set_speech_interactions(speechinter)
-	sage_scene.load_scene(first_time_sage)
-	first_time_sage = false
+	sage_scene.load_scene()
+
 
 
 

@@ -31,7 +31,7 @@ func set_gui(newgui):
 func set_speech_interactions(speechinteractions):
 	speech_interactions = speechinteractions
 
-func load_scene(first_time):
+func load_scene():
 	check_next_stage()
 	var orders = sage_state.get_orders()
 	player_counter = orders[0]
