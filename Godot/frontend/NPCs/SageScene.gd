@@ -44,8 +44,6 @@ func load_scene(first_time):
 func _on_SceneLoaded_timeout():
 	speechIntr.play()
 	gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])
-	if sceneIntroductionText[0] == 'Utiliza el mapa para desplazarte por la ciudad':
-		sage_state.set_current_stage("journal_incompleted")
 	if(delete_speech_counter > 0):
 		sceneIntroductionText.remove(0)
 		sceneIntroduction.remove(0)
@@ -60,6 +58,10 @@ func _on_IntroductionPlayer_finished():
 		speechIntr.stream = load("res://assets/Speechs/Sage/" + sceneIntroduction[0])
 		speechIntr.play()
 		gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])
+		if sceneIntroductionText[0] == 'Utiliza el mapa para desplazarte por la ciudad':
+			sage_state.set_current_stage("journal_incompleted")
+			get_parent().stages["journal_incompleted"] = true
+			get_parent().stage = "journal_incompleted"
 		player_counter -= 1
 	if (delete_speech_counter > 0):
 		sceneIntroductionText.remove(0)
