@@ -56,3 +56,7 @@ func _process(delta):
 
 func _on_BobBack_new_trigger_phrase(trigger, phrase, sentiment, npc_name):
 	emit_signal("new_trigger_phrase", trigger, phrase, sentiment, npc_name)
+
+
+func _on_BobBack_shifter_found():
+	get_parent().new_shifter()

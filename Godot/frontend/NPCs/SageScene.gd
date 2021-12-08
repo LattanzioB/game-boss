@@ -59,9 +59,13 @@ func _on_IntroductionPlayer_finished():
 		speechIntr.play()
 		gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])
 		if sceneIntroductionText[0] == 'Utiliza el mapa para desplazarte por la ciudad':
-			sage_state.set_current_stage("journal_incompleted")
+			set_current_stage("journal_incompleted")
 			get_parent().stages["journal_incompleted"] = true
 			get_parent().stage = "journal_incompleted"
+		if sceneIntroductionText[0] == "Vuelve conmigo una vez que hayas podido cambiar una de sus dos opiniones":
+			set_current_stage("shifter_not_received")
+			get_parent().stages["shifter_not_received"] = true
+			get_parent().stage = "shifter_not_received"
 		player_counter -= 1
 	if (delete_speech_counter > 0):
 		sceneIntroductionText.remove(0)
@@ -72,6 +76,13 @@ func _on_IntroductionPlayer_finished():
 			changerTimer.start()
 			first_time = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func delete_one_dialog():
+	sceneIntroductionText.remove(0)
+	sceneIntroduction.remove(0)
+
+func set_current_stage(stage):
+	sage_state.set_current_stage(stage)
 
 func check_next_stage():
 	sage_state.set_current_stage(get_parent().next_stage())

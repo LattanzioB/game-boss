@@ -60,8 +60,14 @@ func _on_Journal_on_button_pressed():
 
 
 func _on_Journal_journal_complete(npc_name):\
-	if (npc_name == 'juan'):
-		get_parent().start_scene_changer_timer()
+
+	match npc_name:
+		"juan":
+			get_parent().start_scene_changer_timer()
+		"bob":
+			get_parent().set_bob_journal_complete()
+		"walter":
+			get_parent().set_walter_journal_complete()
 
 
 func _on_Journal_new_trigger_found(trigger):

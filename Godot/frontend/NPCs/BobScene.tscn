@@ -36,7 +36,7 @@ bus = "BobSpeech"
 position = Vector2( 870, 440 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 14 )
-frame = 6
+frame = 1
 playing = true
 flip_h = true
 
@@ -61,3 +61,4 @@ texture = ExtResource( 6 )
 [connection signal="finished" from="IntroductionPlayer" to="." method="_on_IntroductionPlayer_finished"]
 [connection signal="timeout" from="SceneLoaded" to="." method="_on_SceneLoaded_timeout"]
 [connection signal="new_trigger_phrase" from="BobBack" to="." method="_on_BobBack_new_trigger_phrase"]
+[connection signal="shifter_found" from="BobBack" to="." method="_on_BobBack_shifter_found"]

@@ -7,10 +7,11 @@ onready var sage_scene = $SageScene
 
 onready var bob_scene = $BobScene
 #falso porque no hay introduccion todavia
+onready var bob_journal_complete = false
 
 onready var walter_scene = $WalterScene
 #falso porque no hay introduccion todavia
-
+onready var walter_journal_complete = false
 
 
 onready var start_screen = $StartScreen
@@ -29,7 +30,10 @@ onready var stages = {
 	"introduction_first" : true,
 	"introduction_second" : false,
 	"journal_incompleted" : false,
-	"journal_completed" : false
+	"journal_completed" : false,
+	"shifter_not_received" : false,
+	"shifter_received" : false,
+	"game_finish" : false
 }
 
 onready var stage = "introduction_first"
@@ -42,6 +46,12 @@ func next_stage():
 	if(stages.get(posible_stage)):
 		stage = posible_stage
 	return stage
+	
+func new_shifter():
+	stages["shifter_received"] = true
+	sage_scene.set_current_stage("shifter_received")
+	stage = "shifter_received"
+	sage_scene.delete_one_dialog()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -138,6 +148,19 @@ func _on_GUI_change_scene(scene):
 			change_scene_to_bob()
 		"walter":
 			change_scene_to_walter()
+
+func set_bob_journal_complete():
+	bob_journal_complete = true
+	if(bob_journal_complete && walter_journal_complete):
+		stages["journal_completed"] = true
+		sage_scene.set_current_stage("journal_completed")
+
+func set_walter_journal_complete():
+	walter_journal_complete = true
+	if(bob_journal_complete && walter_journal_complete):
+		stages["journal_completed"] = true
+		sage_scene.set_current_stage("journal_completed")
+		sage_scene.delete_one_dialog()
 
 func second_sage_scene():
 	gui.map_button.visible = true

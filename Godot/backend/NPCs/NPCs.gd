@@ -1,6 +1,7 @@
 extends Node
 
 signal new_trigger_phrase
+signal shifter_found
 
 var dialog_history
 var questions
@@ -141,6 +142,7 @@ func look_for_shifters(text, trigger):
 						if self.check_shifters_to_change(trigger, emotion) && (!self.get_sentiments().get(emotion).has(trigger)):
 							#change emotion to trigger
 							self.change_emotion_to_trigger(trigger, emotion)
+							emit_signal("shifter_found")
 							emit_signal('new_trigger_phrase', trigger, self.get_trigger_phrase(trigger, emotion), emotion, self.npc_name)
 					elif self.get_shifters_synonyms().get(shifter).has(word) && (self.get_shifters_received().has(shifter)):
 						#shifter ya obtenido

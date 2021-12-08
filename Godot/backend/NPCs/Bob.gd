@@ -15,7 +15,8 @@ func _ready():
 		#Frases del Journal
 		#Un diccionario por cada trigger segun la emocion al respecto.
 		"hate" : {
-			"loneliness" : "Su soledad le genera tristeza."
+			"loneliness" : "Su soledad le genera tristeza.",
+			"walter" : "Odio a Walter."
 		}, 
 		"love" : {
 			"fishing" : "Le encata pescar." 
@@ -39,7 +40,7 @@ func _ready():
 	}
 	
 	dialog_history = "1890.\n\nBob Boyle is a railroad worker. Bob is 40 years old. Bob is lonely because he doenst have a family.\n\nHe is friend with John Smith, they go fishing together.\n\nThe owner of the factory is called Walter. Walter lives in a big mansion outside the village. Walter owns three other factories and Walter is extremely rich.\n\nBob likes his work and has empathy for his boss, because of their lonelyness.\n\nBob knows that Walter has a rough life too."
-	questions = ["Did you know that Walter is a lonely and stressed man?"]
+	questions = ["Did you know that Walter is a lonely and stressed man?", "Do you like fishing?", "Do you have family?"]
 	shifters =  {
 		#Diccionario de triggers con diccionario de emociones con lista de shifters
 		"walter": {
