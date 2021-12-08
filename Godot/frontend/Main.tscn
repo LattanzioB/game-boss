@@ -48,5 +48,4 @@ one_shot = true
 [connection signal="finish_loading_speech" from="SpeechInteractions" to="." method="_on_SpeechInteractions_finish_loading_speech"]
 [connection signal="new_speech" from="SpeechInteractions" to="." method="_on_SpeechInteractions_new_speech"]
 [connection signal="speech_trigger" from="SpeechInteractions" to="." method="_on_SpeechInteractions_speech_trigger"]
-[connection signal="intro_finish" from="StartScreen" to="." method="_on_StartScreen_intro_finish"]
 [connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_ChangeSceneTimer_timeout"]
