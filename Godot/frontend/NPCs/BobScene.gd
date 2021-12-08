@@ -34,7 +34,7 @@ func load_scene():
 	if(first_time):
 		sceneloader.start()
 	else:
-		load("res://assets/Speechs/Bob/" + sceneIntroduction[0])
+		speechIntr.stream = load("res://assets/Speechs/Bob/" + sceneIntroduction[0])
 		sceneloader.start()
 	fire_place.stream_paused = false
 	speech_interactions.set_npc(back)

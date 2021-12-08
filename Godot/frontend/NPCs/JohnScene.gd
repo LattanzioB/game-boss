@@ -9,8 +9,8 @@ onready var back = $JohnBack
 onready var gui
 var speech_interactions
 
-onready var sceneIntroduction = ['2Lascomodidades.wav','3TuColaboracion.wav', '4YaQueWalter.wav','5SiendoUnForestero.wav']
-onready var sceneIntroductionText = ['Bienvenido a nuestro hogar', 'las comodidades no son muchas pero espero que te sientas como en casa',' Tu colaboracion nos ayuda mucho ', 'ya que Walter, el dueño de la fabrica para la que trabajo, no nos paga muy bien','Siendo un forastero quizas tengas algunas preguntas']
+onready var sceneIntroduction = ['2Lascomodidades.wav','3TuColaboracion.wav', '4YaQueWalter.wav','5SiendoUnForestero.wav', ]
+onready var sceneIntroductionText = ['Bienvenido a nuestro hogar', 'las comodidades no son muchas pero espero que te sientas como en casa',' Tu colaboracion nos ayuda mucho ', 'ya que Walter, el dueño de la fabrica para la que trabajo, no nos paga muy bien','Siendo un forastero quizas tengas algunas preguntas', 'Hola!']
 onready var introduction_counter = 4
 
 
@@ -33,9 +33,16 @@ func hide_scene():
 func load_scene(first_time):
 	if(first_time):
 		sceneloader.start()
+	else:
+		play_welcome()
 	fire_place.stream_paused = false
 	speech_interactions.set_npc(back)
 
+func play_welcome():
+	speechIntr.stream = load("res://assets/Speechs/John/6Hola.wav")
+	speechIntr.play()
+	gui.chatbox_spawn_npc_tile("Hola!")
+	
 func _on_SceneLoaded_timeout():
 	speechIntr.play()
 	gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])
