@@ -106,7 +106,7 @@ func matches(input, text):
 	
 func look_for_triggered_answer(sentiment, trigger):
 	var res = sentiment
-	if self.triggered_answers[trigger].get(sentiment[0]) != null:
+	if trigger in self.triggered_answers:
 		res[1] = self.triggered_answers[trigger].get(sentiment[0])
 	return res
 	

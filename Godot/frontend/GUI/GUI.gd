@@ -20,10 +20,11 @@ func _ready():
 
 
 func _process(delta):
-	if Input.is_action_just_released("talk") && (!rec.visible):
-		rec.visible = true
-	elif Input.is_action_just_released("talk") && (rec.visible):
-		rec.visible = false
+	if self.visible:
+		if Input.is_action_just_released("talk") && (!rec.visible):
+			rec.visible = true
+		elif Input.is_action_just_released("talk") && (rec.visible):
+			rec.visible = false
 
 
 func reset():

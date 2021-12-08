@@ -1,7 +1,7 @@
 extends Control
 
 onready var stages = {
-	"introduction_first" : [2,2],
+	"introduction_first" : [3,3],
 	"introduction_second" : [6,6],
 	"journal_incompleted" : [1,0],
 	"journal_completed" : []
@@ -18,5 +18,6 @@ func _ready():
 func get_orders():
 	return stages.get(stage)
 
-func next_stage():
-	stage = stages.keys()[(stages.keys().find(stage) + 1)]
+	
+func set_current_stage(new_stage):
+	stage = new_stage

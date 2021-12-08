@@ -8,3 +8,4 @@ Godot/latest_silero_models.yml
 *.import
 Godot/assets/TileSet/Environment/*.import
 *.pyc
+Godot/backend/key.cfg

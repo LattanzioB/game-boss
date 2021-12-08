@@ -14,7 +14,6 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-rec_path = NodePath("Rec")
 
 [node name="MenuBackground" parent="." instance=ExtResource( 1 )]
 z_index = -1
@@ -215,7 +214,7 @@ autowrap = true
 visible = false
 position = Vector2( 976, 552 )
 animation = "default"
-frame = 5
+frame = 3
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

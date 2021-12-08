@@ -23,19 +23,33 @@ onready var journal = $GUI/Journal
 onready var speechinter = $SpeechInteractions
 onready var music_controler = $MusicControler
 
-onready var actual_scene = sage_scene
+onready var current_scene = sage_scene
 
 onready var trigger_spawned = false
+
+onready var stages = {
+	"introduction_first" : true,
+	"introduction_second" : false,
+	"journal_incompleted" : false,
+	"journal_completed" : false
+}
+
+onready var stage = "introduction_first"
 
 func _ready():
 	speechinter.set_chatbox(chatbox)
 
-
+func next_stage():
+	var posible_stage = stages.keys()[(stages.keys().find(stage) + 1)]
+	if(stages.get(posible_stage)):
+		stage = posible_stage
+	return stage
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 func change_scene_to_walter():
-	actual_scene = walter_scene
+	current_scene = walter_scene
 	walter_scene.visible = true
 	gui.visible = true
 	speechinter.change_npc_player("WalterSpeech")
@@ -48,7 +62,7 @@ func change_scene_to_walter():
 
 
 func change_scene_to_bob():
-	actual_scene = bob_scene
+	current_scene = bob_scene
 	bob_scene.visible = true
 	gui.visible = true
 	speechinter.change_npc_player("BobSpeech")
@@ -61,7 +75,7 @@ func change_scene_to_bob():
 
 
 func change_scene_to_sage():
-	actual_scene = sage_scene
+	current_scene = sage_scene
 	sage_scene.visible = true
 	gui.visible = true
 	speechinter.change_npc_player("SageSpeech")
@@ -75,7 +89,7 @@ func change_scene_to_sage():
 
 
 func change_scene_to_johns():
-	actual_scene = john_scene
+	current_scene = john_scene
 	john_scene.visible = true
 	gui.visible = true
 	speechinter.change_npc_player("JohnSpeech")
@@ -108,13 +122,14 @@ func _on_WalterScene_new_trigger_phrase(trigger, phrase, sentiment, npc_name):
 
 
 func hide_scene():
-	actual_scene.visible = false
+	current_scene.visible = false
 	gui.reset()
 
 
 func _on_GUI_change_scene(scene):
-	actual_scene.hide_scene()
+	current_scene.hide_scene()
 	hide_scene()
+	gui.rec.visible = false
 	match scene:
 		"juan":
 			change_scene_to_johns()
@@ -134,6 +149,7 @@ func second_sage_scene():
 
 func start_scene_changer_timer():
 	$ChangeSceneTimer.start()
+	stages["introduction_second"] = true
 
 func _on_SageScene_introduction_finished():
 	gui.journal_button.visible = true
