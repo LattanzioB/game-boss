@@ -2,7 +2,7 @@
 
 John Smith is a railroad worker. John is 45 years old.
 Father of two boys James and Mark. 
-Johnís wife is called Mary, Mary is a house wife.
+John‚Äôs wife is called Mary, Mary is a house wife.
 
 
 John has barely enough money to feed his family every day. 
@@ -36,7 +36,7 @@ Recorda hablar clara y pausadamente.
 
 Highlight buttons and text bubble with usage explanations.
 
-El jugador debera inicial el juego con las palabras ìIniciar Juegoî
+El jugador debera inicial el juego con las palabras ‚ÄúIniciar Juego‚Äù
 
 Intentos de superar la introduccion. Cuantos? Si son muchos, cuanto se desmotiva el jugador?
 
@@ -54,14 +54,14 @@ Escena dentro de la casa.
 Highlight buttons and text bubble with usage explanations.
 configuration
 
-John: Bienvenido a nuestro hogar, las comodides no son muchas pero espero que te sientas como en casa. Tu colaboracion nos ayuda mucho ya que Walter, el dueÒo de la fabrica para la que trabajo, no nos paga muy bien. 
+John: Bienvenido a nuestro hogar, las comodides no son muchas pero espero que te sientas como en casa. Tu colaboracion nos ayuda mucho ya que Walter, el due√±o de la fabrica para la que trabajo, no nos paga muy bien. 
 Siendo un forastero quizas tengas algunas preguntas.
 
-ìHazle a john alguna preguntaî
+‚ÄúHazle a john alguna pregunta‚Äù
 
 Si la primer pregunta no afecta sobre el Journal.
 
-ìPreguntale sobre su familiaî
+‚ÄúPreguntale sobre su familia‚Äù
 
 Highlight buttons and text bubble with usage explanations.
 Journal
@@ -97,36 +97,47 @@ Opening
 Sage:
 
 Bienvenido al pueblo, tu objetivo por esta noche sera encontrar la casa de juan para hospedarte, te recibira por pocas monedas si logras encontrar sus intereses.
-Buscame maÒana antes del alba!
+Buscame ma√±ana antes del alba
 
 Juan:
 haces todo....
 
+Juan Al preguntarle sobre walter:
+Odio a Walter y a su codicia.
+
+
 Sage:
-Veo que ya conociste a Juan. En la ciudad hay otras dos personas con las que podr·s hablar, Walter que lo menciono Juan anoche y Bob.
-Bob tiene una opinion distinta sobre Walter a la que tiene Juan. 
-Te invito a que recorras la ciudad y dialogues con ellos para 
-formar tus propias ideas.
+Veo que ya conociste a Juan. En la ciudad hay otras dos personas con las que podr√°s hablar, Walter que lo menciono Juan anoche y Bob que tiene una opinion distinta a la que tiene Juan. Te invito a que recorras la ciudad y dialogues con ellos para formar tus propias ideas.
 Cuando hayas hablado con todos y descubras sus motivaciones vuelve a buscarme.
-Utiliz· el mapa para desplazarte por la ciudad.
-
-faltan completar
-Sabes tantas motivasciones de Juan, te faltan x de walter y x de bob.
-
-Cuando las completes buscame!
+Utiliza el mapa para desplazarte por la ciudad.
 
 
+Journal incompleted:
+¬°Vuelve cuando descubras sus motivaciones!
 
-Ya estan completas.
-Que opinas de las relaciones de la ciudad? Te gustaria poder cambiarlo?
+
+Journal completed:
+¬øQue opinas de las relaciones de la ciudad? ¬øTe gustaria poder cambiarlo?
 Como pudiste notar las opiniones de Juan y de Bob sobre Walter son opuestas. Y cada uno tiene sus propios motivos.
 Si volvieras hablar con alguno de ellos, podrias usar los argumentos del otro para cambiar su opinion.
 Vuelve conmigo una vez que hayas logrado cambiar alguna de sus dos opiniones.
 
-En caso de no modificar nada.
+
+shifter_not_found
 Vuelve conmigo una vez que hayas logrado cambiar alguna de sus dos opiniones.
 
 
-Siguiente interaccion con el Sage:
+shifter_found
 Tu intervencion en el mundo es muy poderosa, un gran poder conlleva una gran responsabilidad.
 Usalo sabiamente en el resto de tu camino.
+
+
+Walter:
+Hola. Esta es mi fabrica, ¬øQue te trae por aqui?
+
+
+Bob:
+Hola! Juan me ha hablando de ti, bienvenido!
+
+Al preguntarle sobre Walter, responde:
+Compadezco la vida de Walter, vive estresado por su trabajo y luego de la muerte de su esposa se ha vuelto muy solitario.

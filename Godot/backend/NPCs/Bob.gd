@@ -30,6 +30,14 @@ func _ready():
 		"loneliness": ["family", "lonely", "loneliness", "solitude", "alone"], 
 		"fishing":["fish", "fishing"]
 		}
+		
+	triggered_answers = {
+		"walter": {
+			"hate" : "I hate Walter and his greed,",
+			"empathy" : "I sympathise with Walter's life, he lives stressed by his work and after the death of his wife he has become very lonely."
+		}
+	}
+	
 	dialog_history = "1890.\n\nBob Boyle is a railroad worker. Bob is 40 years old. Bob is lonely because he doenst have a family.\n\nHe is friend with John Smith, they go fishing together.\n\nThe owner of the factory is called Walter. Walter lives in a big mansion outside the village. Walter owns three other factories and Walter is extremely rich.\n\nBob likes his work and has empathy for his boss, because of their lonelyness.\n\nBob knows that Walter has a rough life too."
 	questions = ["Did you know that Walter is a lonely and stressed man?"]
 	shifters =  {

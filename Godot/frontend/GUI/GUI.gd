@@ -1,6 +1,7 @@
 extends Control
 
 signal change_scene
+signal music_loop
 
 onready var chatbox = $Chatbox
 onready var sound_control = $SoundControl
@@ -47,7 +48,7 @@ func _on_FireFx_volume_control_value_changed(value):
 
 
 func _on_NPC_voice_volume_control_value_changed(value):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Speech"), value)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Voices"), value)
 
 func _on_Music_volume_control_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("BaseMelody"), value)
@@ -102,3 +103,7 @@ func _on_Map_change_scene(scene):
 
 func _on_Journal_first_trigger():
 	journal.visible = true
+
+
+func _on_CheckBox_pressed():
+	emit_signal("music_loop")

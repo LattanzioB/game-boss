@@ -14,6 +14,7 @@ var shifters
 var shifters_received
 var shifters_synonyms
 
+var triggered_answers
 var triggered_questions
 
 onready var sentiment_adverbs = {
@@ -84,22 +85,36 @@ func any_matches(input):
 	return sentiment
 
 func matches(input, text):
-	var sentiment = ''
+	var sentiment = ["", ""]
 	#iterate trigger dict 
 	for trigger in self.get_triggers_synonyms().keys():
 		#iterate values of triggers synonyms
 		for synonym in self.get_triggers_synonyms().get(trigger):
 			#Si encuentra un valor igual al input
 			if synonym == input:
-				sentiment = self.get_emotion_from_trigger(trigger)
+				sentiment[0] = self.get_emotion_from_trigger(trigger)
 				#si es la primera vez que encuentra el valor
 				if !self.get_triggers_found().has(trigger):
 					self.get_triggers_found().append(trigger)
-					emit_signal("new_trigger_phrase", trigger, self.get_trigger_phrase(trigger, get_emotion_from_trigger(trigger)), sentiment, self.npc_name)
+					self.remove_question(trigger)
+					emit_signal("new_trigger_phrase", trigger, self.get_trigger_phrase(trigger, get_emotion_from_trigger(trigger)), sentiment[0], self.npc_name)
 				else:
 					look_for_shifters(text, trigger)
+				sentiment = self.look_for_triggered_answer(sentiment, trigger)
 	return sentiment
 	
+	
+func look_for_triggered_answer(sentiment, trigger):
+	var res = sentiment
+	if self.triggered_answers[trigger].get(sentiment[0]) != null:
+		res[1] = self.triggered_answers[trigger].get(sentiment[0])
+	return res
+	
+func remove_question(trigger):
+	for question in self.questions:
+		if trigger in question: 
+			self.questions.remove(self.questions.find(question))
+			
 func get_emotion_from_trigger(trigger):
 	var result_emotion 
 	for emotion in self.get_sentiments(): 

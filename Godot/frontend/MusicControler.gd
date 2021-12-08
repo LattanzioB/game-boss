@@ -23,6 +23,8 @@ func _ready():
 		base_melody.play(20.0)
 	pass
 
+func music_loop():
+	active = !active
 
 func new_sentiment(sentiment):
 	sentimen_chords.stream = sentimentDic.get(sentiment)

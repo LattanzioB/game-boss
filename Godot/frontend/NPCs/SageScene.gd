@@ -10,23 +10,20 @@ onready var sceneloader = $SceneLoaded
 onready var back = $Sage
 onready var gui
 var speech_interactions
+onready var sage_state = $Sage_state
+onready var first_time = true
 
-onready var sceneIntroduction = ["2TeRecibira.wav",'3Buscame.wav']
-onready var sceneIntroductionText = ['Bienvenido al pueblo, tu objetivo por esta noche sera encontrar la casa de juan para hospedarte', 'te recibira por pocas monedas si logras encontrar sus intereses.', 'Buscame mañana antes del alba']
-onready var introduction_counter = 2
-
-
-
-
-
+onready var sceneIntroduction = ["1Bienvenido.wav", "2TeRecibira.wav",'3Buscame.wav', '4EnLaCiudad.wav', '5JuanQueYa.wav', '6YBobQueTiene.wav', '7TeInvitoAQue.wav', '8CuandoHayasHablado.wav', '9UtilizaElMapa.wav' ]
+onready var sceneIntroductionText = ['Bienvenido al pueblo, tu objetivo por esta noche sera encontrar la casa de juan para hospedarte', 'te recibira por pocas monedas si logras encontrar sus intereses.', 'Buscame mañana antes del alba', 'En la ciudad existen 3 personajes principales', 'Juan que ya lo conociste, Walter que lo menciono Juan anoche', 'y Bob que tiene una opinion distinta a la que tiene Juan',  ]
+onready var player_counter 
+onready var delete_speech_counter
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	speechIntr.stream = load("res://assets/Speechs/Sage/1Bienvenido.wav")
 	forest_player.stream_paused = true
 	
 func hide_scene():
-		forest_player.stream_paused = true	
+		forest_player.stream_paused = true
 
 func set_gui(newgui):
 	gui = newgui
@@ -35,6 +32,11 @@ func set_speech_interactions(speechinteractions):
 	speech_interactions = speechinteractions
 
 func load_scene(first_time):
+	var orders = sage_state.get_orders()
+	player_counter = orders[0]
+	delete_speech_counter = orders[1]
+	speechIntr.stream = load("res://assets/Speechs/Sage/" + sceneIntroduction[0])
+	
 	if(first_time):
 		sceneloader.start()
 	forest_player.stream_paused = false
@@ -43,19 +45,29 @@ func load_scene(first_time):
 func _on_SceneLoaded_timeout():
 	speechIntr.play()
 	gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])
-	sceneIntroductionText.remove(0)
+	if(delete_speech_counter > 0):
+		sceneIntroductionText.remove(0)
+		sceneIntroduction.remove(0)
+		delete_speech_counter -= 1
+		player_counter -= 1
+	else:
+		player_counter -= 1
+		
 
 func _on_IntroductionPlayer_finished():
-	if introduction_counter > 0:
+	if player_counter > 0:
 		speechIntr.stream = load("res://assets/Speechs/Sage/" + sceneIntroduction[0])
-		sceneIntroduction.remove(0)
 		speechIntr.play()
 		gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])
-		sceneIntroductionText.remove(0)
-		introduction_counter -= 1
-	if introduction_counter == 0:
-		changerTimer.start()
-		
+		player_counter -= 1
+		if (delete_speech_counter > 0):
+			sceneIntroductionText.remove(0)
+			sceneIntroduction.remove(0)
+			delete_speech_counter -= 1
+	if player_counter == 0:
+		if first_time:
+			changerTimer.start()
+			first_time = false
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

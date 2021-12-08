@@ -15,7 +15,7 @@ class Text_to_speech(Node):
 		self.device = torch.device('cpu')
 		torch.set_num_threads(8)
 		self.local_file = 'backend/talk_interactions/tts/model.pt'
-		self.example_batch = ['Búscame mañana antes del albaa']
+		self.example_batch = ['Walter que lo menciono Juan anoche']
 
 		if not os.path.isfile(self.local_file):
 			torch.hub.download_url_to_file('https://models.silero.ai/models/tts/es/v2_tux.pt',

@@ -19,6 +19,8 @@ var recording = false
 var text_from_mic
 var openai
 
+var speechs_to_play 
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -72,23 +74,54 @@ func valid_text(messege_type):
 	var input_text = translator.translate_to_english(text_from_mic)
 	text_from_mic = ""
 	var sentiment = npc.any_matches(input_text)
-	var final_input ="Robert says: " + input_text + messege_type + "\n\n" + npc.get_name() + npc.get_adverb(sentiment) +" says:"
+	var final_input ="Robert says: " + input_text + messege_type + "\n\n" + npc.get_name() + npc.get_adverb(sentiment[0]) +" says:"
 	npc.add_player_coment(final_input)
-	var dialog_history = npc.get_dialog_history()
-	var response = openai.get_response(dialog_history)
-	npc.add_npc_coment(response)
+	var response
+	var new_dialog = ''
+	if sentiment[1] == '':
+		new_dialog = openai.get_response(npc.get_dialog_history())
+		response = new_dialog
+	else:
+		var triggered_answer = sentiment[1]
+		npc.add_npc_coment(triggered_answer)
+		if(sentiment[1][-1] == "."):
+			response = triggered_answer
+		else:
+			new_dialog = openai.get_response( npc.get_dialog_history())
+			response = triggered_answer + new_dialog
+	npc.add_npc_coment(new_dialog)
 	question_countdown -= 1
 	if question_countdown == 0:
 		response = add_npc_question(response)
 	response = translator.translate_to_spanish(response)
-	var response_wav = tts.create_speech(response)
-	print(response_wav)
-	audio_player.load_record(response_wav)
-	audio_player.play()
-	if(chatbox != null):
-		chatbox.spawn_npc_tile(response)
-	emit_signal('finish_loading_speech')
+	speechs_to_play = response.split(" ", true)
+	create_speechs()
+#	print(response_wav)
+#	audio_player.load_record(response_wav)
+#	audio_player.play()
+
 	
+#
+func create_speechs():
+	if(len(speechs_to_play) > 0):
+		var speech = ''
+		var it = 0
+		while (it < 10) && (0 < len(speechs_to_play)):
+			speech += speechs_to_play[0] + " "
+			it += 1
+			if(speech[-2] == "," || speech[-1] == "."):
+				it = 10
+			speechs_to_play.remove(0)
+		var response_wav = tts.create_speech(speech)
+		audio_player.load_record(response_wav)
+		audio_player.play()
+		if(chatbox != null):
+			chatbox.spawn_npc_tile(speech)
+	else:
+		emit_signal('finish_loading_speech')
+
+func _on_AudioStreamPlayer_finished():
+	create_speechs()
 
 func add_npc_question(response):
 	var response_plus_question 
@@ -101,3 +134,4 @@ func add_npc_question(response):
 
 
 
+	

@@ -1,80 +1,13 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://frontend/NPCs/BobScene.gd" type="Script" id=1]
 [ext_resource path="res://backend/NPCs/Bob.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/npcs/bob/bob1.png" type="Texture" id=3]
 [ext_resource path="res://assets/npcs/bob/bob3.png" type="Texture" id=4]
 [ext_resource path="res://assets/npcs/bob/bob2.png" type="Texture" id=5]
-[ext_resource path="res://assets/sfx/fire.wav" type="AudioStream" id=9]
-[ext_resource path="res://assets/background/fire_place_room.png" type="Texture" id=14]
-
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 0, 0, 1024, 576 )
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 1024, 0, 1024, 576 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 2048, 0, 1024, 576 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 3072, 0, 1024, 576 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 0, 576, 1024, 576 )
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 1024, 576, 1024, 576 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 2048, 576, 1024, 576 )
-
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 3072, 576, 1024, 576 )
-
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 0, 1152, 1024, 576 )
-
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 1024, 1152, 1024, 576 )
-
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 2048, 1152, 1024, 576 )
-
-[sub_resource type="AtlasTexture" id=12]
-flags = 4
-atlas = ExtResource( 14 )
-region = Rect2( 3072, 1152, 1024, 576 )
-
-[sub_resource type="SpriteFrames" id=13]
-animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
-"loop": true,
-"name": "default",
-"speed": 3.0
-} ]
+[ext_resource path="res://assets/npcs/bob/background/pixil-frame-0 (7).png" type="Texture" id=6]
+[ext_resource path="res://assets/npcs/bob/background/big_38f904de16.jpg" type="Texture" id=7]
+[ext_resource path="res://assets/sfx/street_sounds.mp3" type="AudioStream" id=8]
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
@@ -90,17 +23,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background" type="AnimatedSprite" parent="."]
-position = Vector2( 515.124, 299.324 )
-scale = Vector2( 1, 1.03311 )
-z_index = -1
-frames = SubResource( 13 )
-frame = 7
-playing = true
-
-[node name="FirePlacePlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-volume_db = -18.0
+[node name="BackgroundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -25.0
 bus = "BackgroundFx"
 
 [node name="IntroductionPlayer" type="AudioStreamPlayer" parent="."]
@@ -111,7 +36,7 @@ bus = "BobSpeech"
 position = Vector2( 870, 440 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 14 )
-frame = 4
+frame = 6
 playing = true
 flip_h = true
 
@@ -120,6 +45,18 @@ wait_time = 2.0
 one_shot = true
 
 [node name="BobBack" parent="." instance=ExtResource( 2 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512.648, 296.963 )
+scale = Vector2( 1.06711, 0.921142 )
+z_index = -4
+texture = ExtResource( 7 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 615, 292 )
+scale = Vector2( 2.34239, 2.05714 )
+z_index = -1
+texture = ExtResource( 6 )
 
 [connection signal="finished" from="IntroductionPlayer" to="." method="_on_IntroductionPlayer_finished"]
 [connection signal="timeout" from="SceneLoaded" to="." method="_on_SceneLoaded_timeout"]

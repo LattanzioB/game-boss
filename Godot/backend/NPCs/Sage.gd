@@ -22,6 +22,7 @@ func _ready():
 	triggers_synonyms ={
 		#Diccionario de listas de sinonimos de triggers
 		}
+	triggered_answers = {}
 	dialog_history = ""
 	questions = []
 	shifters =  {
