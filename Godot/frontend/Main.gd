@@ -104,6 +104,7 @@ func _on_StartScreen_intro_finish():
 	start_screen.visible = false
 	start_screen.disable()
 	change_scene_to_sage()
+	gui.map_button.visible = false
 
 
 func _on_JohnScene_new_trigger_phrase(trigger, phrase, sentiment, npc_name):
