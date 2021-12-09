@@ -28,13 +28,13 @@ func _ready():
 	
 	triggers_synonyms ={
 		"walter": ["boss","walter","Walter","owner"], 
-		"loneliness": ["family", "lonely", "loneliness", "solitude", "alone"], 
+		"loneliness": ["family", "familys", "lonely", "loneliness", "solitude", "alone"], 
 		"fishing":["fish", "fishing"]
 		}
 		
 	triggered_answers = {
 		"walter": {
-			"hate" : "I hate Walter and his greed,",
+			"hate" : "I hate walter and his greed,",
 			"empathy" : "I sympathise with Walter's life, he lives stressed by his work and after the death of his wife he has become very lonely."
 		}
 	}

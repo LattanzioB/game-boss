@@ -11,9 +11,9 @@ onready var menu = $Menu
 onready var menu2 = $Menu2
 onready var popup = $PopUp
 onready var popup_label = $PopUp/Label
-
+onready var red_dot = $Rec
 export var rec_path:NodePath
-onready var red_dot = get_node(rec_path)
+
 
 onready var active = true
 

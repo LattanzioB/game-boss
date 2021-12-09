@@ -18,7 +18,7 @@ class Openai(Node):
 							temperature=0.3,
 							best_of=2,
 							#decrece la chance de que el modelo repita
-							frequency_penalty=1.3,
+							frequency_penalty=1.7,
 							#aumenta la chance de que el modelo improvise
 							presence_penalty=0.4)
 			return self.fix_answer(answer.choices[0].text)

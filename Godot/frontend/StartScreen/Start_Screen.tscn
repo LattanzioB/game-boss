@@ -214,7 +214,7 @@ autowrap = true
 visible = false
 position = Vector2( 976, 552 )
 animation = "default"
-frame = 3
+frame = 6
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )

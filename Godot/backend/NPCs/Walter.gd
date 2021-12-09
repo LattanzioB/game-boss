@@ -26,7 +26,7 @@ func _ready():
 		"workers":["bob", "juan", "employees", "employee", "worker", "workers","staff"]
 		}
 	triggered_answers = {}
-	dialog_history = "1890 Walter Har\n\nWalter owns 3 factorys of train parts.\n\nWalter's got one son but lost his wife years ago.\n\nWalter works since he wakes up til he goes to sleep again, everyday.\n\nWalter's very self centered.\n\nWalter lives a stressfull life.\n\nWalter wishes he could spend more time with his son.\n\nWalter employs Jhon Smith and Bob Boyle and has empathy for his poor life-style."
+	dialog_history = "1890 Walter Har\n\nWalter owns 3 factorys of train parts.\n\nWalter's got one son but lost his wife years ago.\n\nWalter works since he wakes up til he goes to sleep again, everyday.\n\nWalter employs Jhon Smith and Bob Boyle and has empathy for his poor life-style.\n\nWalter's very self centered.\n\nWalter lives a stressfull life.\n\nWalter wishes he could spend more time with his son."
 	questions = ["Do you have family?", "Do you have a wife?", "Do you know my employees?"]
 	shifters =  {
 		#Diccionario de triggers con diccionario de emociones con lista de shifters
