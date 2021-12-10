@@ -10,6 +10,8 @@ var sentiments
 var trigger_phrases
 var triggers_synonyms
 onready var triggers_found = []
+onready var new_dialogs = ""
+onready var dialog_counter = 0
 
 var shifters
 var shifters_received
@@ -71,13 +73,21 @@ func get_question():
 		self.questions.remove(0)
 	return question
 
+func get_new_dialogs():
+	return self.new_dialogs
 
 func add_npc_coment(coment):
-	self.dialog_history = dialog_history + coment
+	self.new_dialogs = new_dialogs + coment
 
 func add_player_coment(coment):
-	self.dialog_history = dialog_history + "\n\n" + coment
-
+	self.new_dialogs = new_dialogs + "\n\n" + coment
+	self.dialog_counter += 1
+	self.remove_old_dialogs()
+	
+func remove_old_dialogs():
+	if(dialog_counter > 3):
+		self.new_dialogs = self.new_dialogs.split("\n\n",false, 2)[2]
+	
 func any_matches(input):
 	var sentiment 
 	var words = input.split(" ", true)

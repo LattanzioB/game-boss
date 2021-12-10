@@ -36,7 +36,7 @@ bus = "BobSpeech"
 position = Vector2( 870, 440 )
 scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 14 )
-frame = 1
+frame = 5
 playing = true
 flip_h = true
 

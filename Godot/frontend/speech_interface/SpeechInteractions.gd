@@ -79,7 +79,7 @@ func valid_text(messege_type):
 	var response
 	var new_dialog = ''
 	if sentiment[1] == '':
-		new_dialog = openai.get_response(npc.get_dialog_history())
+		new_dialog = openai.get_response(npc.get_dialog_history() + npc.get_new_dialogs())
 		response = new_dialog
 	else:
 		var triggered_answer = sentiment[1]
@@ -87,7 +87,7 @@ func valid_text(messege_type):
 		if(sentiment[1][-1] == "."):
 			response = triggered_answer
 		else:
-			new_dialog = openai.get_response( npc.get_dialog_history())
+			new_dialog = openai.get_response( npc.get_dialog_history(), npc.get_new_dialogs())
 			response = triggered_answer + new_dialog
 	npc.add_npc_coment(new_dialog)
 	question_countdown -= 1
