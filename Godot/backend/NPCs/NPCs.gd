@@ -85,7 +85,7 @@ func add_player_coment(coment):
 	self.remove_old_dialogs()
 	
 func remove_old_dialogs():
-	if(dialog_counter > 3):
+	if(dialog_counter > 5):
 		self.new_dialogs = self.new_dialogs.split("\n\n",false, 2)[2]
 	
 func any_matches(input):
