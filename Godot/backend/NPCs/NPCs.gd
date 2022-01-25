@@ -11,6 +11,7 @@ var trigger_phrases
 var triggers_synonyms
 onready var triggers_found = []
 onready var new_dialogs = ""
+onready var last_dialog = ""
 onready var dialog_counter = 0
 
 var shifters
@@ -78,6 +79,16 @@ func get_new_dialogs():
 
 func add_npc_coment(coment):
 	self.new_dialogs = new_dialogs + coment
+	self.check_last_dialog(coment)
+	
+func check_last_dialog(coment):
+	if (self.last_dialog == coment) :
+		self.last_dialog = ""
+		self.new_dialogs = ""
+		self.dialog_counter = 0
+	else:
+		self.last_dialog = coment
+
 
 func add_player_coment(coment):
 	self.new_dialogs = new_dialogs + "\n\n" + coment

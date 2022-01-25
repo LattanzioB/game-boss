@@ -74,7 +74,7 @@ func valid_text(messege_type):
 	var input_text = translator.translate_to_english(text_from_mic)
 	text_from_mic = ""
 	var sentiment = npc.any_matches(input_text)
-	var final_input ="Robert says: " + input_text + messege_type + "\n\n" + npc.get_name() + npc.get_adverb(sentiment[0]) +" says:"
+	var final_input ="Robert says: " + input_text + messege_type + "\n\n" + npc.get_name() + npc.get_adverb(sentiment[0]) +"says:"
 	npc.add_player_coment(final_input)
 	var response
 	var new_dialog = ''
