@@ -1,7 +1,10 @@
 Godot/addons/
 Godot/backend/talk_interactions/stt/model/
 Godot/backend/talk_interactions/tts/model.pt
+Godot/backend/talk_interactions/tts/model_es.pt
+Godot/backend/talk_interactions/tts/model_en.pt
 Godot/backend/talk_interactions/tts/tmpe07vqifw
+Godot/backend/talk_interactions/tts/tmpmrh458je
 Godot/*.import/
 Godot/models.yml
 Godot/latest_silero_models.yml
