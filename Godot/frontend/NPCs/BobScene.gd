@@ -10,19 +10,31 @@ onready var gui
 var speech_interactions
 
 onready var sceneIntroduction = ["2Hola.wav"]
-onready var sceneIntroductionText = ['Hola! Juan me ha hablado de ti, bienvenido!', 'Hola!']
+onready var sceneIntroductionText = []
+onready var sceneIntroductionTextEs = ['Hola! Juan me ha hablado de ti, bienvenido!', 'Hola!']
+onready var sceneIntroductionTextEn = ['Hello! John told me about you, Welcome!', 'Hello!']
 onready var introduction_counter = 1
+
+onready var lang = "es"
 
 onready var first_time = true
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	speechIntr.stream = load("res://assets/Speechs/Bob/1Hola.wav")
 	fire_place.stream_paused = true
 	
 func set_gui(newgui):
 	gui = newgui
+
+func set_language(language):
+	lang = language
+	if lang == "es":
+		sceneIntroductionText = sceneIntroductionTextEs
+	else:
+		sceneIntroductionText = sceneIntroductionTextEn
+		
+	speechIntr.stream = load("res://assets/Speechs/" + lang + "/Bob/" +  "1Hola.wav")
 
 func set_speech_interactions(speechinteractions):
 	speech_interactions = speechinteractions
@@ -34,7 +46,7 @@ func load_scene():
 	if(first_time):
 		sceneloader.start()
 	else:
-		speechIntr.stream = load("res://assets/Speechs/Bob/" + sceneIntroduction[0])
+		speechIntr.stream = load("res://assets/Speechs/" + lang + "/Bob/"  + sceneIntroduction[0])
 		sceneloader.start()
 	fire_place.stream_paused = false
 	speech_interactions.set_npc(back)

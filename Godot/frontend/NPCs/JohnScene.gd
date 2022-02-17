@@ -10,8 +10,12 @@ onready var back = $JohnBack
 onready var gui
 var speech_interactions
 
+onready var lang = "en"
+
 onready var sceneIntroduction = ['2Lascomodidades.wav','3TuColaboracion.wav', '4YaQueWalter.wav','5SiendoUnForestero.wav', ]
-onready var sceneIntroductionText = ['Bienvenido a nuestro hogar', 'las comodidades no son muchas pero espero que te sientas como en casa',' Tu colaboracion nos ayuda mucho ', 'ya que Walter, el dueño de la fabrica para la que trabajo, no nos paga muy bien','Siendo un forastero quizas tengas algunas preguntas', 'Hola!']
+onready var sceneIntroductionText = [] 
+onready var sceneIntroductionTextEn = ['Welcome to our home', 'the comforts are not many but I hope you feel at home.', 'Your contribution helps us a lot', "because Walter, the owner of the factory I work for, doesn't pay us very well.", "Being an outsider, you may have some questions.", "Hello!"]
+onready var sceneIntroductionTextEs = ['Bienvenido a nuestro hogar', 'las comodidades no son muchas pero espero que te sientas como en casa',' Tu colaboracion nos ayuda mucho ', 'ya que Walter, el dueño de la fabrica para la que trabajo, no nos paga muy bien','Siendo un forastero quizas tengas algunas preguntas', 'Hola!']
 onready var introduction_counter = 4
 
 
@@ -19,9 +23,18 @@ onready var introduction_counter = 4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	speechIntr.stream = load("res://assets/Speechs/John/1Bienvenido.wav")
+	
 	fire_place.stream_paused = true
 	
+func set_language(language):
+	lang = language
+	if lang == "es":
+		sceneIntroductionText = sceneIntroductionTextEs
+	else:
+		sceneIntroductionText = sceneIntroductionTextEn
+	
+	speechIntr.stream = load("res://assets/Speechs/" + lang + "/John/" + "1Bienvenido.wav")
+
 func set_gui(newgui):
 	gui = newgui
 
@@ -40,7 +53,7 @@ func load_scene(first_time):
 	speech_interactions.set_npc(back)
 
 func play_welcome():
-	speechIntr.stream = load("res://assets/Speechs/John/6Hola.wav")
+	speechIntr.stream = load("res://assets/Speechs/" + lang + "/John/" + "6Hola.wav")
 	speechIntr.play()
 	gui.chatbox_spawn_npc_tile("Hola!")
 	
@@ -51,7 +64,7 @@ func _on_SceneLoaded_timeout():
 
 func _on_IntroductionPlayer_finished():
 	if introduction_counter > 0:
-		speechIntr.stream = load("res://assets/Speechs/John/" + sceneIntroduction[0])
+		speechIntr.stream = load("res://assets/Speechs/" + lang + "/John/" + sceneIntroduction[0])
 		sceneIntroduction.remove(0)
 		speechIntr.play()
 		gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])

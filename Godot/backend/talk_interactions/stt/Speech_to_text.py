@@ -14,13 +14,18 @@ class Speech_to_text(Control):
 	def _ready(self):
 		self.device = torch.device('cpu')   # you can use any pytorch device
 		self.models = OmegaConf.load('models.yml')
-		
 		self.model, self.decoder, self.utils = torch.hub.load(repo_or_dir='snakers4/silero-models',
 									   model='silero_stt',
-									   language='es', # also available 'de', 'es'
+									   language= 'es', # also available 'de', 'es'
 									   device=self.device)
-
-		
+									
+	def load_model(self, lang):
+		self.model, self.decoder, self.utils = torch.hub.load(repo_or_dir='snakers4/silero-models',
+									   model='silero_stt',
+									   language= str(lang), # also available 'de', 'es'
+									   device=self.device)
+									
+									
 	def wav_to_text(self, f='backend/talk_interactions/stt/record.wav'):
 		batch = read_batch([f])
 		input = prepare_model_input(batch, device=self.device)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://frontend/StartScreen/Menu background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://frontend/GUI/InputDevicesList.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://frontend/StartScreen/Start Screen.gd" type="Script" id=6]
 [ext_resource path="res://assets/fonts/Pixel font.tres" type="Theme" id=7]
 [ext_resource path="res://assets/sfx/correct.mp3" type="AudioStream" id=8]
+[ext_resource path="res://frontend/StartScreen/LanguageSelector.gd" type="Script" id=9]
+[ext_resource path="res://backend/talk_interactions/translator/TranslatorHelper.tscn" type="PackedScene" id=10]
 
 [node name="StartScreen" type="Control"]
 script = ExtResource( 6 )
@@ -49,24 +51,31 @@ margin_right = 946.0
 margin_bottom = 23.0
 theme = ExtResource( 7 )
 custom_constants/shadow_offset_x = 0
-text = "LET YOUR WAY BE HEARD"
+text = "SoulSeek"
 align = 1
 
-[node name="Intro text" type="Label" parent="Menu/VBoxContainer"]
+[node name="LanguageSelector" type="OptionButton" parent="Menu/VBoxContainer"]
 margin_top = 39.0
 margin_right = 946.0
-margin_bottom = 114.0
+margin_bottom = 59.0
+text = "Selector de idioma"
+script = ExtResource( 9 )
+
+[node name="Intro text" type="Label" parent="Menu/VBoxContainer"]
+margin_top = 75.0
+margin_right = 946.0
+margin_bottom = 150.0
 theme = ExtResource( 7 )
-text = "Bienvenid@s, Let your way be heard es un juego que se basa en el uso de las palabras habladas como método de input
+text = "Bienvenid@s, SoulSeek es un juego que se basa en el uso de las palabras habladas como método de input
 de usuario, por ello es importante que cuentes con un micrófono para poder jugar.
 Seleccione de la lista de abajo el micrófono que quiera utilizar"
 align = 1
 valign = 1
 
 [node name="Title2" type="Label" parent="Menu/VBoxContainer"]
-margin_top = 130.0
+margin_top = 166.0
 margin_right = 946.0
-margin_bottom = 153.0
+margin_bottom = 189.0
 theme = ExtResource( 7 )
 custom_constants/shadow_offset_x = 0
 text = "A continuación ingrese su API key generada en: https://beta.openai.com/ y oprima la tecla \"Enter\""
@@ -75,20 +84,20 @@ __meta__ = {
 }
 
 [node name="TextEdit" type="LineEdit" parent="Menu/VBoxContainer"]
-margin_top = 169.0
+margin_top = 205.0
 margin_right = 946.0
-margin_bottom = 193.0
+margin_bottom = 229.0
 secret = true
 
 [node name="InputDevicesList" parent="Menu/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 209.0
-margin_right = 946.0
-margin_bottom = 229.0
-
-[node name="Explanation" type="Label" parent="Menu/VBoxContainer"]
 margin_top = 245.0
 margin_right = 946.0
-margin_bottom = 346.0
+margin_bottom = 265.0
+
+[node name="Explanation" type="Label" parent="Menu/VBoxContainer"]
+margin_top = 281.0
+margin_right = 946.0
+margin_bottom = 382.0
 theme = ExtResource( 7 )
 text = "Estos son los controles del juego:
  - La tecla \"Control\" comienza y finaliza la grabación desede el micrófono seleccionado.
@@ -127,7 +136,7 @@ margin_right = 952.0
 margin_bottom = 23.0
 theme = ExtResource( 7 )
 custom_constants/shadow_offset_x = 0
-text = "LET YOUR WAY BE HEARD"
+text = "SoulSeek"
 align = 1
 
 [node name="Intro text" type="Label" parent="Menu2/VBoxContainer2"]
@@ -184,7 +193,7 @@ custom_constants/separation = 16
 margin_right = 946.0
 margin_bottom = 23.0
 theme = ExtResource( 7 )
-text = "LET YOUR WAY BE HEARD"
+text = "SoulSeek"
 align = 1
 
 [node name="Intro text" type="Label" parent="GameIntroduction/VBoxContainer"]
@@ -214,7 +223,7 @@ autowrap = true
 visible = false
 position = Vector2( 976, 552 )
 animation = "default"
-frame = 6
+frame = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
@@ -243,5 +252,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TranslatorHelper" parent="." instance=ExtResource( 10 )]
+
+[connection signal="item_selected" from="Menu/VBoxContainer/LanguageSelector" to="." method="_on_LanguageSelector_item_selected"]
 [connection signal="text_entered" from="Menu/VBoxContainer/TextEdit" to="." method="_on_TextEdit_text_entered"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

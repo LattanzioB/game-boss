@@ -40,7 +40,17 @@ onready var stage = "introduction_first"
 
 func _ready():
 	speechinter.set_chatbox(chatbox)
+	
 
+func set_language(lang):
+	print("setting language")
+	speechinter.set_language(lang)
+	john_scene.set_language(lang)
+	bob_scene.set_language(lang)
+	sage_scene.set_language(lang)
+	walter_scene.set_language(lang)
+	
+	
 func next_stage():
 	var posible_stage = stages.keys()[(stages.keys().find(stage) + 1)]
 	if(stages.get(posible_stage)):

@@ -19,6 +19,7 @@ var recording = false
 var text_from_mic
 var openai
 
+var language
 var speechs_to_play 
 
 
@@ -50,6 +51,11 @@ func _process(delta):
 			valid_text("?")
 
 
+func set_language(lang):
+	stt.load_model(lang)
+	tts.load_model(lang)
+	language = lang
+
 func set_active(bul):
 	active = bul
 
@@ -71,10 +77,12 @@ func _on_Record_file_saved():
 #Crear interfaz grafica que muestre el texto generado por el stt.
 #Permitir al usuario modificar y validar el texto, y enviarlo con "enter"
 func valid_text(messege_type):
-	var input_text = translator.translate_to_english(text_from_mic)
+	var input_text = text_from_mic 
+	if language == 'es':
+		input_text = translator.translate_to_english(text_from_mic)
 	text_from_mic = ""
 	var sentiment = npc.any_matches(input_text)
-	var final_input ="Robert says: " + input_text + messege_type + "\n\n" + npc.get_name() + npc.get_adverb(sentiment[0]) +" says:"
+	var final_input ="Robert says: " + input_text + messege_type + "\n\n" + npc.get_name() + npc.get_adverb(sentiment[0]) +"says:"
 	npc.add_player_coment(final_input)
 	var response
 	var new_dialog = ''
@@ -93,7 +101,8 @@ func valid_text(messege_type):
 	question_countdown -= 1
 	if question_countdown == 0:
 		response = add_npc_question(response)
-	response = translator.translate_to_spanish(response)
+	if language == 'es':
+		response = translator.translate_to_spanish(response)
 	speechs_to_play = response.split(" ", true)
 	create_speechs()
 #	print(response_wav)
@@ -107,11 +116,14 @@ func create_speechs():
 		var speech = ''
 		var it = 0
 		while (it < 10) && (0 < len(speechs_to_play)):
-			speech += speechs_to_play[0] + " "
-			it += 1
-			if(speech[-2] == "," || speech[-1] == "."):
-				it = 10
-			speechs_to_play.remove(0)
+			if speechs_to_play[0] == "":
+				speechs_to_play.remove(0)
+			else:
+				speech += speechs_to_play[0] + " "
+				it += 1
+				if(speech[-2] == "," || speech[-1] == "."):
+					it = 10
+				speechs_to_play.remove(0)
 		var response_wav = tts.create_speech(speech)
 		audio_player.load_record(response_wav)
 		audio_player.play()

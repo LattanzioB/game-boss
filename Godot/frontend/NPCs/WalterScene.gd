@@ -9,8 +9,12 @@ onready var back = $WalterBack
 onready var gui
 var speech_interactions
 
-onready var sceneIntroduction = ['res://assets/Speechs/Walter/1EstaEsMiFabrica.wav']
-onready var sceneIntroductionText = ['Hola, esta es mi fabrica. Que te trae por aqui?']
+onready var lang = "es"
+
+onready var sceneIntroduction = ["res://assets/Speechs/" + lang + "Walter/" + "1EstaEsMiFabrica.wav"]
+onready var sceneIntroductionText = []
+onready var sceneIntroductionTextEn = ["Hello, this is my factory. What brings you here?"]
+onready var sceneIntroductionTextEs = ['Hola, esta es mi fabrica. Que te trae por aqui?'] 
 onready var introduction_counter = 1
 
 
@@ -18,11 +22,19 @@ onready var introduction_counter = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	speechIntr.stream = load("res://assets/Speechs/Walter/1EstaEsMiFabrica.wav")
 	fire_place.stream_paused = true
 	
 func set_gui(newgui):
 	gui = newgui
+
+func set_language(language):
+	lang = language
+	if lang == "es":
+		sceneIntroductionText = sceneIntroductionTextEs
+	else:
+		sceneIntroductionText = sceneIntroductionTextEn
+		
+	speechIntr.stream = load("res://assets/Speechs/" + lang + "/Walter/" + "1EstaEsMiFabrica.wav")
 
 func set_speech_interactions(speechinteractions):
 	speech_interactions = speechinteractions

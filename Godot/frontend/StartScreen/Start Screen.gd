@@ -12,6 +12,7 @@ onready var menu2 = $Menu2
 onready var popup = $PopUp
 onready var popup_label = $PopUp/Label
 onready var red_dot = $Rec
+onready var translator = $TranslatorHelper
 export var rec_path:NodePath
 
 
@@ -49,10 +50,10 @@ func _process(delta):
 			text_from_mic = stt.wav_to_text()
 			label.set_text(text_from_mic)
 			red_dot.visible = false
-			if (text_from_mic == "continuar"):
+			if (text_from_mic == "continuar") ||  (text_from_mic == "continue"):
 				audio_player.play()
 				popup.visible = false
-		if Input.is_action_just_released("validation") && text_from_mic == "comenzar juego" && menu2.visible && active:
+		if Input.is_action_just_released("validation") && ((text_from_mic == "comenzar juego") || (text_from_mic == "start game")) && menu2.visible && active:
 			menu.visible = false 
 			menu2.visible = false
 			gameIntro.visible = true
@@ -88,3 +89,29 @@ func _on_TextEdit_text_entered(new_text):
 		popup_label.set_text("API key errónea")
 	
 
+
+
+func _on_LanguageSelector_item_selected(index):
+	var lang = ""
+	if index == 1:
+		lang = 'es'
+		stt.load_model('es')
+		translate_everything_to('es')
+	elif index == 2:
+		lang = 'en'
+		stt.load_model('en')
+		translate_everything_to('en')
+	get_parent().set_language(lang)
+
+
+func translate_everything_to(lang):
+	translate_item_to(lang, menu)
+	translate_item_to(lang, menu2)
+	translate_item_to(lang, gameIntro)
+		
+func translate_item_to(lang, item):
+	for child in item.get_child(0).get_children():
+		if (lang == 'es') && (child.text != 'SoulSeek'):
+			child.text = translator.translate_to_spanish(child.text)
+		else:
+			child.text = translator.translate_to_english(child.text)
