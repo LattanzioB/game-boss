@@ -18,12 +18,18 @@ Using cache found in C:\Users\Bruno-PC/.cache\torch\hub\snakers4_silero-models_m
 setting language
 Using cache found in C:\Users\Bruno-PC/.cache\torch\hub\snakers4_silero-models_master
 Input device selected: Microphone (Realtek High Definition Audio)
-ERROR: Error calling method from signal 'finished': 'Control(MusicControler.gd)::_on_BaseMelody_finished': Method not found..
-   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'finished': 'Control(MusicControler.gd)::_on_BaseMelody_finished': Method not found..
 File saved in: res://backend/talk_interactions/stt/record.wav
 C:\Users\Bruno-PC\Documents\GameDev\demo\game-boss\Godot\addons\pythonscript\windows-64\lib\site-packages\torch\nn\modules\module.py:1051: UserWarning: stft will soon require the return_complex parameter be given for real inputs, and will further require that return_complex=True in a future PyTorch release. (Triggered internally at  ..\aten\src\ATen\native\SpectralOps.cpp:664.)
   return forward_call(*input, **kwargs)
 continuar
+ERROR: Error calling method from signal 'finished': 'Control(MusicControler.gd)::_on_BaseMelody_finished': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'finished': 'Control(MusicControler.gd)::_on_BaseMelody_finished': Method not found..
+WARNING: A Thread object has been re-started without wait_to_finish() having been called on it. Please do so to ensure correct cleanup of the thread.
+   at: start (core/os/thread.cpp:87) - A Thread object has been re-started without wait_to_finish() having been called on it. Please do so to ensure correct cleanup of the thread.
+File saved in: res://backend/talk_interactions/stt/record.wav
+
+ERROR: Error calling method from signal 'finished': 'Control(MusicControler.gd)::_on_BaseMelody_finished': Method not found..
+   at: emit_signal (core/object.cpp:1236) - Error calling method from signal 'finished': 'Control(MusicControler.gd)::_on_BaseMelody_finished': Method not found..
 WARNING: A Thread object has been re-started without wait_to_finish() having been called on it. Please do so to ensure correct cleanup of the thread.
    at: start (core/os/thread.cpp:87) - A Thread object has been re-started without wait_to_finish() having been called on it. Please do so to ensure correct cleanup of the thread.
 File saved in: res://backend/talk_interactions/stt/record.wav

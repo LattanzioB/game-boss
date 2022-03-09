@@ -54,6 +54,7 @@ func load_scene():
 	speech_interactions.set_npc(back)
 
 func _on_SceneLoaded_timeout():
+	speech_interactions.set_active(false)
 	speechIntr.play()
 	gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])
 	if(delete_speech_counter > 0):
@@ -68,6 +69,10 @@ func _on_SceneLoaded_timeout():
 func _on_IntroductionPlayer_finished():
 	if player_counter > 0:
 		speechIntr.stream = load("res://assets/Speechs/" + lang + "/Sage/" + sceneIntroduction[0])
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func next_dialog():
+	if player_counter > 0:
 		speechIntr.play()
 		gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])
 		if sceneIntroductionText[0] == 'Utiliza el mapa para desplazarte por la ciudad':
@@ -84,10 +89,10 @@ func _on_IntroductionPlayer_finished():
 		sceneIntroduction.remove(0)
 		delete_speech_counter -= 1
 	if player_counter == 0:
+		speech_interactions.set_active(true)
 		if first_time:
 			changerTimer.start()
 			first_time = false
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func delete_one_dialog():
 	sceneIntroductionText.remove(0)
@@ -102,6 +107,8 @@ func check_next_stage():
 func _process(delta):
 	if !forest_player.is_playing():
 		forest_player.play()
+	if Input.is_action_just_released("Next") && self.visible:
+		next_dialog()
 
 
 

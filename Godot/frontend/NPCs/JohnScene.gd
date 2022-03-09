@@ -66,6 +66,10 @@ func _on_IntroductionPlayer_finished():
 	if introduction_counter > 0:
 		speechIntr.stream = load("res://assets/Speechs/" + lang + "/John/" + sceneIntroduction[0])
 		sceneIntroduction.remove(0)
+
+	
+func next_dialog():
+	if introduction_counter > 0:
 		speechIntr.play()
 		gui.chatbox_spawn_npc_tile(sceneIntroductionText[0])
 		sceneIntroductionText.remove(0)
@@ -78,6 +82,8 @@ func _process(delta):
 	if Input.is_action_just_released("escape") && self.visible:
 		get_parent().second_sage_scene()
 		get_parent().start_scene_changer_timer()
+	if Input.is_action_just_released("Next") && self.visible:
+		next_dialog()
 
 func _on_JohnBack_new_trigger_phrase(trigger, phrase, sentiment, npc_name):
 	emit_signal("new_trigger_phrase", trigger, phrase, sentiment, npc_name)
