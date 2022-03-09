@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Journal.png-10c5a0cf6822e8ccad791110762491ca.stex"
+path="res://.import/journal.png-776bede5f75d83e959c205ae54845bad.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/journal/Journal.png"
-dest_files=[ "res://.import/Journal.png-10c5a0cf6822e8ccad791110762491ca.stex" ]
+source_file="res://assets/journal/journal.png"
+dest_files=[ "res://.import/journal.png-776bede5f75d83e959c205ae54845bad.stex" ]
 
 [params]
 

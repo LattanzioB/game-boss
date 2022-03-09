@@ -4,10 +4,10 @@ signal intro_finish
 
 onready var recorder = $Record
 onready var stt = $Stt
-onready var vbox_container = $Menu/VBoxContainer
+onready var vbox_container = $MicSelector/VBoxContainer
 onready var audio_player = $AudioStreamPlayer
 onready var gameIntro = $GameIntroduction
-onready var menu = $Menu
+onready var languageSelector = $LanguageSelector
 onready var menu2 = $Menu2
 onready var popup = $PopUp
 onready var popup_label = $PopUp/Label
@@ -15,8 +15,19 @@ onready var red_dot = $Rec
 onready var translator = $TranslatorHelper
 export var rec_path:NodePath
 
+onready var apiKey = $ApiKey
+onready var wrong_apikey = $ApiKey/VBoxContainer/WrongApiKey
+
+onready var micSelector = $MicSelector
+onready var micTester = $MicSelector/VBoxContainer/MicTester
+onready var micTester2 = $MicSelector/VBoxContainer/MicTester2
+onready var micTester3 = $MicSelector/VBoxContainer/MicTester3
+onready var micWorking = $MicSelector/VBoxContainer/MicWorking
+onready var micNotWorking = $MicSelector/VBoxContainer/MicNotWorking
+onready var intruction = $MicSelector/VBoxContainer/Instruction 
 
 onready var active = true
+onready var first_talk = true
 
 var recording = false
 var text_from_mic = ""
@@ -38,28 +49,54 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if api_key_on:
+	if languageSelector.visible && Input.is_action_just_released("Next") && ($LanguageSelector/VBoxContainer/LanguageSelector.get_selected_id() != 0):
+		languageSelector.visible = false
+		micSelector.visible = true
+	if micSelector.visible && Input.is_action_just_released("Next") && ($MicSelector/VBoxContainer/InputDevicesList.get_selected_id() != 0):
+		micTester.visible = true
+	if micTester.visible || micTester3.visible:
 		if Input.is_action_just_released("talk") && (!recording) && active:
 			recording = true
 			recorder.start_recording()
 			red_dot.visible = true
+			micTester2.visible = micTester.visible
 		elif Input.is_action_just_released("talk") && (recording) && active:
 			recording = false
 			recorder.stop_recording()
 			recorder.save_to_wav()
 			text_from_mic = stt.wav_to_text()
 			label.set_text(text_from_mic)
+			if text_from_mic != '':
+				intruction.visible = false
+				micWorking.visible = true
+				micNotWorking.visible = false
+				micTester.visible = false
+				micTester2.visible = false
+				micTester3.visible = true
+			else:
+				intruction.visible = false
+				micWorking.visible = false
+				micNotWorking.visible = true
+				micTester.visible = true
+				micTester2.visible = true
+				micTester3.visible = false
 			red_dot.visible = false
-			if (text_from_mic == "continuar") ||  (text_from_mic == "continue"):
-				audio_player.play()
-				popup.visible = false
-		if Input.is_action_just_released("validation") && ((text_from_mic == "comenzar juego") || (text_from_mic == "start game")) && menu2.visible && active:
-			menu.visible = false 
-			menu2.visible = false
-			gameIntro.visible = true
-		if (Input.is_action_just_released("answer") && gameIntro.visible && active) || Input.is_action_just_released("escape"):
-			popup.visible = false
-			emit_signal("intro_finish")
+	if (text_from_mic == "continuar" || text_from_mic == "continue") && !audio_player.playing && micSelector.visible:
+		audio_player.play()
+		popup.visible = true
+			
+	if apiKey.visible && api_key_on && Input.is_action_just_released("Next"):
+		if popup_label.text == "API key funcionando!":
+			apiKey.visible = false
+			menu2.visible = true
+		else:
+			wrong_apikey.visible = true
+	if Input.is_action_just_released("validation") && ((text_from_mic == "comenzar juego") || (text_from_mic == "start game")) && menu2.visible && active: 
+		popup.visible = false
+		menu2.visible = false
+		gameIntro.visible = true
+	if (Input.is_action_just_released("answer") && gameIntro.visible && active) || Input.is_action_just_released("escape"):
+		emit_signal("intro_finish")
 
 
 func disable():
@@ -67,9 +104,8 @@ func disable():
 
 func _on_AudioStreamPlayer_finished():
 	vbox_container.remove_child(label)
-	menu.visible = false 
-	menu2.visible = true
-	gameIntro.visible = false
+	micSelector.visible = false 
+	apiKey.visible = true
 	label.set_text("")
 	$Menu2/VBoxContainer2.add_child(label)
 
@@ -89,8 +125,6 @@ func _on_TextEdit_text_entered(new_text):
 		popup_label.set_text("API key errónea")
 	
 
-
-
 func _on_LanguageSelector_item_selected(index):
 	var lang = ""
 	if index == 1:
@@ -105,7 +139,8 @@ func _on_LanguageSelector_item_selected(index):
 
 
 func translate_everything_to(lang):
-	translate_item_to(lang, menu)
+	translate_item_to(lang, languageSelector)
+	translate_item_to(lang, micSelector)
 	translate_item_to(lang, menu2)
 	translate_item_to(lang, gameIntro)
 		

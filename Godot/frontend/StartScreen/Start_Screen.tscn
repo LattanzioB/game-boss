@@ -24,7 +24,7 @@ z_index = -1
 
 [node name="Record" parent="." instance=ExtResource( 3 )]
 
-[node name="Menu" type="MarginContainer" parent="."]
+[node name="LanguageSelector" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = 1186.0
@@ -39,14 +39,14 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LanguageSelector"]
 margin_left = 120.0
 margin_top = 80.0
 margin_right = 1066.0
 margin_bottom = 593.0
 custom_constants/separation = 16
 
-[node name="Title" type="Label" parent="Menu/VBoxContainer"]
+[node name="Title" type="Label" parent="LanguageSelector/VBoxContainer"]
 margin_right = 946.0
 margin_bottom = 23.0
 theme = ExtResource( 7 )
@@ -54,28 +54,160 @@ custom_constants/shadow_offset_x = 0
 text = "SoulSeek"
 align = 1
 
-[node name="LanguageSelector" type="OptionButton" parent="Menu/VBoxContainer"]
+[node name="LanguageSelector" type="OptionButton" parent="LanguageSelector/VBoxContainer"]
 margin_top = 39.0
 margin_right = 946.0
 margin_bottom = 59.0
-text = "Selector de idioma"
 script = ExtResource( 9 )
 
-[node name="Intro text" type="Label" parent="Menu/VBoxContainer"]
+[node name="Explanation" type="Label" parent="LanguageSelector/VBoxContainer"]
 margin_top = 75.0
 margin_right = 946.0
-margin_bottom = 150.0
+margin_bottom = 98.0
 theme = ExtResource( 7 )
-text = "Bienvenid@s, SoulSeek es un juego que se basa en el uso de las palabras habladas como método de input
-de usuario, por ello es importante que cuentes con un micrófono para poder jugar.
+text = " - Para continuar presiona la tecla 'N'"
+align = 1
+autowrap = true
+
+[node name="MicSelector" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1186.0
+margin_bottom = 673.0
+rect_scale = Vector2( 0.863912, 0.996476 )
+custom_constants/margin_right = 120
+custom_constants/margin_top = 80
+custom_constants/margin_left = 120
+custom_constants/margin_bottom = 80
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MicSelector"]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 1066.0
+margin_bottom = 593.0
+custom_constants/separation = 16
+
+[node name="Intro text" type="Label" parent="MicSelector/VBoxContainer"]
+margin_right = 946.0
+margin_bottom = 75.0
+theme = ExtResource( 7 )
+text = "SoulSeek es un juego que se basa en el uso del  habla
+del jugador, por ello es importante que cuentes con un micrófono para poder jugar.
 Seleccione de la lista de abajo el micrófono que quiera utilizar"
 align = 1
 valign = 1
 
-[node name="Title2" type="Label" parent="Menu/VBoxContainer"]
+[node name="InputDevicesList" parent="MicSelector/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 91.0
+margin_right = 946.0
+margin_bottom = 111.0
+
+[node name="Instruction" type="Label" parent="MicSelector/VBoxContainer"]
+margin_top = 127.0
+margin_right = 946.0
+margin_bottom = 150.0
+theme = ExtResource( 7 )
+text = " - Una vez seleccionado el microfono presiona la tecla N"
+align = 1
+autowrap = true
+
+[node name="MicWorking" type="Label" parent="MicSelector/VBoxContainer"]
+visible = false
 margin_top = 166.0
 margin_right = 946.0
 margin_bottom = 189.0
+theme = ExtResource( 7 )
+text = "El microfono esta funcionando"
+align = 1
+autowrap = true
+
+[node name="MicNotWorking" type="Label" parent="MicSelector/VBoxContainer"]
+visible = false
+margin_top = 205.0
+margin_right = 946.0
+margin_bottom = 228.0
+theme = ExtResource( 7 )
+custom_colors/font_color = Color( 0.960784, 0.486275, 0.486275, 1 )
+text = "El microfono no funciona, prueba hablar de nuevo o con otro microfono"
+align = 1
+autowrap = true
+
+[node name="MicTester" type="Label" parent="MicSelector/VBoxContainer"]
+visible = false
+margin_top = 205.0
+margin_right = 946.0
+margin_bottom = 280.0
+theme = ExtResource( 7 )
+text = "Vamos a probar el microfono.
+
+Presiona una vez la tecla CONTROL"
+align = 1
+autowrap = true
+
+[node name="MicTester2" type="Label" parent="MicSelector/VBoxContainer"]
+visible = false
+margin_top = 205.0
+margin_right = 946.0
+margin_bottom = 306.0
+theme = ExtResource( 7 )
+text = "
+Habla  
+
+Luego presiona CONTROL de nuevo"
+align = 1
+autowrap = true
+
+[node name="MicTester3" type="Label" parent="MicSelector/VBoxContainer"]
+visible = false
+margin_top = 205.0
+margin_right = 946.0
+margin_bottom = 228.0
+theme = ExtResource( 7 )
+text = "Cuando quieras avanza diciendo la palabra CONTINUAR"
+align = 1
+autowrap = true
+
+[node name="ApiKey" type="MarginContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1186.0
+margin_bottom = 673.0
+rect_scale = Vector2( 0.863912, 0.996476 )
+custom_constants/margin_right = 120
+custom_constants/margin_top = 80
+custom_constants/margin_left = 120
+custom_constants/margin_bottom = 80
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ApiKey"]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 1066.0
+margin_bottom = 593.0
+custom_constants/separation = 16
+
+[node name="Intro text" type="Label" parent="ApiKey/VBoxContainer"]
+margin_right = 946.0
+margin_bottom = 49.0
+theme = ExtResource( 7 )
+text = "Haremos uso de la herramienta GPT-3 de OpenAI
+Tendras que crear una cuenta para generar tu propia API-Key"
+align = 1
+valign = 1
+
+[node name="Title2" type="Label" parent="ApiKey/VBoxContainer"]
+margin_top = 65.0
+margin_right = 946.0
+margin_bottom = 88.0
 theme = ExtResource( 7 )
 custom_constants/shadow_offset_x = 0
 text = "A continuación ingrese su API key generada en: https://beta.openai.com/ y oprima la tecla \"Enter\""
@@ -83,28 +215,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextEdit" type="LineEdit" parent="Menu/VBoxContainer"]
-margin_top = 205.0
+[node name="TextEdit" type="LineEdit" parent="ApiKey/VBoxContainer"]
+margin_top = 104.0
 margin_right = 946.0
-margin_bottom = 229.0
+margin_bottom = 128.0
 secret = true
 
-[node name="InputDevicesList" parent="Menu/VBoxContainer" instance=ExtResource( 2 )]
-margin_top = 245.0
+[node name="WrongApiKey" type="Label" parent="ApiKey/VBoxContainer"]
+visible = false
+margin_top = 144.0
 margin_right = 946.0
-margin_bottom = 265.0
-
-[node name="Explanation" type="Label" parent="Menu/VBoxContainer"]
-margin_top = 281.0
-margin_right = 946.0
-margin_bottom = 382.0
+margin_bottom = 167.0
 theme = ExtResource( 7 )
-text = "Estos son los controles del juego:
- - La tecla \"Control\" comienza y finaliza la grabación desede el micrófono seleccionado.
- 
- - Para pasar a la siguiente pantalla debes decir en voz alta y clara \"CONTINUAR\""
-align = 1
-autowrap = true
+custom_colors/font_color = Color( 0.972549, 0.443137, 0.443137, 1 )
+custom_constants/shadow_offset_x = 0
+text = "Fallo la Api-Key, prueba ingresarla de nuevo."
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Menu2" type="MarginContainer" parent="."]
 visible = false
@@ -131,33 +259,21 @@ margin_right = 1072.0
 margin_bottom = 522.0
 custom_constants/separation = 16
 
-[node name="Title" type="Label" parent="Menu2/VBoxContainer2"]
+[node name="Intro text" type="Label" parent="Menu2/VBoxContainer2"]
 margin_right = 952.0
 margin_bottom = 23.0
 theme = ExtResource( 7 )
-custom_constants/shadow_offset_x = 0
-text = "SoulSeek"
-align = 1
-
-[node name="Intro text" type="Label" parent="Menu2/VBoxContainer2"]
-margin_top = 39.0
-margin_right = 952.0
-margin_bottom = 140.0
-theme = ExtResource( 7 )
-text = "- Una vez que oprimas \"Control\" por segunda vez, verás en pantalla lo que la máquina entendió 
-Si no estás conforme con el texto, puedes volver a grabar para sobreescribirlo.
- - Cuando estés conforme con el texto que muestra la pantalla, oprime la tecla \"Enter\" o \"A\" para envíar una
- respuesta o la tecla \"Q\" para enviar una pregunta al personaje con el que estés hablando y espera su respuesta."
+text = "Ultimos Controles"
 align = 1
 valign = 1
 
 [node name="Explanation" type="Label" parent="Menu2/VBoxContainer2"]
-margin_top = 156.0
+margin_top = 39.0
 margin_right = 952.0
-margin_bottom = 335.0
+margin_bottom = 218.0
 theme = ExtResource( 7 )
-text = "Estos son los controles del juego:
- - La tecla \"Control\" comienza y finaliza la grabación desede el micrófono seleccionado.
+text = " - La tecla \"Q\" se utiliza para enviar preguntas
+-La tecla \"A\" o \"ENTER\" se utiliza para enviar respuestas.
  
  - Para pasar a la siguiente pantalla debes decir en voz alta y clara \"COMENZAR JUEGO\"
 
@@ -223,14 +339,13 @@ autowrap = true
 visible = false
 position = Vector2( 976, 552 )
 animation = "default"
-frame = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -8.273
+bus = "SFx"
 
 [node name="PopUp" type="PopupDialog" parent="."]
-visible = true
 margin_left = 841.0
 margin_top = 15.0
 margin_right = 1007.0
@@ -254,6 +369,6 @@ __meta__ = {
 
 [node name="TranslatorHelper" parent="." instance=ExtResource( 10 )]
 
-[connection signal="item_selected" from="Menu/VBoxContainer/LanguageSelector" to="." method="_on_LanguageSelector_item_selected"]
-[connection signal="text_entered" from="Menu/VBoxContainer/TextEdit" to="." method="_on_TextEdit_text_entered"]
+[connection signal="item_selected" from="LanguageSelector/VBoxContainer/LanguageSelector" to="." method="_on_LanguageSelector_item_selected"]
+[connection signal="text_entered" from="ApiKey/VBoxContainer/TextEdit" to="." method="_on_TextEdit_text_entered"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
