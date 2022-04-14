@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://frontend/StartScreen/Menu background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://frontend/GUI/InputDevicesList.tscn" type="PackedScene" id=2]
@@ -8,14 +8,12 @@
 [ext_resource path="res://frontend/StartScreen/Start Screen.gd" type="Script" id=6]
 [ext_resource path="res://assets/fonts/Pixel font.tres" type="Theme" id=7]
 [ext_resource path="res://assets/sfx/correct.mp3" type="AudioStream" id=8]
-[ext_resource path="res://frontend/StartScreen/LanguageSelector.gd" type="Script" id=9]
+[ext_resource path="res://assets/flags/Esp.png" type="Texture" id=9]
 [ext_resource path="res://backend/talk_interactions/translator/TranslatorHelper.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/flags/Ing.png" type="Texture" id=11]
 
 [node name="StartScreen" type="Control"]
 script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MenuBackground" parent="." instance=ExtResource( 1 )]
 z_index = -1
@@ -30,12 +28,12 @@ anchor_bottom = 1.0
 margin_right = 1186.0
 margin_bottom = 673.0
 rect_scale = Vector2( 0.863912, 0.996476 )
+mouse_filter = 2
 custom_constants/margin_right = 120
 custom_constants/margin_top = 80
 custom_constants/margin_left = 120
 custom_constants/margin_bottom = 80
 __meta__ = {
-"_edit_use_anchors_": false,
 "_editor_description_": ""
 }
 
@@ -44,6 +42,7 @@ margin_left = 120.0
 margin_top = 80.0
 margin_right = 1066.0
 margin_bottom = 593.0
+mouse_filter = 2
 custom_constants/separation = 16
 
 [node name="Title" type="Label" parent="LanguageSelector/VBoxContainer"]
@@ -54,20 +53,48 @@ custom_constants/shadow_offset_x = 0
 text = "SoulSeek"
 align = 1
 
-[node name="LanguageSelector" type="OptionButton" parent="LanguageSelector/VBoxContainer"]
+[node name="Explanation" type="Label" parent="LanguageSelector/VBoxContainer"]
 margin_top = 39.0
 margin_right = 946.0
-margin_bottom = 59.0
-script = ExtResource( 9 )
+margin_bottom = 88.0
+theme = ExtResource( 7 )
+text = "Selecciona un idioma  /  Select a language
+"
+align = 1
+autowrap = true
 
-[node name="Explanation" type="Label" parent="LanguageSelector/VBoxContainer"]
-margin_top = 75.0
+[node name="Explanation2" type="Label" parent="LanguageSelector/VBoxContainer"]
+margin_top = 104.0
 margin_right = 946.0
-margin_bottom = 98.0
+margin_bottom = 127.0
 theme = ExtResource( 7 )
 text = " - Para continuar presiona la tecla 'N'"
 align = 1
 autowrap = true
+
+[node name="EnFlag" type="Sprite" parent="LanguageSelector/VBoxContainer"]
+position = Vector2( 623.131, 182.926 )
+scale = Vector2( 0.1, 0.08 )
+texture = ExtResource( 11 )
+
+[node name="EnFlagArea" type="Area2D" parent="LanguageSelector/VBoxContainer/EnFlag"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LanguageSelector/VBoxContainer/EnFlag/EnFlagArea"]
+z_index = 2
+polygon = PoolVector2Array( -347.254, -401.41, -347.254, 313.61, 358.836, 313.61, 347.261, -401.41 )
+
+[node name="EsFlag" type="Sprite" parent="LanguageSelector/VBoxContainer"]
+position = Vector2( 335.808, 181.365 )
+scale = Vector2( 0.0977474, 0.0788865 )
+texture = ExtResource( 9 )
+
+[node name="EsFlagArea" type="Area2D" parent="LanguageSelector/VBoxContainer/EsFlag"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LanguageSelector/VBoxContainer/EsFlag/EsFlagArea"]
+position = Vector2( 9.94342, 1.16699 )
+scale = Vector2( 0.981991, 0.997686 )
+z_index = 2
+polygon = PoolVector2Array( -357.165, -376.596, -345.106, 286.445, 347.262, 301.067, 335.687, -376.32 )
 
 [node name="MicSelector" type="MarginContainer" parent="."]
 visible = false
@@ -369,6 +396,7 @@ __meta__ = {
 
 [node name="TranslatorHelper" parent="." instance=ExtResource( 10 )]
 
-[connection signal="item_selected" from="LanguageSelector/VBoxContainer/LanguageSelector" to="." method="_on_LanguageSelector_item_selected"]
+[connection signal="input_event" from="LanguageSelector/VBoxContainer/EnFlag/EnFlagArea" to="." method="_on_EnFlagArea_input_event"]
+[connection signal="input_event" from="LanguageSelector/VBoxContainer/EsFlag/EsFlagArea" to="." method="_on_EsFlagArea_input_event"]
 [connection signal="text_entered" from="ApiKey/VBoxContainer/TextEdit" to="." method="_on_TextEdit_text_entered"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

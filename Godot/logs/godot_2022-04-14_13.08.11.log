@@ -1,0 +1,41 @@
+Godot Engine v3.4.3.stable.official.242c05d12 - https://godotengine.org
+OpenGL ES 3.0 Renderer: AMD Radeon R7 Graphics
+OpenGL ES Batching: ON
+ 
+Pythonscript 0.50.0 (CPython 3.8.5.final.0)
+ERROR: There is no animation with name 'New Anim'.
+   at: set_animation (scene/2d/animated_sprite.cpp:630) - Condition "frames->get_animation_names().find(p_animation) == -1" is true.
+Using cache found in C:\Users\Bruno-PC/.cache\torch\hub\snakers4_silero-models_master
+Using cache found in C:\Users\Bruno-PC/.cache\torch\hub\snakers4_silero-models_master
+Traceback (most recent call last):
+  File "build\windows-64\pythonscript\_godot_instance.pxi", line 67, in _godot.pythonscript_instance_get_prop
+  File "build\windows-64\pythonscript\godot\bindings.pyx", line 244, in godot.bindings.Object.__getattr__
+AttributeError: `Speech_to_text` object has no attribute `_import_path`
+Traceback (most recent call last):
+  File "build\windows-64\pythonscript\_godot_instance.pxi", line 67, in _godot.pythonscript_instance_get_prop
+  File "build\windows-64\pythonscript\godot\bindings.pyx", line 244, in godot.bindings.Object.__getattr__
+AttributeError: `Speech_to_text` object has no attribute `hint_tooltip`
+Traceback (most recent call last):
+  File "build\windows-64\pythonscript\_godot_instance.pxi", line 67, in _godot.pythonscript_instance_get_prop
+  File "build\windows-64\pythonscript\godot\bindings.pyx", line 244, in godot.bindings.Object.__getattr__
+AttributeError: `Speech_to_text` object has no attribute `input_pass_on_modal_close_click`
+Traceback (most recent call last):
+  File "build\windows-64\pythonscript\_godot_instance.pxi", line 67, in _godot.pythonscript_instance_get_prop
+  File "build\windows-64\pythonscript\godot\bindings.pyx", line 244, in godot.bindings.Object.__getattr__
+AttributeError: `Speech_to_text` object has no attribute `script`
+Traceback (most recent call last):
+  File "build\windows-64\pythonscript\_godot_instance.pxi", line 67, in _godot.pythonscript_instance_get_prop
+  File "build\windows-64\pythonscript\godot\bindings.pyx", line 244, in godot.bindings.Object.__getattr__
+AttributeError: `TranslatorHelper` object has no attribute `_import_path`
+Traceback (most recent call last):
+  File "build\windows-64\pythonscript\_godot_instance.pxi", line 67, in _godot.pythonscript_instance_get_prop
+  File "build\windows-64\pythonscript\godot\bindings.pyx", line 244, in godot.bindings.Object.__getattr__
+AttributeError: `TranslatorHelper` object has no attribute `script`
+Traceback (most recent call last):
+  File "build\windows-64\pythonscript\_godot_instance.pxi", line 67, in _godot.pythonscript_instance_get_prop
+  File "build\windows-64\pythonscript\godot\bindings.pyx", line 244, in godot.bindings.Object.__getattr__
+AttributeError: `Openai` object has no attribute `_import_path`
+Traceback (most recent call last):
+  File "build\windows-64\pythonscript\_godot_instance.pxi", line 67, in _godot.pythonscript_instance_get_prop
+  File "build\windows-64\pythonscript\godot\bindings.pyx", line 244, in godot.bindings.Object.__getattr__
+AttributeError: `Openai` object has no attribute `script`

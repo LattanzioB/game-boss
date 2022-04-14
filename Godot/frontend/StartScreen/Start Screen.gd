@@ -29,6 +29,10 @@ onready var intruction = $MicSelector/VBoxContainer/Instruction
 onready var active = true
 onready var first_talk = true
 
+onready var esFlag = $LanguageSelector/VBoxContainer/EsFlag
+onready var enFlag = $LanguageSelector/VBoxContainer/EnFlag
+var language = ""
+
 var recording = false
 var text_from_mic = ""
 var openai
@@ -49,9 +53,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if languageSelector.visible && Input.is_action_just_released("Next") && ($LanguageSelector/VBoxContainer/LanguageSelector.get_selected_id() != 0):
+	if languageSelector.visible && Input.is_action_just_released("Next") && (language != ""):
 		languageSelector.visible = false
 		micSelector.visible = true
+		apply_language()
 	if micSelector.visible && Input.is_action_just_released("Next") && ($MicSelector/VBoxContainer/InputDevicesList.get_selected_id() != 0):
 		micTester.visible = true
 	if micTester.visible || micTester3.visible:
@@ -125,17 +130,10 @@ func _on_TextEdit_text_entered(new_text):
 		popup_label.set_text("API key errónea")
 	
 
-func _on_LanguageSelector_item_selected(index):
-	var lang = ""
-	if index == 1:
-		lang = 'es'
-		stt.load_model('es')
-		translate_everything_to('es')
-	elif index == 2:
-		lang = 'en'
-		stt.load_model('en')
-		translate_everything_to('en')
-	get_parent().set_language(lang)
+func apply_language():
+	stt.load_model(language)
+	translate_everything_to(language)
+	get_parent().set_language(language)
 
 
 func translate_everything_to(lang):
@@ -146,7 +144,26 @@ func translate_everything_to(lang):
 		
 func translate_item_to(lang, item):
 	for child in item.get_child(0).get_children():
-		if (lang == 'es') && (child.text != 'SoulSeek'):
+		if !(child is Sprite) && (lang == 'es') && (child.text != 'SoulSeek'):
 			child.text = translator.translate_to_spanish(child.text)
-		else:
+		elif !(child is Sprite) && (lang == 'en') && (child.text != 'SoulSeek'):
 			child.text = translator.translate_to_english(child.text)
+
+
+
+func _on_EsFlagArea_input_event(viewport, event, shape_idx):
+	if(event is InputEventMouseButton && event.pressed):
+		language = "es"
+		esFlag.set_texture(preload("res://assets/flags/EspA.png"))
+		enFlag.set_texture(preload("res://assets/flags/Ing.png"))
+
+
+
+
+func _on_EnFlagArea_input_event(viewport, event, shape_idx):
+	if(event is InputEventMouseButton && event.pressed):
+		language = "en"
+		esFlag.set_texture(preload("res://assets/flags/Esp.png"))
+		enFlag.set_texture(preload("res://assets/flags/IngA.png"))
+
+

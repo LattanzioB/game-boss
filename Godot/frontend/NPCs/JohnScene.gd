@@ -66,7 +66,6 @@ func _on_IntroductionPlayer_finished():
 	if introduction_counter > 0:
 		speechIntr.stream = load("res://assets/Speechs/" + lang + "/John/" + sceneIntroduction[0])
 		sceneIntroduction.remove(0)
-
 	
 func next_dialog():
 	if introduction_counter > 0:
